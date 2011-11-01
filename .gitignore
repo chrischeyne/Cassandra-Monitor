@@ -1,0 +1,11 @@
+SCRATCH/
+build/
+*.pyc
+*.swp
+run/
+SCRATCH/
+SOFTWARE/
+python-virtualenv/
+temp/
+BACKUP/
+
