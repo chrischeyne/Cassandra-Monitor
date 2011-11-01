@@ -1,4 +1,7 @@
 import yaml
+
+FIXME: place in cassandra-manager.yaml
+
 document = """
 
     tornadoport:8181
@@ -9,4 +12,8 @@ document = """
 
 
 """
+configurationfile='cassandra-manager.yaml'
+
+yaml.load(document)
+
 
