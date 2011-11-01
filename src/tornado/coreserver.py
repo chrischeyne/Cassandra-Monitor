@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# INCLUDE(copyright_notice.txt)
+# TODO:  INCLUDE(copyright_notice.txt)
 #
 # Licensed under the Apache License, Version 2.0 (the "License"); you may
 # not use this file except in compliance with the License. You may obtain
@@ -24,15 +24,22 @@ from tornado.options import define, options
 define("port", default=8888, help="run on the given port", type=int)
 
 
-class MainHandler(tornado.web.RequestHandler):
+class mainhandler(tornado.web.RequestHandler):
     def get(self):
         self.write("Hello, world")
 
+def cacti():
+    """ handle the cacti pages """
+    pass
+
+
 
 def main():
+    """ handle the homepage """
+
     tornado.options.parse_command_line()
     application = tornado.web.Application([
-        (r"/", MainHandler),
+        (r"/", mainhandler),
     ])
     http_server = tornado.httpserver.HTTPServer(application)
     http_server.listen(options.port)
