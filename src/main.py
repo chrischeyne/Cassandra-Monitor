@@ -16,8 +16,13 @@
 """
 Tests for 
 """
+# all modules
+__all__ = ["mytornado","config"]
 
-# from import
+# FIXME: reference by module above
+from mytornado import *
+from config import *
+
 
 __author__ = "Chris T. Cheyne"
 __copyright__ = "Copyright 2011, The Cassandra Manager Project"
