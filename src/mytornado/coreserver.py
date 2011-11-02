@@ -14,7 +14,11 @@
 # under the License.
 
 """
-core management server
+core management server.  Handles: -
+
+mainsite/factory
+mainsite/daemongatherer
+
 """
 
 __author__ = "Chris T. Cheyne"
@@ -40,16 +44,27 @@ class mainhandler(tornado.web.RequestHandler):
     def get(self):
         self.write("cassandra manager UP")
         
-def cacti():
+class cactihandler(tornado.web.RequestHandler):
     """ handle the cacti pages """
-    pass
+    def get(self):
+        self.write("cassandra cacti manager UP")
+
+class gangliahandler(tornado.web.RequestHandler):
+    """ handle the ganglia pages """
+    def get(self):
+        self.write("cassandra ganglia manager UP")
+ 
 
 def main():
     """ handle the homepage """
 
     tornado.options.parse_command_line()
     application = tornado.web.Application([
+        # root, cacti, ganglia
+        # TODO: others
         (r"/", mainhandler),
+        (r"/cacti/[0-9]+",cactihandler),
+        (r"/ganglia/[0-9]+",gangliahandler),
     ])
     http_server = tornado.httpserver.HTTPServer(application)
     http_server.listen(options.port)

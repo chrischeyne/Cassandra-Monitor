@@ -14,10 +14,9 @@
 # under the License.
 
 """
-Tests for 
+purely boots main.py
 """
 
-# from import
 
 __author__ = "Chris T. Cheyne"
 __copyright__ = "Copyright 2011, The Cassandra Manager Project"
@@ -27,4 +26,15 @@ __version__ = "0.0.1"
 __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
+
+import sys,os
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+
+print "Cassandra Manager " + __version__ + __copyright__
+
+__all__ = ["mytornado","myconfig"]
+
+import mytornado as mt
+mt.main()
+
 

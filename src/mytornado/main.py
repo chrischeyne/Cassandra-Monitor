@@ -17,12 +17,11 @@
 Tests for 
 """
 # all modules
-__all__ = ["mytornado","config"]
+__all__ = ["mytornado","myconfig"]
 
 # FIXME: reference by module above
+#from myconfig import cassandraconfig
 from mytornado import *
-from myconfig import cassandraconfig
-
 
 
 
@@ -37,7 +36,7 @@ __status__ = "Alpha"
 
 def main():
     print "booting tornado.."
-    mytornado.main()
+    mytornado.coreserver.main()
 
 if __name__ == '__main__':
     main()
