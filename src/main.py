@@ -21,7 +21,9 @@ __all__ = ["mytornado","config"]
 
 # FIXME: reference by module above
 from mytornado import *
-from config import *
+from myconfig import cassandraconfig
+
+
 
 
 __author__ = "Chris T. Cheyne"
@@ -32,4 +34,11 @@ __version__ = "0.0.1"
 __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
+
+def main():
+    print "booting tornado.."
+    mytornado.main()
+
+if __name__ == '__main__':
+    main()
 
