@@ -16,13 +16,8 @@
 """
 Tests for 
 """
-# all modules
-__all__ = ["mytornado","myconfig"]
-
 # FIXME: reference by module above
-#from myconfig import cassandraconfig
-from mytornado import *
-
+import coreserver as cs
 
 
 __author__ = "Chris T. Cheyne"
@@ -34,10 +29,8 @@ __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
-def main():
-    print "booting tornado.."
-    mytornado.coreserver.main()
+cs.main()
 
-if __name__ == '__main__':
-    main()
+
+
 

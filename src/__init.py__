@@ -27,14 +27,15 @@ __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
+__all__ = ["mytornado","myconfig"]
 import sys,os
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
-print "Cassandra Manager " + __version__ + __copyright__
 
-__all__ = ["mytornado","myconfig"]
+print "Cassandra Manager " + __version__ 
+print __copyright__
 
-import mytornado as mt
-mt.main()
+from mytornado import main as boot
+boot.main()
 
 
