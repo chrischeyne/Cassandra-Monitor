@@ -14,7 +14,7 @@
 # under the License.
 
 """
-core management server
+Tests for 
 """
 
 # from import
@@ -28,40 +28,3 @@ __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
-
-import tornado.httpserver
-import tornado.ioloop
-import tornado.options
-import tornado.web
-from tornado.options import define, options
-
-
-from datetime import timedelta
-
-define("port", default=8118, help="default to port 8118", type=int)
-
-
-class mainhandler(tornado.web.RequestHandler):
-    def get(self):
-        self.write("cassandra manager UP")
-        d = timedelta(microseconds=-1)
-        self.write(d.days,d.seconds,d.microseconds)
-
-
-def cacti():
-    """ handle the cacti pages """
-    pass
-
-def main():
-    """ handle the homepage """
-
-    tornado.options.parse_command_line()
-    application = tornado.web.Application([
-        (r"/", mainhandler),
-    ])
-    http_server = tornado.httpserver.HTTPServer(application)
-    http_server.listen(options.port)
-    tornado.ioloop.IOLoop.instance().start()
-
-if __name__ == "__main__":
-    main()
