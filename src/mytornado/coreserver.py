@@ -30,12 +30,14 @@ __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
-
+# FIXME: reference localized python source
 import tornado.httpserver
 import tornado.ioloop
 import tornado.options
 import tornado.web
 from tornado.options import define, options
+
+# FIXME: remap this to import myconfig; myconfig.tornado.port
 
 define("port", default=8888, help="default to port 8888", type=int)
 
@@ -57,6 +59,9 @@ class gangliahandler(tornado.web.RequestHandler):
 
 def main():
     """ handle the homepage """
+    """ boot the handlers """
+
+    ROOT = os.path.normpath(os.path.dirname(__file__))
 
     tornado.options.parse_command_line()
     application = tornado.web.Application([
@@ -66,8 +71,11 @@ def main():
         (r"/cacti/[0-9]+",cactihandler),
         (r"/ganglia/[0-9]+",gangliahandler),
     ])
+    
+    # launch the 'front page' server
     http_server = tornado.httpserver.HTTPServer(application)
     http_server.listen(options.port)
+    # FIXME: terminator on user connection close
     tornado.ioloop.IOLoop.instance().start()
 
 if __name__ == "__main__":
