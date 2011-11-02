@@ -17,8 +17,6 @@
 core management server
 """
 
-# from import
-
 __author__ = "Chris T. Cheyne"
 __copyright__ = "Copyright 2011, The Cassandra Manager Project"
 __credits__ = ["Chris Cheyne"]
