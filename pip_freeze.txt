@@ -1,0 +1,8 @@
+PyYAML==3.10
+distribute==0.6.19
+ipython==0.11
+ipython-extensions==0.2
+tornado==2.1.1
+tornado-tools==0.2.7
+wsgiref==0.1.2
+Thu Nov 3 15:12:31 GMT 2011
