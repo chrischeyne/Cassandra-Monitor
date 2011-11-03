@@ -51,16 +51,23 @@ class cactihandler(tornado.web.RequestHandler):
     def get(self):
         self.write("cassandra cacti manager UP")
 
+
 class gangliahandler(tornado.web.RequestHandler):
     """ handle the ganglia pages """
     def get(self):
         self.write("cassandra ganglia manager UP")
+        # TEST: draw a graph
+        f = open('templates/graphing/flotbase.html','rb')
+        self.write(f.read())
+
+
+
  
 
 def main():
     """ handle the homepage """
     """ boot the handlers """
-
+    import sys,os
     ROOT = os.path.normpath(os.path.dirname(__file__))
 
     tornado.options.parse_command_line()
