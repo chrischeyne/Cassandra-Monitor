@@ -1,0 +1,18 @@
+<!-- index.html -->
+
+<html>
+    <head>
+        <title>{{title}}</title>
+    </head>
+</body>
+<ul>
+    {% for message in messages %}
+    <li>{{ escape(message.subject)}} -- {{ escape(message.content) }} </li>
+    {% end %}
+</ul>
+<a href="/form/">Add Form</a>
+</body>
+<html>
+
+
+

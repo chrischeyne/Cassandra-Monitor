@@ -57,8 +57,8 @@ class gangliahandler(tornado.web.RequestHandler):
     def get(self):
         self.write("cassandra ganglia manager UP")
         # TEST: draw a graph
-        f = open('templates/graphing/flotbase.html','rb')
-        self.write(f.read())
+        #f = open('templates/graphing/flotbase.html','rb')
+        #self.write(f.read())
 
 
 
