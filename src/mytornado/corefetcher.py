@@ -14,10 +14,12 @@
 # under the License.
 
 """
-Tests for 
+this is our non-blocking http fetcher that fetches real-time data
+from each node
 """
-# FIXME: reference by module above
-import djangotornado as cs
+
+#FIXME: all of it.
+import tornado.ioloop,tornado.httpclient
 
 
 __author__ = "Chris T. Cheyne"
@@ -29,8 +31,15 @@ __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
-cs.main()
+def handle_request(response):
+    if response.error:
+        print "gtfo: ", response.error
+    else:
+        print response.body
+    ioloop.IOLoop.instance().stop()
 
-
+monitorclient = httpclient.AsyncHTTPClient()
+monitorclient =fetch("http://www.google.co.uk",handle_request)
+ioloop.IOLoop.instance().start()
 
 
