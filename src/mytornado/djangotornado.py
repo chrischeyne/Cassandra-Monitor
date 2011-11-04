@@ -28,13 +28,18 @@ boots the tornado application server and our django test application
 
 """
 # FIXME: reference by module above
-
 # django settings must be called before importing models
 from django.conf import settings
-settings.configure(DATABASE_ENGINE='sqlite3', DATABASE_NAME='dev.db')
-
+settings.configure(DATABASE_ENGINE='sqlite3', DATABASE_NAME='mytornado/db/dev.db')
 from django import forms
 from django.db import models
+
+# FIXME: reference localized python source
+import tornado.httpserver
+import tornado.ioloop
+import tornado.options
+import tornado.web
+
 
 class Message(models.Model):
     """
@@ -83,4 +88,18 @@ class FormHandler(tornado.web.RequestHandler):
         else:
             self.render("templates/form.html", title="My title", form=form)
             
+class mainhandler(tornado.web.RequestHandler):
+    def get(self):
+        self.write("cassandra manager UP")
+        
+class CactiHandler(tornado.web.RequestHandler):
+    """ handle the cacti pages """
+    def get(self):
+        self.write("cassandra cacti manager UP")
 
+
+class GangliaHandler(tornado.web.RequestHandler):
+    """ handle the ganglia pages """
+    def get(self):
+        self.write("cassandra ganglia manager UP")
+ 

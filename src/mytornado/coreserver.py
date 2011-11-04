@@ -42,28 +42,15 @@ from tornado.options import define, options
 define("port", default=8888, help="default to port 8888", type=int)
 
 
-class mainhandler(tornado.web.RequestHandler):
-    def get(self):
-        self.write("cassandra manager UP")
-        
-class cactihandler(tornado.web.RequestHandler):
-    """ handle the cacti pages """
-    def get(self):
-        self.write("cassandra cacti manager UP")
 
-
-class gangliahandler(tornado.web.RequestHandler):
-    """ handle the ganglia pages """
-    def get(self):
-        self.write("cassandra ganglia manager UP")
- 
 
 def main():
     """ handle the homepage """
     """ boot the handlers """
     import sys,os
+    
     # IMPORT DJANGO HANDLER
-    import djangotornado
+    import djangotornado as dt
 
     ROOT = os.path.normpath(os.path.dirname(__file__))
     tornado.options.parse_command_line()
@@ -71,10 +58,10 @@ def main():
         # root, cacti, ganglia
         # TODO: others
 
-        (r"/", ListMessagesHandler),
-        (r"/cacti/[0-9]+",cactihandler),
-        (r"/ganglia/[0-9]+",gangliahandler),
-        (r"/form/", FormHandler),
+        (r"/", dt.ListMessagesHandler),
+        (r"/cacti/[0-9]+",dt.CactiHandler),
+        (r"/ganglia/[0-9]+",dt.GangliaHandler),
+        (r"/form/", dt.FormHandler),
     ])
     
     # launch the 'front page' server
