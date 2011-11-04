@@ -62,6 +62,9 @@ def main():
         (r"/cacti/[0-9]+",dt.CactiHandler),
         (r"/ganglia/[0-9]+",dt.GangliaHandler),
         (r"/form/", dt.FormHandler),
+        (r"/graphs/",dt.GraphHandler),
+
+
     ])
     
     # launch the 'front page' server
