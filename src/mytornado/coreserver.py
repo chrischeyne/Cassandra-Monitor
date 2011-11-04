@@ -56,34 +56,34 @@ class gangliahandler(tornado.web.RequestHandler):
     """ handle the ganglia pages """
     def get(self):
         self.write("cassandra ganglia manager UP")
-        # TEST: draw a graph
-        #f = open('templates/graphing/flotbase.html','rb')
-        #self.write(f.read())
-
-
-
  
 
 def main():
     """ handle the homepage """
     """ boot the handlers """
     import sys,os
-    ROOT = os.path.normpath(os.path.dirname(__file__))
+    # IMPORT DJANGO HANDLER
+    import djangotornado
 
+    ROOT = os.path.normpath(os.path.dirname(__file__))
     tornado.options.parse_command_line()
-    application = tornado.web.Application([
+    coreserver = tornado.web.Application([
         # root, cacti, ganglia
         # TODO: others
-        (r"/", mainhandler),
+
+        (r"/", ListMessagesHandler),
         (r"/cacti/[0-9]+",cactihandler),
         (r"/ganglia/[0-9]+",gangliahandler),
+        (r"/form/", FormHandler),
     ])
     
     # launch the 'front page' server
-    http_server = tornado.httpserver.HTTPServer(application)
+    http_server = tornado.httpserver.HTTPServer(coreserver)
     http_server.listen(options.port)
     # FIXME: terminator on user connection close
     tornado.ioloop.IOLoop.instance().start()
 
+
+# note we should be called from ./main.py
 if __name__ == "__main__":
     main()
