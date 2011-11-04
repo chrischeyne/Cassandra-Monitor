@@ -67,13 +67,13 @@ class DjForm(forms.Form):
 class ListMessagesHandler(tornado.web.RequestHandler):
     def get(self):
         messages = Message.objects.all()
-        self.render("templates/index.html", title="My title",
+        self.render("templates/index.html", title="Cassandra Manager",
                     messages=messages)
         
 class FormHandler(tornado.web.RequestHandler):
     def get(self):
         form = DjForm()
-        self.render("templates/form.html", title="My title", form=form)
+        self.render("templates/form.html", title="Cassandra Manager - Forms", form=form)
 
     def post(self):
         data = {
@@ -86,7 +86,7 @@ class FormHandler(tornado.web.RequestHandler):
             message.save()
             self.redirect('/')
         else:
-            self.render("templates/form.html", title="My title", form=form)
+            self.render("templates/form.html", title="Cassandra Manager - Forms", form=form)
             
 class mainhandler(tornado.web.RequestHandler):
     def get(self):
