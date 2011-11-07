@@ -103,3 +103,9 @@ class GangliaHandler(tornado.web.RequestHandler):
     def get(self):
         self.write("cassandra ganglia manager UP")
  
+class GraphHandler(tornado.web.RequestHandler):
+    """ handle the cacti pages """
+    def get(self):
+        self.write("cassandra graph manager UP")
+
+

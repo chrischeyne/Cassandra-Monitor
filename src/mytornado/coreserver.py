@@ -55,7 +55,7 @@ def main():
     ROOT = os.path.normpath(os.path.dirname(__file__))
     tornado.options.parse_command_line()
     coreserver = tornado.web.Application([
-        # root, cacti, ganglia
+        # root, cacti, ganglia, graph (RT graph)
         # TODO: others
 
         (r"/", dt.ListMessagesHandler),
