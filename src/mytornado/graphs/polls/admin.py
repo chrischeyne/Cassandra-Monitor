@@ -29,9 +29,35 @@ __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
 
-from polls.models import Poll
+from polls.models import Poll, Choice
 from django.contrib import admin
 
-admin.site.register(Poll)
+class ChoiceInline(admin.TabularInline):
+    model = Choice
+    extra = 3
+    # some more
+
+
+class PollAdmin(admin.ModelAdmin):
+    list_display=('question','pub_date','was_published_today')
+
+    fieldsets = [
+            (None, {'fields':['question']}),
+            ('Date information',
+                {'fields':['pub_date'],'classes':['collapse']}),
+            ]
+    inlines = [ChoiceInline]
+
+    list_filter=['pub_date']
+
+
+def was_published_today(self):
+    return self_date.date() == datetime.date.today()
+
+
+was_published_today.short_description = 'Published today?'
+
+admin.site.register(Poll,PollAdmin)
+
 
 
