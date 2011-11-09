@@ -1,0 +1,8 @@
+# what's not in pip but installed
+
+# Wed Nov  9 12:21:04 GMT 2011
+
+jpype
+http://is.gd/FJmRRd
+
+

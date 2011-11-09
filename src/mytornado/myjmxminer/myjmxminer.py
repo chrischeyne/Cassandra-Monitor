@@ -21,7 +21,10 @@ it will also instigate tornado daemons
 
 """
 
-# from import
+# import jpype
+
+from jpype import *
+
 
 __author__ = "Chris T. Cheyne"
 __copyright__ = "Copyright 2011, The Cassandra Manager Project"

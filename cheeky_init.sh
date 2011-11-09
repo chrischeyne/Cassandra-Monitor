@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # just a little script to get me editing quickly
+# FIXME: err, all of it :)
 
 HD=/opt/cassandra-dev/PROJECTS/Cassandra-Monitor
 
