@@ -14,14 +14,10 @@
 # under the License.
 
 """
-this is our non-blocking http fetcher that fetches real-time data
-from each node or localhost
-
+Tests for 
 """
 
-#FIXME: all of it.
-import tornado.ioloop,tornado.httpclient
-
+# from import
 
 __author__ = "Chris T. Cheyne"
 __copyright__ = "Copyright 2011, The Cassandra Manager Project"
@@ -31,18 +27,4 @@ __version__ = "0.0.1"
 __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
-
-def handle_request(response):
-    if response.error:
-        print "gtfo: ", response.error
-    else:
-        print response.body
-    ioloop.IOLoop.instance().stop()
-
-monitorclient = httpclient.AsyncHTTPClient()
-
-#FIXME: we grab a block of JMX statistics from each node, or localhost
-monitorclient =fetch("http://www.google.co.uk",handle_request)
-ioloop.IOLoop.instance().start()
-
 
