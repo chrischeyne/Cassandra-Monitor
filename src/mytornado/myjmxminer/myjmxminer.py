@@ -23,7 +23,7 @@ it will also instigate tornado daemons
 
 from jpype import *
 # FIXME: move to parent
-import logging
+import logging as lg 
 import os,platform,sys,time
 
 __author__ = "Chris T. Cheyne"
@@ -38,13 +38,27 @@ __status__ = "Alpha"
 #NOTE: ORIGINAL AUTHORED BY NICOLAS BROUSSE
 #FIXME: CREDITS http://is.gd/Wx6UZQ
 
+
+def metric_cleanup():
+    """ shut down the JVM for gc """
+    pass
+
+def Build_Conf():
+    lg.debug("module listing : - \
+           ")
+    pass
+
+
 def boot():
+    """ simple boot module to start the lg system
+    """
+
     try:
         if len(sys.argv) <= 1:
             debug = 1
             # initiate our debug printing logger
-            logging.basicConfig(level=logging.DEBUG)
-            logging.debug('booting jmx')
+            lg.basicConfig(level=lg.DEBUG)
+            lg.debug('booting jmx')
 
         metric_init(_jmx_params)
     
@@ -59,11 +73,11 @@ def boot():
             metric_cleanup()
 
     except KeyboardInterrupt:
-        logging.debug('KEYBOARD INTERRUPT')
+        lg.debug('KEYBOARD INTERRUPT')
         if _JMX_WorkerThread.running and not _JMX_WOrkerThread.shuttingdown:
             _JMX_Worker_Thread.shutdown()
         tim.sleep(1)
-        logging.debug('shutting down')
+        lg.debug('shutting down')
         raise SystemExit
 
 if __name__ == "__main__":

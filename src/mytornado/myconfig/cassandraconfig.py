@@ -38,27 +38,10 @@ __status__ = "Alpha"
 
 import yaml
 
-#FIXME: place in cassandraconfig.yaml
-
-document = """
-
-    defaulttornadoport:8181
-    defaultcassandrarpc:9160
-    defaultcassandrajmx:7199
-    defaultcassandrastorage:7000
-    defaultcassandramx4j:7197
-    myjdk : ['/opt/jdk1.6.0_27']
-    mypy : ['/opt/python2.7.2']
-    
-    # RING 1
-    ring1 : ['10.0.0.1','10.0.0.2','10.0.0.3]
-    
-    # FIXME: r1(jmx,rpc,storage,mx4k,pyjmx..)
-    # r2(jmx,rpc,storage,mx4k,pyjmx..) ...
-
-
-"""
 configurationfile='cassandraconfig.yaml'
-yaml.load(document)
+
+stream = file(configurationfile,'r')
+print yaml.dump(yaml.load(stream))
+
 
 
