@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/cassandra-cacti-m6/!svn/ver/5/trunk/doc
+END
+NOTICE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/cassandra-cacti-m6/!svn/ver/3/trunk/doc/NOTICE.txt
+END
+sstable.png
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/cassandra-cacti-m6/!svn/ver/2/trunk/doc/sstable.png
+END
+lat.png
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/cassandra-cacti-m6/!svn/ver/2/trunk/doc/lat.png
+END
+INSTALL.txt
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/cassandra-cacti-m6/!svn/ver/5/trunk/doc/INSTALL.txt
+END
+readwrite.png
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/cassandra-cacti-m6/!svn/ver/2/trunk/doc/readwrite.png
+END

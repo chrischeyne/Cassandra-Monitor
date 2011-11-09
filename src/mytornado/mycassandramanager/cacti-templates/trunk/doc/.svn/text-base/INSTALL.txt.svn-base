@@ -1,0 +1,62 @@
+  Cacti
+
+    Cacti requires
+    xml templates with the graph settings, and the compiled
+    cassandra-cacti-m6.jar which has the Java "Fetch code".
+
+    Checkout the entire project and build it. This requires JAVAC, SVN and ANT.
+
+    cd /tmp
+    svn co http://www.jointhegrid.com/svn/cassandra-cacti-m6/trunk/ cassandra-cacti-m6
+    cd cassandra-cacti-m6
+    ant jar
+
+    cp dist/cassandra-cacti-m6 <cacti_home>/scripts/
+
+Importing the Graph Templates into Cacti
+
+  Using your cacti web interface, go to the 'Import Template' section:
+	  Inside trunk/cacti_templates you will find and XML file. Import this file.
+
+    Yes! We actually support multiple verions, the entire project is branched
+    internally. So one monitoring server can graph multiple clusters running
+    different major versions of Hadoop!
+
+Usage
+
+  Each graph takes several parameters.
+  1 host
+  2 port
+  3 user
+  4 pass
+  5 keyspace (ks)
+  6 columnfamily (cf)
+
+NRPE
+  While these templates can work by doing JMX directly this method has been found to be problems on some networks. Now the cacti templates
+  call NRPE which makes the JMX calls. 
+
+Using JWalker
+
+  JWalker is a command line JMX walk tool. You can use it like you would use jconsole
+  to dump the properties of JMX. In particular your need this to determing the
+  name of DataNode objects.
+
+  sh JWalker.sh service:jmx:rmi:///jndi/rmi://10.0.1.2:10001/jmxrmi \
+  controlRole <password>
+
+Support
+
+	http://www.jointhegrid.com
+	Edward Capriolo
+        edlinuxguru@gmail.com
+
+Contribute
+
+	Please do! Bugs, questions, comments, praise, condemnation Let me know!
+
+!!Screen Shots Accepted!!
+
+  If you want to show off a graph from cassandra-cacti-m6, you can sanitize hostnames
+  (or not) and send it to me along with a comment.
+  I will be sure to add it to the site!

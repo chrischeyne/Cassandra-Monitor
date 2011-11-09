@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/cassandra-cacti-m6/!svn/ver/8/trunk/non_cas_graphs/cpu
+END
+cacti_graph_template_ucdnet_-_full_cpu_usage.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/cassandra-cacti-m6/!svn/ver/8/trunk/non_cas_graphs/cpu/cacti_graph_template_ucdnet_-_full_cpu_usage.xml
+END

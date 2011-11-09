@@ -1,0 +1,40 @@
+10
+
+dir
+8
+http://www.jointhegrid.com/svn/cassandra-cacti-m6/trunk/non_cas_graphs
+http://www.jointhegrid.com/svn/cassandra-cacti-m6
+
+
+
+2011-06-26T18:50:37.183943Z
+8
+ecapriolo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+8a6ad227-aaec-4bf2-9a1e-016a09df3838
+
+cpu
+dir
+
+memory
+dir
+
+network
+dir
+
+disk
+dir
+

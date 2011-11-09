@@ -1,0 +1,49 @@
+<interface>
+  <name>Get Disk IO Information</name>
+  <index_order_type>numeric</index_order_type>
+  <oid_index>.1.3.6.1.4.1.2021.13.15.1.1.1</oid_index>
+  <fields>
+    <hrDiskIOIndex>
+      <name>Index</name>
+      <method>walk</method>
+      <source>value</source>
+      <direction>input</direction>
+      <oid>.1.3.6.1.4.1.2021.13.15.1.1.1</oid>
+    </hrDiskIOIndex>
+    <hrDiskIODescr>
+      <name>Description</name>
+      <method>walk</method>
+      <source>value</source>
+      <direction>input</direction>
+      <oid>.1.3.6.1.4.1.2021.13.15.1.1.2</oid>
+    </hrDiskIODescr>
+    <hrDiskIONRead>
+      <name>Number of Bytes Read</name>
+      <method>walk</method>
+      <source>value</source>
+      <direction>output</direction>
+      <oid>.1.3.6.1.4.1.2021.13.15.1.1.3</oid>
+    </hrDiskIONRead>
+    <hrDiskIONWrite>
+      <name>DiskIO Number of Bytes Written</name>
+      <method>walk</method>
+      <source>value</source>
+      <direction>output</direction>
+      <oid>.1.3.6.1.4.1.2021.13.15.1.1.4</oid>
+    </hrDiskIONWrite>
+    <hrDiskIOReads>
+      <name>Number of Read accesses</name>
+      <method>walk</method>
+      <source>value</source>
+      <direction>output</direction>
+      <oid>.1.3.6.1.4.1.2021.13.15.1.1.5</oid>
+    </hrDiskIOReads>
+    <hrDiskIOWrites>
+      <name>Number of Write accesses</name>
+      <method>walk</method>
+      <source>value</source>
+      <direction>output</direction>
+      <oid>.1.3.6.1.4.1.2021.13.15.1.1.6</oid>
+    </hrDiskIOWrites>
+  </fields>
+</interface>

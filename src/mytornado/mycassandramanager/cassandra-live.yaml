@@ -1,1 +1,1 @@
-/opt/cassandra-dev/cluster_config/cassandra-live.yaml
+../apache-cassandra-0.8.5/conf/cassandra-live.yaml

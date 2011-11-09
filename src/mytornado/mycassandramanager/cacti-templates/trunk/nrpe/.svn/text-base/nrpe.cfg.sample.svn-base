@@ -1,0 +1,14 @@
+pid_file=/var/run/nrpe.pid
+server_port=5666
+nrpe_user=nagios
+nrpe_group=nagios
+dont_blame_nrpe=1
+debug=0
+command_timeout=60
+
+command[run_jmxtoolkit]=/usr/lib64/nagios/plugins/run_jmxtoolkit.sh $ARG1$ $ARG2$ $ARG3$ $ARG4$
+command[run_column_family_0_8]=/usr/lib64/nagios/plugins/run_column_family_0_8.sh $ARG1$ $ARG2$ $ARG3$ $ARG4$ $ARG5$ $ARG6$
+command[run_caches_0_8]=/usr/lib64/nagios/plugins/run_caches_0_8.sh $ARG1$ $ARG2$ $ARG3$ $ARG4$ $ARG5$ $ARG6$
+#command[run_compaction]=/usr/lib64/nagios/plugins/run_compaction.sh $ARG1$ $ARG2$ $ARG3$ $ARG4$
+#command[run_storageproxy]=/usr/lib64/nagios/plugins/run_storageproxy.sh $ARG1$ $ARG2$ $ARG3$ $ARG4$
+

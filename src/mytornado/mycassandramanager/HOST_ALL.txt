@@ -1,1 +1,4 @@
-/opt/cassandra-dev/cluster_config/HOST_ALL.txt
+10.10.1.39
+10.10.1.40
+10.10.1.43
+10.10.1.50

@@ -1,1 +1,45 @@
-/opt/cassandra-dev/cluster_config/cluster-dev-SCHEMA.txt
+/* 	CLUSTER-DEV CASSANDRA SCHEMA
+	WRITTEN BY paul.jones@hearst.co.uk
+	MODIFIED BY chris.cheyne@hearst.co.uk 22SEP2011
+	FOR DEVELOPMENT ONLY
+
+*/
+
+
+/*
+create keyspace articles with replication_factor = 4 and placement_strategy = 'org.apache.cassandra.locator.SimpleStrategy';
+CREATE KEYSPACE articles WITH placement_strategy = 'NetworkTopologyStrategy'
+and strategy_options=[{0:2,1:2}];
+*/
+
+create keyspace articles with placement_strategy='SimpleStrategy' and
+strategy_options = [{replication_factor:2}];
+
+
+use articles;
+create column family article with column_type = 'Standard';
+create column family doctype with column_type = 'Super';
+create column family doctypeindex with column_type = 'Standard';
+create column family images with column_type = 'Standard';
+create column family scheduled_items with column_type = 'Super';
+create column family scheduled_items_start_date with column_type = 'Standard';
+create column family scheduled_items_end_date with column_type = 'Standard';
+create column family rams_last_updated with column_type = 'Standard';
+create column family yourviews with column_type = 'Super';
+create column family articles_lists with column_type = 'Super';
+create column family article_lists_indexes with column_type = 'Standard';
+
+/*
+create keyspace templates with replication_factor = 4 and placement_strategy = 'org.apache.cassandra.locator.SimpleStrategy';
+CREATE KEYSPACE templates WITH placement_strategy = 'NetworkTopologyStrategy'
+and strategy_options=[{0:2,1:2}];
+
+*/
+create keyspace templates with placement_strategy='SimpleStrategy' and
+strategy_options = [{replication_factor:2}];
+
+
+use templates;
+create column family template with column_type = 'Super';
+create column family live with column_type = 'Standard';
+create column family revisions with column_type = 'Standard';

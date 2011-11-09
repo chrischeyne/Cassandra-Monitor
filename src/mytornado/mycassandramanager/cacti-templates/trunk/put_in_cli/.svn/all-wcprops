@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/cassandra-cacti-m6/!svn/ver/4/trunk/put_in_cli
+END
+fix_add_graphs.txt
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/cassandra-cacti-m6/!svn/ver/4/trunk/put_in_cli/fix_add_graphs.txt
+END
+add_cassandra_graphs.sh
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/cassandra-cacti-m6/!svn/ver/4/trunk/put_in_cli/add_cassandra_graphs.sh
+END
+cacti_func.sh
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/cassandra-cacti-m6/!svn/ver/4/trunk/put_in_cli/cacti_func.sh
+END

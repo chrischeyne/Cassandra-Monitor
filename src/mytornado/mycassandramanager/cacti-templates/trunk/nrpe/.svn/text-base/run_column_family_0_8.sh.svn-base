@@ -1,0 +1,1 @@
+java -cp /usr/lib64/nagios/plugins/cassandra-cacti-m6.jar com.jointhegrid.m6.cassandra.CFStores service:jmx:rmi:///jndi/rmi://${1}:${2}/jmxrmi ${3} ${4} org.apache.cassandra.db:columnfamily=${5},keyspace=${6},type=ColumnFamilies

@@ -1,1 +1,4 @@
-/opt/cassandra-dev/cluster_config/cassandra-repair.sh
+#!/bin/sh
+
+/usr/bin/nodetool -h 127.0.0.1 repair
+

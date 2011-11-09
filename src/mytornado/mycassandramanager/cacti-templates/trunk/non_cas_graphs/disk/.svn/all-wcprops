@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/cassandra-cacti-m6/!svn/ver/8/trunk/non_cas_graphs/disk
+END
+cacti_graph_template_ucdnet_-_get_device_io_bytes.xml
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/cassandra-cacti-m6/!svn/ver/8/trunk/non_cas_graphs/disk/cacti_graph_template_ucdnet_-_get_device_io_bytes.xml
+END
+put_in_cacti_resource_snmp_queries_io.xml
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/cassandra-cacti-m6/!svn/ver/8/trunk/non_cas_graphs/disk/put_in_cacti_resource_snmp_queries_io.xml
+END
+cacti_graph_template_ucdnet_-_get_device_io_transactions.xml
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/cassandra-cacti-m6/!svn/ver/8/trunk/non_cas_graphs/disk/cacti_graph_template_ucdnet_-_get_device_io_transactions.xml
+END

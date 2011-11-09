@@ -1,0 +1,23 @@
+Remove comment this section in add_graphs.php
+
+/*
+                                if (sizeof($input_fields)) {
+                                        foreach ($input_fields as $key => $row) {
+                                                if (substr_count($key, $field_name)) {
+                                                        if ($data_template_id == 0) {
+                                                                $data_template_id = $row["data_template_id"];
+                                                        }
+
+                                                        $field_found = TRUE;
+
+                                                        break;
+                                                }
+                                        }
+                                }
+
+                                if (!$field_found) {
+                                        echo "ERROR: Unknown input-field (" . $field_name . ")\n";
+                                        echo "Try --list-input-fields\n";
+                                        exit(1);
+                                }
+                                */

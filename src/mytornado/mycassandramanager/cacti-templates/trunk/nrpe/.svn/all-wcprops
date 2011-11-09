@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/cassandra-cacti-m6/!svn/ver/6/trunk/nrpe
+END
+run_column_family_0_8.sh
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/cassandra-cacti-m6/!svn/ver/6/trunk/nrpe/run_column_family_0_8.sh
+END
+nrpe.cfg.sample
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/cassandra-cacti-m6/!svn/ver/6/trunk/nrpe/nrpe.cfg.sample
+END
+run_caches_0_8.sh
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/cassandra-cacti-m6/!svn/ver/5/trunk/nrpe/run_caches_0_8.sh
+END
+run_column_family_stores.sh
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/cassandra-cacti-m6/!svn/ver/5/trunk/nrpe/run_column_family_stores.sh
+END

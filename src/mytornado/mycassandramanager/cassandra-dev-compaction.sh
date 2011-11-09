@@ -1,1 +1,5 @@
-/opt/cassandra-dev/cluster_config/cassandra-dev-compaction.sh
+#!/bin/sh
+
+nodetool -h localhost compact templates
+nodetool -h localhost compact articles
+
