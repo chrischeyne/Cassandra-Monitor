@@ -21,10 +21,10 @@ it will also instigate tornado daemons
 
 """
 
-# import jpype
-
 from jpype import *
-
+# FIXME: move to parent
+import logging
+import os,platform,sys,time
 
 __author__ = "Chris T. Cheyne"
 __copyright__ = "Copyright 2011, The Cassandra Manager Project"
@@ -37,5 +37,36 @@ __status__ = "Alpha"
 
 #NOTE: ORIGINAL AUTHORED BY NICOLAS BROUSSE
 #FIXME: CREDITS http://is.gd/Wx6UZQ
+
+def boot():
+    try:
+        if len(sys.argv) <= 1:
+            debug = 1
+            # initiate our debug printing logger
+            logging.basicConfig(level=logging.DEBUG)
+            logging.debug('booting jmx')
+
+        metric_init(_jmx_params)
+    
+        if len(sys.argv) <= 1:
+            while True:
+                for d in descriptors:
+                    v = d['call_back'](d['name'])
+                time.sleep(5)
+
+        elif sys.argv[1] == "config":
+            Build_Conf()
+            metric_cleanup()
+
+    except KeyboardInterrupt:
+        logging.debug('KEYBOARD INTERRUPT')
+        if _JMX_WorkerThread.running and not _JMX_WOrkerThread.shuttingdown:
+            _JMX_Worker_Thread.shutdown()
+        tim.sleep(1)
+        logging.debug('shutting down')
+        raise SystemExit
+
+if __name__ == "__main__":
+    boot()
 
 
