@@ -16,8 +16,11 @@
 
 #Wed Nov  9 11:24:56 GMT 2011
 """
-This module interfaces to JMX to proide real-time monitoring
-it will also instigate tornado daemons
+this is our configuration area. From here we can determine, via YAML, which
+variables to operate on; e.g.
+cluster 1 has jmx port 7198 but cluster 2 has 7199
+
+also determine where our java and python installs are
 
 """
 
@@ -32,7 +35,30 @@ __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
-#NOTE: ORIGINAL AUTHORED BY NICOLAS BROUSSE
-#FIXME: CREDITS http://is.gd/Wx6UZQ
+
+import yaml
+
+#FIXME: place in cassandraconfig.yaml
+
+document = """
+
+    defaulttornadoport:8181
+    defaultcassandrarpc:9160
+    defaultcassandrajmx:7199
+    defaultcassandrastorage:7000
+    defaultcassandramx4j:7197
+    myjdk : ['/opt/jdk1.6.0_27']
+    mypy : ['/opt/python2.7.2']
+    
+    # RING 1
+    ring1 : ['10.0.0.1','10.0.0.2','10.0.0.3]
+    
+    # FIXME: r1(jmx,rpc,storage,mx4k,pyjmx..)
+    # r2(jmx,rpc,storage,mx4k,pyjmx..) ...
+
+
+"""
+configurationfile='cassandraconfig.yaml'
+yaml.load(document)
 
 

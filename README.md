@@ -15,32 +15,43 @@ It will be based around a daemon (per node) and a tornado/django (client+server)
 idea; however, experimenting with different technologies is the way to go so
 far.
 
-tornado + django + flot + ganglia + sshpt + jpype + pyjmx
+tornado + django + flot + ganglia + sshpt + jpype + pyjmx + pyYAML
+(configuration)
+
 
 tornado : non-blocking host for rendering django (mycassandramanager)
+    [tornado <- django(site/dir)]
+
 
 mycassandramanager: combining sshpt (or ClusterSsh) for actual node management
-
+    # run nodetool on all hosts to compact
+    sshpt TOOLS.NODETOOL cluster1 
 
 torando + httpclient + myjmxhandler ('daemon'-like tool for monitoring local
-node but also presenting that
+node but also presenting that data to mycassandramanger
+    tornado.httpclient(localnode) -> mycassandramanager
 
 myjmxhandler : using jpype and pyjmx to report in real-time what a node is
 doing
+    myjmxhandler.watchvariables <-- tornado.httpclient (async)
+
 
 mystresshandler : using custom pystress code to stress test a new{ly upgraded}
 cluster
+    mycassandramanager.stresstest(cluster1)
+
 
 flot : real-time graphing; using with tornado+django as a 'web administrator'
 tool
+    mycassandramanager(sites/flot)
+
 
 ganglia : long-term node monitoring; possibly using cacti instead (as I have
 Cassandra cacti templates in src/templates/graphing that are compatible with
 1.0-series
+    mycassandramanager(sites/ganglia)
 
-
-
-Contributors welcome. Brand new pre-alpha project.
+Contributors welcome. Brand new pre-alpha project.  In state of flux.
 
 chris[[at]]cheynes.org
 
@@ -49,5 +60,5 @@ SEE: live/site/site__links.php
 Instigated by Chris Cheyne 01NOV2011:1306
 This page modified 
 
-Wed Nov  9 10:46:30 GMT 2011
 
+Wed Nov  9 11:40:13 GMT 2011
