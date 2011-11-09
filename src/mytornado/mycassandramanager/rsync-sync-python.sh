@@ -1,0 +1,1 @@
+/opt/cassandra-dev/cluster_config/rsync-sync-python.sh
