@@ -53,7 +53,7 @@ Cassandra cacti templates in src/templates/graphing that are compatible with
 
 Contributors welcome. Brand new pre-alpha project.  In state of flux.
 
-chris[[at]]cheynes.org
+chris[[#FIXME:remove(at)]]cheynes.org
 
 SEE: live/site/site__links.php
 
@@ -61,4 +61,4 @@ Instigated by Chris Cheyne 01NOV2011:1306
 This page modified 
 
 
-Wed Nov  9 11:40:13 GMT 2011
+Wed Nov  9 14:13:06 GMT 2011
