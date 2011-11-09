@@ -39,11 +39,16 @@ __status__ = "Alpha"
 #FIXME: CREDITS http://is.gd/Wx6UZQ
 
 
+def init_metric(name,jmxObjectName \
+        jmx_AttributeName,jmxKeyName
+
 def metric_cleanup():
     """ shut down the JVM for gc """
     pass
 
 def Build_Conf():
+    """ generate a ganglia configuration file
+    """
     lg.debug("module listing : - \
            ")
     pass
