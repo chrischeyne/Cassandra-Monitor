@@ -17,6 +17,20 @@ far.
 
 tornado + django + flot + ganglia
 
+tornado : non-blocking host for rendering django (mycassandramanager)
+
+torando + httpclient + myjmxhandler ('daemon'-like tool for monitoring local
+node but also presenting that)
+
+flot : real-time graphing; using with tornado+django as a 'web administrator'
+tool
+
+ganglia : long-term node monitoring; possibly using cacti instead (as I have
+Cassandra cacti templates in src/templates/graphing that are compatible with
+1.0-series
+
+
+
 Contributors welcome. Brand new pre-alpha project.
 
 chris[[at]]cheynes.org
