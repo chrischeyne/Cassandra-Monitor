@@ -16,8 +16,12 @@
 """
 core management server.  Handles: -
 
-mainsite/factory
-mainsite/daemongatherer
+mainsite/myjmxminer
+mainsite/djangotornado
+mainsite/corefetcher 
+
+FIXME: ...
+
 
 """
 

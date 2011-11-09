@@ -14,7 +14,11 @@
 # under the License.
 
 """
-purely boots main.py
+purely boots mytornado/main.py
+
+FIXME: update for gc and other requriements 
+FIXME change name from __init__
+
 """
 
 
