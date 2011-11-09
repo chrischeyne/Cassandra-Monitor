@@ -15,12 +15,21 @@ It will be based around a daemon (per node) and a tornado/django (client+server)
 idea; however, experimenting with different technologies is the way to go so
 far.
 
-tornado + django + flot + ganglia
+tornado + django + flot + ganglia + sshpt + jpype + pyjmx
 
 tornado : non-blocking host for rendering django (mycassandramanager)
 
+mycassandramanager: combining sshpt (or ClusterSsh) for actual node management
+
+
 torando + httpclient + myjmxhandler ('daemon'-like tool for monitoring local
-node but also presenting that)
+node but also presenting that
+
+myjmxhandler : using jpype and pyjmx to report in real-time what a node is
+doing
+
+mystresshandler : using custom pystress code to stress test a new{ly upgraded}
+cluster
 
 flot : real-time graphing; using with tornado+django as a 'web administrator'
 tool
@@ -39,5 +48,6 @@ SEE: live/site/site__links.php
 
 Instigated by Chris Cheyne 01NOV2011:1306
 This page modified 
-Fri Nov  4 10:42:23 GMT 2011
+
+Wed Nov  9 10:46:30 GMT 2011
 
