@@ -39,7 +39,7 @@ class Error(Exception):
     
 class JVM_Import_Error(Error):
     """JVM no impor. do find / | grep libjvm.so"""
-    #traceback.print_exc(file=sys.stdout)
+    traceback.print_exc(file=sys.stdout)
     pass
     
 class Connect_Error(Error):
@@ -56,8 +56,7 @@ class JAVA(object):
         try:
             jpype.startJVM(libjvm)
         except RuntimeError, e:
-            traceback.print_exc(file=sys.stdout) 
-            #raise JVM_Import_Error(e)
+            raise JVM_Import_Error(e)
    
 
 class JMX(object):
