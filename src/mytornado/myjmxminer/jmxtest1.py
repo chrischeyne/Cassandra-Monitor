@@ -12,10 +12,14 @@ PASS='mypass'
 URL = "service:jmx:rmi:///jndi/rmi://%s:%d/jmxrmi" % (HOST, PORT)
 #this it the path of your libjvm
 # /opt/jdk1.6.0_27/jre/lib/amd64/server/libjvm.so
-jpype.startJVM("/System/Library/Frameworks/JavaVM.framework/Libraries/libjvm_compat.dylib")
-java.lang.System.out.println("JVM load OK")
-sys.exit(1)
+print "import success ", URL 
+try:
+    jpype.startJVM("/System/Library/Frameworks/JavaVM.framework/Libraries/libjvm_compat.dylib")
+except:
+    print "error"
+    sys.exit(1)
 
+java.lang.System.out.println("JVM load OK")
 jhash = java.util.HashMap()
 jarray=jpype.JArray(java.lang.String)([USER,PASS])
 jhash.put (javax.management.remote.JMXConnector.CREDENTIALS, jarray);
