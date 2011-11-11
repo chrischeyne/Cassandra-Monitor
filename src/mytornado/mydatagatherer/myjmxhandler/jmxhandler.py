@@ -116,7 +116,7 @@ class JMX(object):
 # FIXME: ensure this module can run independently of the 
 # manager system
 
-class myjmx():
+class Myjmx():
     def __init__(self):
         self.name="jmx1"
 
@@ -128,7 +128,7 @@ class myjmx():
         del jmx
 
 if __name__ == '__main__':
-    jmxhandler = myjmx()
+    jmxhandler = Myjmx()
     jmxhandler.boot()
 
     

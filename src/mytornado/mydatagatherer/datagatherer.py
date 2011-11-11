@@ -30,11 +30,15 @@ __status__ = "Alpha"
 
 def main():
     # FIXME: only load relevant modules
+    import os,sys
+    moduledir=os.path.dirname(os.path.abspath(__file__))
+    if moduledir not in sys.path:
+        sys.path.insert(0,moduledir)
 
-    import myjmxhandler.myjmxhandler
-    print "booting myjmx"
-    myjmx = myjmxhandler.myjmx()
-    myjmx.boot()
+    import myjmxhandler.jmxhandler
+    jmx = myjmxhandler.jmxhandler.Myjmx()
+
+    jmx.boot()
 
 
 
