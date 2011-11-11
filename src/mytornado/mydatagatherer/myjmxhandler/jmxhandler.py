@@ -15,8 +15,10 @@
 
 """
 this module returns dictionarys of data from JVM JMX
+these are formatted by ../mydatagatherer/datagatherer
 
-e.g. d = {'heap_size':40000, 'yada':yada}
+e.g. d = {'heap_size':40000, 'yada':yada, 'jmxyz',42}.dictsort()
+
 
 """
 

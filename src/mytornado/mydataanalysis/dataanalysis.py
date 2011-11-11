@@ -48,8 +48,34 @@ def getkeyvalues(filename='keyvalue.txt'):
         d[key] = l
     return d
 
+class Jmxobject:
+    """ returns an abstract k,v pair """
+    def __init__(self,name,value):
+        self.name=name
+        self.value=value
+    
+    def __repr__(self):
+        return repr((self.name,self.value))
+
+class Perfobject:
+    """ returns an abstract k,v pair """
+    # FIXME: performance analysis
+    def __init__(self,name,value):
+        pass:
+
+# our list of cassandra jmx k,v pairs
+cassandrajmx = [
+        Jmxobject('jmx1',10)
+        #FIXME: MORE
+        ]
+
+# our list of cassandra performance k,v pairs
+cassandraperf = [
+        Perfobject('perf1',10)
+        ]
 
 
+# random code to be sorted
 # sorted("This is a test string from Me".split(),key=str.lower)
 
 
