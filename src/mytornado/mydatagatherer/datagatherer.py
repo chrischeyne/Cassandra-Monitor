@@ -13,16 +13,9 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-# Wed Nov  9 16:25:39 GMT 2011
 """
-abstraction interface for calling jpype.
-
-Basically simply runs java.lang.<cmd>.
-
-#FIXME: put back in to myjmxminer?
+this module is the handler for my{jmx,cassandra...} data handlers
 """
-
-from jpype import * 
 
 __author__ = "Chris T. Cheyne"
 __copyright__ = "Copyright 2011, The Cassandra Manager Project"
@@ -33,10 +26,19 @@ __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
-class myjpype():
-    """ our core instance method
-    """
-    def __init__():
-        pass
+# temporary class as usual
+
+def main():
+    # FIXME: only load relevant modules
+
+    import myjmxhandler.myjmxhandler
+    print "booting myjmx"
+    myjmx = myjmxhandler.myjmx()
+    myjmx.boot()
+
+
+
+if __name__ == "__main__":
+    main()
 
 
