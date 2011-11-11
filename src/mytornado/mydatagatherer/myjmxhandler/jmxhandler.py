@@ -72,6 +72,7 @@ class JMX(object):
     def __init__(self):
         """ boot """
         print "....jmx.JMX()"
+        #FIXME: get from myconfig.cassandra
         self.host = 'localhost'
         self.port = 8080
         self.user = 'cassandra'

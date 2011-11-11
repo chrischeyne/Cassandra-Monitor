@@ -14,8 +14,10 @@
 # under the License.
 
 """
-this module is the handler for my{jmx,cassandra...} data handlers
+Tests for 
 """
+
+# from import
 
 __author__ = "Chris T. Cheyne"
 __copyright__ = "Copyright 2011, The Cassandra Manager Project"
@@ -25,19 +27,4 @@ __version__ = "0.0.1"
 __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
-
-# temporary class as usual
-
-def main():
-    
-    # FIXME: only load relevant modules using __ALL__
-    
-    import myjmxhandler.jmxhandler
-    jmx = myjmxhandler.jmxhandler.Myjmx()
-    jmx.boot()
-
-
-if __name__ == "__main__":
-    main()
-
 

@@ -14,8 +14,11 @@
 # under the License.
 
 """
-this module is the handler for my{jmx,cassandra...} data handlers
+functions for sorting out details from data gathering
+e.g. sorting dictionaries of JMX results
 """
+
+# from import
 
 __author__ = "Chris T. Cheyne"
 __copyright__ = "Copyright 2011, The Cassandra Manager Project"
@@ -26,18 +29,27 @@ __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
-# temporary class as usual
+def sortonsecond(a,b):
+    """ sorts on a different tuple element """
+    return cmp(a[1],b[1])
 
-def main():
-    
-    # FIXME: only load relevant modules using __ALL__
-    
-    import myjmxhandler.jmxhandler
-    jmx = myjmxhandler.jmxhandler.Myjmx()
-    jmx.boot()
+def sortbysumvalue(a,b):
+    """ a sort function for dictionaries """
+    suma = sum(a[1])
+    sumb = sum(b[1])
+    return cmp(suma,sumb)
+
+def getkeyvalues(filename='keyvalue.txt'):
+    """ get k,v from file filename """
+    for line in file(filename):
+        key,value = line.split()
+        l = d.get(key,[])
+        l.append(int(value))
+        d[key] = l
+    return d
 
 
-if __name__ == "__main__":
-    main()
+
+# sorted("This is a test string from Me".split(),key=str.lower)
 
 
