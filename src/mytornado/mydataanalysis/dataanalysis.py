@@ -18,7 +18,7 @@ functions for sorting out details from data gathering
 e.g. sorting dictionaries of JMX results
 """
 
-# from import
+from operator import itemgetter, attrgetter
 
 __author__ = "Chris T. Cheyne"
 __copyright__ = "Copyright 2011, The Cassandra Manager Project"
@@ -28,6 +28,21 @@ __version__ = "0.0.1"
 __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
+
+
+class MONITOROBJECT():
+    """ main monitor object, of type {jmx,perf}Class """
+    """ contains sorting methods for returning values """
+    """ sorted and ready to stream """
+    def __init__(self,name):
+        # FIXME: this structure will look at follows: -
+        # MONITOROBJECT
+        # .... name (e.g. ring0node3)
+        # .... dictionary of jmxobjects if exist
+        # .... dictionary of perfobjects if exist
+        # .... timestamp of update
+        pass
+
 
 def sortonsecond(a,b):
     """ sorts on a different tuple element """
@@ -59,9 +74,14 @@ class Jmxobject:
 
 class Perfobject:
     """ returns an abstract k,v pair """
-    # FIXME: performance analysis
+    # FIXME: performance analysis. Ideally could clone Jmxobject
+    # but leaving separate in case we use a different system
     def __init__(self,name,value):
-        pass:
+        pass
+    def __repr__(self):
+        return repr((self.name,self.value))
+
+
 
 # our list of cassandra jmx k,v pairs
 cassandrajmx = [
@@ -77,5 +97,5 @@ cassandraperf = [
 
 # random code to be sorted
 # sorted("This is a test string from Me".split(),key=str.lower)
-
+# sorted(student_objects, key=attrgetter('age'))
 

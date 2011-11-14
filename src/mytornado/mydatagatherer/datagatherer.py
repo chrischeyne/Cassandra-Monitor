@@ -16,6 +16,8 @@
 """
 this module is the handler for my{jmx,cassandra...} data handlers
 """
+import operator
+from functional import compose, partial
 
 __author__ = "Chris T. Cheyne"
 __copyright__ = "Copyright 2011, The Cassandra Manager Project"
