@@ -28,7 +28,6 @@ __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
-# temporary class as usual
 
 def main():
     

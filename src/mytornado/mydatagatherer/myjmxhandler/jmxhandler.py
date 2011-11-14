@@ -122,6 +122,71 @@ class JMX(object):
 class Myjmx():
     def __init__(self):
         self.name="jmx1"
+        
+        # what we monitor goes here for i in jmx
+        myjmxdict = {}
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+        myjmxdict['org.apache.cassandra.db'] = 'alpha'
+
+    def returnjmxdata():
+        # make thread safe
+        return myjmxdict
 
     def boot(self):
         # test
