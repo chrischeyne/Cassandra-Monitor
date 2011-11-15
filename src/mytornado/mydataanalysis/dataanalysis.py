@@ -19,6 +19,9 @@ e.g. sorting dictionaries of JMX results
 """
 
 from operator import itemgetter, attrgetter
+import os
+import fnmatch
+
 
 __author__ = "Chris T. Cheyne"
 __copyright__ = "Copyright 2011, The Cassandra Manager Project"
@@ -93,6 +96,33 @@ cassandrajmx = [
 cassandraperf = [
         Perfobject('perf1',10)
         ]
+
+
+def generatorfind(filepat,top):
+    for path,dirlist,filelist in os.walk(top):
+        for name in fnmatch.filter(filelist,filepath):
+            yield os.path.join(path,name)
+
+            # example
+            #pyfiles = generatorfind("*.py","/")
+
+def generatorcat(sources):
+    for s in sources:
+        for item in s:
+            yield item
+
+def generatorgrep(pat,lines):
+    patc = re.compile(pat)
+    for line in lines:
+        if patc.search(line): yield line
+
+
+
+def fieldmap(dictseq,name,func):
+    for d in dictseq:
+        d[name] = func(d[name])
+        yield d
+
 
 
 # random code to be sorted

@@ -35,6 +35,7 @@ def main():
     
     import myjmxhandler.jmxhandler
     jmx = myjmxhandler.jmxhandler.Myjmx()
+    print "booting..()" 
     jmx.boot()
 
 

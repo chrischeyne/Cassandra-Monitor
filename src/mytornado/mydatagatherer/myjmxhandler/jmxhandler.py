@@ -41,6 +41,7 @@ from jpype import javax
 import traceback
 
 
+MYJMXDICT = {}
 class Error(Exception):
     """Base class for exceptions in this module."""
     pass
@@ -81,8 +82,8 @@ class JMX(object):
         self.passwd = ''
         self.url = "service:jmx:rmi:///jndi/rmi://%s:%d/jmxrmi" % (self.host, self.port)
         print self.url
-
-        self.connection = self._connect()
+        # fixme: restart this
+        #self.connection = self._connect()
 
     def __del__(self):
         self.jmxsoc.close()
@@ -124,79 +125,44 @@ class Myjmx():
         self.name="jmx1"
         
         # what we monitor goes here for i in jmx
-        myjmxdict = {}
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-        myjmxdict['org.apache.cassandra.db'] = 'alpha'
-
-    def returnjmxdata():
+        # if 'z' in MYJMXDICT print MYJMXDICT['z']
+        # avoids keywords
+        MYJMXDICT['org.apache.cassandra.db.CommitLog.Attributes.PendingTasks']\
+                = 0
+        MYJMXDICT['org.apache.cassandra.db1'] = 1
+        MYJMXDICT['org.apache.cassandra.db2'] = 14 
+        MYJMXDICT['org.apache.cassandra.db3'] = 5099 
+        MYJMXDICT['org.apache.cassandra.db4'] = 'string1'
+        MYJMXDICT['org.apache.cassandra.db5'] = 'string10'
+        MYJMXDICT['org.apache.cassandra.db6'] = 'string100'
+        
+        
+    def _printjmxdata(self):
+        self.name = "jmx2"
         # make thread safe
-        return myjmxdict
+        print "printing..."
+        for key in sorted(MYJMXDICT.keys()):
+            print key, MYJMXDICT[key]
+
 
     def boot(self):
         # test
-        checkjdk()
+        # checkjdk()
         jmx = JMX()
-        print jmx.getattr('org.apache.cassandra.service', 'StorageService', 'LiveNodes')
-        del jmx
+        self._printjmxdata()
+        #print jmx.getattr('org.apache.cassandra.service', 'StorageService', 'LiveNodes')
+        #del jmx
+
 
 if __name__ == '__main__':
     jmxhandler = Myjmx()
     jmxhandler.boot()
+    print "CASSANDRA JMX DATA...."
+    #standard print function.
+    #FIXME: move to dataanalysis.py
+
+    jmxhandler._printjmxdata()
+
+
 
     
