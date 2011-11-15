@@ -33,13 +33,13 @@ __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
 
-class MONITOROBJECT():
+class MyMonitors():
     """ main monitor object, of type {jmx,perf}Class """
     """ contains sorting methods for returning values """
     """ sorted and ready to stream """
     def __init__(self,name):
         # FIXME: this structure will look at follows: -
-        # MONITOROBJECT
+        # MyMonitors
         # .... name (e.g. ring0node3)
         # .... dictionary of jmxobjects if exist
         # .... dictionary of perfobjects if exist
@@ -86,7 +86,8 @@ class Perfobject:
 
 
 
-# our list of cassandra jmx k,v pairs
+# our list of cassandra jmx k,v pairs for data
+# manipulation
 cassandrajmx = [
         Jmxobject('jmx1',10)
         #FIXME: MORE
@@ -98,8 +99,9 @@ cassandraperf = [
         ]
 
 # MYSQL PERFORMANCE OBJECTS
-mysqlper
-
+mysqlperformance = [
+        Perfobject('perf2',20)
+        ]
 
 def generatorfind(filepat,top):
     for path,dirlist,filelist in os.walk(top):

@@ -34,26 +34,35 @@ __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
 import MySQLdb
+# FIXME: from myconfig import mysqlconfig
+
 
 class Mysql():
     def __init__(self):
+        # FIXME: this ain't 2001
         self.name="mysql1"
+        self.dbuser='chris'
+        self.dbpass='Free1Kick'
+        self.db='chris'
+        self.server='florence'
+        
+        #FIXME: more
         MYSQLDICT = {}
         MYSQLDICT['Bytes_received'] = 0
         MYSQLDICT['Com_insert'] = 0
 
-        #FIXME: more
 
     def mysqlkgenerator():
         """ throwaway data generator """
         for i in MYSQLDICT.keys(): yield i
     
     def mysqlkvgenerator(mydict):
-        """ throwaway data generator """
+        """ throwaway data generator in 2-D """
 
         for (i,j) in mydict.keys(),mydict.values(): yield (i,j)
 
     def mysqliterator(mydict):
+        """ iterate over all items and print """
         for i,j in mydict.iteritems(): print i,j
 
 
@@ -71,11 +80,22 @@ class Mysql():
         self._printsqldata()
         del jmx
 
-def mysqlquery(mycursor,myquery="SELECT * FROM *"):
+def MySQLdbError(e):
+    """ raise an sql exception """
+    try:
+        debug.logger("MySQL error [%d]: %s" % (e.args[0],e.args[1]))
+    except IndexError:
+        debug.info("MySQL info : %s" % str(e)
+
+
+def mysqlquery(mycursor,myquery='SELECT * FROM *'):
     """ the anti-deluvian ACME MYSQL QUERY FUNCTION """
-    mycursor.execute(myquery)
-
-
+    try:
+        # boot the query if possible, catch indexerror
+        mycursor.execute(myquery)
+    except MySQLDb.Error, e:
+        raise MySQLdbError
+        
 def mysqlexecutequery(mycursor,myquery="SELECT * FROM *"):
     """ this returns values, so call the generators """
     mycursor.execute(myquery)
