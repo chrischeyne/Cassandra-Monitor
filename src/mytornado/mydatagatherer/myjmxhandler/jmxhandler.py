@@ -45,6 +45,7 @@ MYJMXDICT = {}
 class Error(Exception):
     """Base class for exceptions in this module."""
     pass
+
     
 class JVM_Import_Error(Error):
     """JVM no impor. do find / | grep libjvm.so"""
@@ -146,12 +147,14 @@ class Myjmx():
 
 
     def boot(self):
-        # test
+        #FIXME: re-add checkjdk; sort for import myconfig; myconfig.java_home
+
+        #Tue Nov 15 12:13:02 GMT 2011
         # checkjdk()
         jmx = JMX()
         self._printjmxdata()
         #print jmx.getattr('org.apache.cassandra.service', 'StorageService', 'LiveNodes')
-        #del jmx
+        del jmx
 
 
 if __name__ == '__main__':
@@ -160,6 +163,9 @@ if __name__ == '__main__':
     print "CASSANDRA JMX DATA...."
     #standard print function.
     #FIXME: move to dataanalysis.py
+    #FIXME: this is rubbish use a generator
+    # GENERATE(data) <-- http_client() --> tornado()
+    # ASYNC
 
     jmxhandler._printjmxdata()
 

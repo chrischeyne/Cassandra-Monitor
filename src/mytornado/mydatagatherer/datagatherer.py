@@ -34,8 +34,9 @@ def main():
     # FIXME: only load relevant modules using __ALL__
     
     import myjmxhandler.jmxhandler
+    import mysqlhandler.sqlhandler
+
     jmx = myjmxhandler.jmxhandler.Myjmx()
-    print "booting..()" 
     jmx.boot()
 
 

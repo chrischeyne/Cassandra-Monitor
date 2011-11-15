@@ -97,6 +97,9 @@ cassandraperf = [
         Perfobject('perf1',10)
         ]
 
+# MYSQL PERFORMANCE OBJECTS
+mysqlper
+
 
 def generatorfind(filepat,top):
     for path,dirlist,filelist in os.walk(top):
@@ -119,6 +122,7 @@ def generatorgrep(pat,lines):
 
 
 def fieldmap(dictseq,name,func):
+    """ map specific dict fields through a function """
     for d in dictseq:
         d[name] = func(d[name])
         yield d
