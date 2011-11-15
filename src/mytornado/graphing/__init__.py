@@ -14,10 +14,10 @@
 # under the License.
 
 """
-this module is the handler for my{jmx,cassandra...} data handlers
+Tests for 
 """
-import operator
-from functional import compose, partial
+
+# from import
 
 __author__ = "Chris T. Cheyne"
 __copyright__ = "Copyright 2011, The Cassandra Manager Project"
@@ -27,27 +27,4 @@ __version__ = "0.0.1"
 __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
-
-
-def main():
-    
-    # FIXME: only load relevant modules using __ALL__
-    # REPLACE WITH AN INIT SYSTEM!
-    # def __start(): __stop(whichhandler..)
-
-    import myjmxhandler.jmxhandler
-    import mysqlhandler.sqlhandler
-
-    jmx = myjmxhandler.jmxhandler.Myjmx()
-    jmx.boot()
-    
-    # note add daemon interface in figure
-    mysql = mysqlhandler.sqlhandler.Mysql()
-    mysql.boot()
-
-
-
-if __name__ == "__main__":
-    main()
-
 

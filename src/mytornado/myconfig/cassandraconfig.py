@@ -14,7 +14,8 @@
 # under the License.
 
 
-#Wed Nov  9 11:24:56 GMT 2011
+
+# Tue Nov 15 17:45:41 GMT 2011
 """
 this is our configuration area. From here we can determine, via YAML, which
 variables to operate on; e.g.
@@ -23,8 +24,9 @@ cluster 1 has jmx port 7198 but cluster 2 has 7199
 also determine where our java and python installs are
 
 """
+import yaml
 
-# from import
+
 
 __author__ = "Chris T. Cheyne"
 __copyright__ = "Copyright 2011, The Cassandra Manager Project"
@@ -35,13 +37,19 @@ __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
+class MyConfig():
+    def __init__(self):
+        self.configurationfile='cassandraconfig.yaml'
 
-import yaml
+        self.f = open(self.configurationfile)
+        self.myconfiguration = yaml.load(self.f)
+        self.f.close()
+        print "dumping config...."
+        yaml.dump(self.myconfiguration)
+        print "inside it we have...."
+        #print self.myconfiguration.defaultmysqldb
+        for k in self.myconfiguration: print k
 
-configurationfile='cassandraconfig.yaml'
-
-stream = file(configurationfile,'r')
-print yaml.dump(yaml.load(stream))
-
-
+if __name__ == "__main__":
+    myconf = MyConfig()
 

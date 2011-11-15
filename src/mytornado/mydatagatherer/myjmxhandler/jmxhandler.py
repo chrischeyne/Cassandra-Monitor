@@ -76,7 +76,7 @@ class JMX(object):
     def __init__(self):
         """ boot """
         print "....jmx.JMX()"
-        #FIXME: get from myconfig.cassandra
+        #FIXME: get from myconfig.cassandra.ring{x,y,z}
         self.host = 'localhost'
         self.port = 8080
         self.user = 'cassandra'
@@ -141,7 +141,8 @@ class Myjmx():
     def _printjmxdata(self):
         self.name = "jmx2"
         # make thread safe
-        print "printing..."
+        # FIXME: migrate to dataanalysis.py
+        print "....printing sorted dict of JMX values.."
         for key in sorted(MYJMXDICT.keys()):
             print key, MYJMXDICT[key]
 
@@ -161,7 +162,7 @@ if __name__ == '__main__':
     jmxhandler = Myjmx()
     jmxhandler.boot()
     print "CASSANDRA JMX DATA...."
-    #standard print function.
+    # standard print function.
     #FIXME: move to dataanalysis.py
     #FIXME: this is rubbish use a generator
     # GENERATE(data) <-- http_client() --> tornado()

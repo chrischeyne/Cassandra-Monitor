@@ -1,0 +1,10 @@
+#### t1.html
+{% extends "base.html" %}
+
+{% block title % }A bolder titled {% end %}
+
+{% block cassdata1 % }
+<li><span style="bold">{{ escape(data.name) }}</span></li>
+{% end %}
+
+
