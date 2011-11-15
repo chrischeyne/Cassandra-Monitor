@@ -6,6 +6,7 @@ WebOb==1.2b2
 distribute==0.6.19
 ezplot==0.1.0a4
 fanstatic==0.11.2
+functional==0.7.0
 ipython==0.11
 ipython-extensions==0.2
 js.jquery==1.6.1
@@ -13,6 +14,7 @@ js.jquery-flot==0.7-2
 logging==0.4.9.6
 matplotlib==1.0.1
 numpy==1.6.1
+pointfree==1.0.0
 py==1.4.5
 pysqlite==2.6.3
 pytest==2.1.3
