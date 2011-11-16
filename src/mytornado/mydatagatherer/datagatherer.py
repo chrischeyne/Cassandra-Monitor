@@ -36,7 +36,7 @@ def main():
     # def __start(): __stop(whichhandler..)
 
     import myjmxhandler.jmxhandler
-    import mysqlhandler.sqlhandler
+    import mymysqlhandler.sqlhandler
 
     jmx = myjmxhandler.jmxhandler.Myjmx()
     jmx.boot()

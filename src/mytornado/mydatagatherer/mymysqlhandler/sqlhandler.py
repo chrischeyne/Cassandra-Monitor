@@ -38,6 +38,7 @@ import MySQLdb
 
 def MySQLdbError(e):
     """ raise an sql exception """
+
     try:
         debug.logger("MySQL error [%d]: %s" % (e.args[0],e.args[1]))
     except IndexError:
@@ -93,9 +94,7 @@ class Mysql():
         #FIXME: subclass this. All of it.
         #Tue Nov 15 14:41:42 GMT 2011
         MYSQL_STATUS_CMD = "show status where variable_name = "
-        MYSQL_PARSER="mysqladmin extended-status -p" . MYCONFIG.MYSQLPASS + \
-                "-i1 -r"
-         
+        MYSQL_PARSER = "mysqladmin extended-status -p" + MYCONFIG.MYSQLPASS + "-i1 -r"
         db = MySQLdb.connect(host="florence",user="root",passwd="secret")
         MYCURSOR = db.cursor()
         #Tue Nov 15 12:13:02 GMT 2011

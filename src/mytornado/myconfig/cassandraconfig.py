@@ -45,10 +45,7 @@ class MyConfig():
         self.myconfiguration = yaml.load(self.f)
         self.f.close()
         print "dumping config...."
-        yaml.dump(self.myconfiguration)
-        print "inside it we have...."
-        #print self.myconfiguration.defaultmysqldb
-        for k in self.myconfiguration: print k
+        print yaml.dump(self.myconfiguration,default_flow_style=False)
 
 if __name__ == "__main__":
     myconf = MyConfig()
