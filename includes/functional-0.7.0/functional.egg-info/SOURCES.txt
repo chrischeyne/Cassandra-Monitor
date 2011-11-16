@@ -1,0 +1,15 @@
+CHANGELOG
+MANIFEST.in
+README
+examples.py
+setup.cfg
+setup.py
+test.py
+functional/__init__.py
+functional.egg-info/PKG-INFO
+functional.egg-info/SOURCES.txt
+functional.egg-info/dependency_links.txt
+functional.egg-info/top_level.txt
+tests/__init__.py
+tests/support.py
+tests/test_functional.py

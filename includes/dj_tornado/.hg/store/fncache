@@ -1,0 +1,4 @@
+data/dev.db.i
+data/dj_tornado.py.i
+data/templates/form.html.i
+data/templates/index.html.i
