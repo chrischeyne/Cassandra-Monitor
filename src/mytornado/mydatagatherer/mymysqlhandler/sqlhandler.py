@@ -36,6 +36,31 @@ __status__ = "Alpha"
 import MySQLdb
 # FIXME: from myconfig import mysqlconfig
 
+def MySQLdbError(e):
+    """ raise an sql exception """
+    try:
+        debug.logger("MySQL error [%d]: %s" % (e.args[0],e.args[1]))
+    except IndexError:
+        debug.info("MySQL info : %s" % str(e))
+        pass
+
+def mysqlquery(mycursor,myquery='SELECT * FROM *'):
+    """ the anti-deluvian ACME MYSQL QUERY FUNCTION """
+    try:
+        # boot the query if possible, catch indexerror
+        mycursor.execute(myquery)
+    except MySQLDb.Error, e:
+        raise MySQLdbError
+        
+def mysqlexecutequery(mycursor,myquery="SELECT * FROM *"):
+    """ this returns values, so call the generators """
+    mycursor.execute(myquery)
+    result = cursor.fetchmany()
+    # FIXME: in future call the generators for real-time display
+    # FIXME: also call dataanalysis.sorted()
+    mysqliterator(result)
+
+
 
 class Mysql():
     def __init__(self):
@@ -64,8 +89,6 @@ class Mysql():
     def mysqliterator(mydict):
         """ iterate over all items and print """
         for i,j in mydict.iteritems(): print i,j
-
-
     def boot(self):
         #FIXME: subclass this. All of it.
         #Tue Nov 15 14:41:42 GMT 2011
@@ -79,30 +102,6 @@ class Mysql():
         mysql = Mysql()
         self._printsqldata()
         del jmx
-
-def MySQLdbError(e):
-    """ raise an sql exception """
-    try:
-        debug.logger("MySQL error [%d]: %s" % (e.args[0],e.args[1]))
-    except IndexError:
-        debug.info("MySQL info : %s" % str(e)
-
-
-def mysqlquery(mycursor,myquery='SELECT * FROM *'):
-    """ the anti-deluvian ACME MYSQL QUERY FUNCTION """
-    try:
-        # boot the query if possible, catch indexerror
-        mycursor.execute(myquery)
-    except MySQLDb.Error, e:
-        raise MySQLdbError
-        
-def mysqlexecutequery(mycursor,myquery="SELECT * FROM *"):
-    """ this returns values, so call the generators """
-    mycursor.execute(myquery)
-    result = cursor.fetchmany()
-    # FIXME: in future call the generators for real-time display
-    # FIXME: also call dataanalysis.sorted()
-    mysqliterator(result)
 
 
 if __name__ == '__main__':

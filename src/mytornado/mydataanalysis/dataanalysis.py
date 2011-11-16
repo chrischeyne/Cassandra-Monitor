@@ -21,7 +21,7 @@ e.g. sorting dictionaries of JMX results
 from operator import itemgetter, attrgetter
 import os
 import fnmatch
-
+import time
 
 __author__ = "Chris T. Cheyne"
 __copyright__ = "Copyright 2011, The Cassandra Manager Project"
@@ -117,6 +117,7 @@ def generatorcat(sources):
             yield item
 
 def generatorgrep(pat,lines):
+    """ match a specific regex to a sequence of lines """
     patc = re.compile(pat)
     for line in lines:
         if patc.search(line): yield line
@@ -129,7 +130,35 @@ def fieldmap(dictseq,name,func):
         d[name] = func(d[name])
         yield d
 
+def generatoropen(filenames):
+    """ opens compressed cassandra logs """
+    for name in filenames:
+        if name.endswith("*.gz"):
+            yield gzip.open(name)
+        elif name.endswith(".bz2"):
+            yield bz2.BZ2File(name)
+        else:
+            yield open(name)
 
+def follow(myfile):
+    """ emulates tail -f """
+    myfile.seek(0,2)
+    while True:
+        line = myfile.readline()
+        if not line:
+            tine.sleep(0.1)
+            continue
+        yield line
+
+def consumequeue(myqueue):
+    """ munch a queue, catch the end """
+    while True:
+        item = myqueue.get()
+        if item is StopIteration: break
+        yield item
+
+
+    
 
 # random code to be sorted
 # sorted("This is a test string from Me".split(),key=str.lower)

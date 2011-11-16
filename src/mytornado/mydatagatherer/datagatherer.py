@@ -42,8 +42,8 @@ def main():
     jmx.boot()
     
     # note add daemon interface in figure
-    mysql = mysqlhandler.sqlhandler.Mysql()
-    mysql.boot()
+    sql = mymysqlhandler.sqlhandler.Mysql()
+    sql.boot()
 
 
 
