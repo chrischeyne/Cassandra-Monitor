@@ -62,6 +62,7 @@ class errorAttributes(Error):
     
 class checkjdk(object):
     """start java"""
+    # FIXMEME: myconfig.ring0.mylibjvm
     def __init__(self,libjvm='/opt/jdk1.6.0_27/jre/lib/amd64/server/libjvm.so'):
         try:
             jpype.startJVM(libjvm)

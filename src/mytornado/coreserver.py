@@ -16,11 +16,11 @@
 """
 core management server.  Handles: -
 
-mainsite/myjmxminer
+mainsite/my{*}
 mainsite/djangotornado
 mainsite/corefetcher 
 
-FIXME: ...
+FIXME: control this from .. main.py (start,stop,restart..) 
 
 
 """
@@ -34,30 +34,40 @@ __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
-# FIXME: reference localized python source
-__all__ = ["mycassandramanager","myconfig","mydataanalysis","mydatagatherer"]
+# __all__ = ["mycassandramanager","myconfig","mydataanalysis","mydatagatherer"]
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
-
-import tornado.httpserver
-import tornado.ioloop
-import tornado.options
-import tornado.web
-from tornado.options import define, options
-
-# FIXME: remap this to import myconfig; myconfig.tornado.port
-
-define("port", default=8888, help="default to port 8888", type=int)
-
-
+# CONFIGURATION HANDLER
+# myconfig/config.py
+import myconfig
+myconf = myconfig.config.MyConfig()
+myconf.boot()
+sys.exit(1)
 
 
 def main():
-    """ handle the homepage """
-    """ boot the handlers """
-    import sys,os
+    """ import core python modules """
+        # IMPORT DJANGO HANDLER
+    # FIXME: import djangotornado as dt
+
+    # IMPORT CASSANDRA MANAGER
+    # FIXME: import mycassandramanager
     
-    # IMPORT DJANGO HANDLER
-    import djangotornado as dt
+    # IMPORT CONFIGURATION HANDLER
+    # BOOT AND CONFIGURE TORNADO
+    import tornado.httpserver
+    import tornado.ioloop
+    import tornado.options
+    import tornado.web
+    # FIXME: remap this to import myconfig; myconfig.tornado.port
+    from tornado.options import define, options
+
+
+    define("port", default=8888, help="default to port 8888", type=int)
+
+
 
     ROOT = os.path.normpath(os.path.dirname(__file__))
     tornado.options.parse_command_line()
@@ -82,5 +92,6 @@ def main():
 
 
 # note we should be called from ./main.py
+# main.py is always the handler
 if __name__ == "__main__":
     main()

@@ -13,20 +13,11 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-
-
-# Tue Nov 15 17:45:41 GMT 2011
 """
-this is our configuration area. From here we can determine, via YAML, which
-variables to operate on; e.g.
-cluster 1 has jmx port 7198 but cluster 2 has 7199
-
-also determine where our java and python installs are
-
+Tests for 
 """
-import yaml
 
-
+# from import
 
 __author__ = "Chris T. Cheyne"
 __copyright__ = "Copyright 2011, The Cassandra Manager Project"
@@ -37,16 +28,11 @@ __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
-class MyConfig():
-    def __init__(self):
-        self.configurationfile='cassandraconfig.yaml'
+def main():
+    """ main boot handler """
+    pass
 
-        self.f = open(self.configurationfile)
-        self.myconfiguration = yaml.load(self.f)
-        self.f.close()
-        print "dumping config...."
-        print yaml.dump(self.myconfiguration,default_flow_style=False)
 
-if __name__ == "__main__":
-    myconf = MyConfig()
+if __name__ == '__main__':
+    main()
 

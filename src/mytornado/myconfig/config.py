@@ -13,14 +13,19 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-"""
-purely boots mytornado/main.py
 
-FIXME: update for gc and other requriements 
-FIXME: change name from __init__
-FIXME: this should be a handler to control Exceptions in mytornado 
+
+# Tue Nov 15 17:45:41 GMT 2011
+"""
+this is our configuration area. From here we can determine, via YAML, which
+variables to operate on; e.g.
+cluster 1 has jmx port 7198 but cluster 2 has 7199
+
+also determine where our java and python installs are
 
 """
+import yaml
+
 
 
 __author__ = "Chris T. Cheyne"
@@ -32,19 +37,23 @@ __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
-__all__ = ["mytornado"]
-import sys
-import os
+class MyConfig():
+    def __init__(self):
+        self.configurationfile='config.yaml'
+        print "MyConfig() instigated"
+    def boot(self):
+        self.f = open(self.configurationfile)
+        self.conf = yaml.load(self.f)
+        self.f.close()
+        print "dumping config...."
+        print yaml.dump(self.conf,default_flow_style=False)
 
-
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-print "Cassandra Manager " + __version__ 
-print __copyright__
-
-# boot the core handler
-from mytornado import main as boot
-boot.main()
-
+if __name__ == "__main__":
+    myconf = MyConfig()
+    myconf.boot()
+    print "mysql host" 
+    print myconf.conf['mysql']['host']
+    print myconf.conf['ring0']['mysqluser']
 
 
 
