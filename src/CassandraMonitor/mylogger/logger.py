@@ -28,9 +28,17 @@ __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
-def main():
-    """ main boot handler """
-    pass
+
+class MyLogger():
+    """ returns an instance of the Python logger. """
+    """ designed to allow <MYPROGRAMNAME><classinstance><fn><timestamp> """
+    """ message type commenture """
+
+    def __init__(self):
+        self.boot()
+    def boot():
+        """ main boot handler """
+        pass
 
 
 if __name__ == '__main__':

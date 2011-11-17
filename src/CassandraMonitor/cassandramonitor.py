@@ -25,7 +25,7 @@ __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
-__all__ = ["coreserver"]
+__all__ = ["coreserver","mydatagatherer","myconfig","mylogger"]
 
 import sys
 import os
@@ -36,8 +36,17 @@ currentfolder = os.path.dirname(os.path.abspath(__file__))
 if currentfolder not in sys.path: sys.path.insert(0,currentfolder)
 
 import coreserver as cs
-print "cs.main() booting..."
+import mydatagatherer.datagatherer as dg
+import myconfig.config as config
+import mylogger.logger as loggingsystem
+
+# boot the objects
+MYCONFIG = config.MyConfig()
+MYDATA = dg.DataGatherer()
+MYLOG = loggingsystem.Logger()
+# core boot
 cs.main()
+
 
 
 

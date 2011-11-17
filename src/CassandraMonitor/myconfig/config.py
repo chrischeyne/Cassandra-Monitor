@@ -35,12 +35,17 @@ __version__ = "0.0.1"
 __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
+import os
 
+# FIXME: obvious hack
+CONFIG_FILE= os.getcwd() + '/CassandraMonitor/myconfig/config.yaml'
 class MyConfig():
     def __init__(self):
-        self.configurationfile='config.yaml'
+        self.boot()
     
     def boot(self):
+        # FIXME: exceptions, exceptions dear oh dear.
+        self.configurationfile = CONFIG_FILE
         self.f = open(self.configurationfile)
         self.conf = yaml.load(self.f)
         self.f.close()

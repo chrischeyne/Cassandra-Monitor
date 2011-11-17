@@ -34,7 +34,6 @@ __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
 import MySQLdb
-# FIXME: from myconfig import mysqlconfig
 
 def MySQLdbError(e):
     """ raise an sql exception """

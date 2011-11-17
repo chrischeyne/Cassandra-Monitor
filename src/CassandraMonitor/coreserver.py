@@ -39,17 +39,14 @@ __all__ = ["mycassandramanager","myconfig","mydataanalysis","mydatagatherer"]
 import sys
 import os
 
-sys.path.append("/myconfig")
-
-# FIXME: get rid of this once packaging begins
 
 def main():
     """ our default bootstrapper. calls each module in turn. """
     """ diagramatically, this is: - """
  
     # CONFIGURATION HANDLER
+    CONFIG.bollocks()
 
-    import myconfig.MyConfig
 
     # import mydatagatherer.datagatherer
     # IMPORT DJANGO HANDLER
@@ -67,12 +64,9 @@ def main():
     # FIXME: remap this to import myconfig; myconfig.tornado.port
     from tornado.options import define, options
 
-
     define("port", default=8888, help="default to port 8888", type=int)
 
 
-
-    ROOT = os.path.normpath(os.path.dirname(__file__))
     tornado.options.parse_command_line()
     coreserver = tornado.web.Application([
         # root, cacti, ganglia, graph (RT graph)

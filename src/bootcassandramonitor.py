@@ -41,7 +41,13 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
+print "CASSANDRA MONITOR VERSION " + __version__  + " booting..."
+print __copyright__
+print __maintainer__
 
+
+# fixme: some init-style scripting here
+#
 # boot the core handler
 from CassandraMonitor.cassandramonitor import main as boot
 boot.main()

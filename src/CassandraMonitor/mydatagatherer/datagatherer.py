@@ -28,26 +28,29 @@ __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
-
-def main():
+class DataGatherer():
+    def __init__(self):
+        self.main()
     
-    # FIXME: only load relevant modules using __ALL__
-    # REPLACE WITH AN INIT SYSTEM!
-    # def __start(): __stop(whichhandler..)
 
-    import myjmxhandler.jmxhandler
-    import mymysqlhandler.sqlhandler
+    def main(self):
+        
+        # FIXME: only load relevant modules using __ALL__
+        # REPLACE WITH AN INIT SYSTEM!
+        # def __start(): __stop(whichhandler..)
 
-    jmx = myjmxhandler.jmxhandler.Myjmx()
-    jmx.boot()
-    
-    # note add daemon interface in figure
-    sql = mymysqlhandler.sqlhandler.Mysql()
-    sql.boot()
+        import myjmxhandler.jmxhandler
+        import mymysqlhandler.sqlhandler
 
-
+        self.jmx = myjmxhandler.jmxhandler.Myjmx()
+        self.jmx.boot()
+        
+        # note add daemon interface in figure
+        self.sql = mymysqlhandler.sqlhandler.Mysql()
+        self.sql.boot()
 
 if __name__ == "__main__":
-    main()
+    data = DataGatherer()
+
 
 

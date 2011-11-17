@@ -124,7 +124,6 @@ class JMX(object):
 
 class Myjmx():
     def __init__(self):
-        self.name="jmx1"
         
         # what we monitor goes here for i in jmx
         # if 'z' in MYJMXDICT print MYJMXDICT['z']
