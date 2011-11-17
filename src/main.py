@@ -36,13 +36,14 @@ __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
 __all__ = ["CassandraMonitor"]
+
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
 
 # boot the core handler
-from CassandraMonitor import main as boot
+from CassandraMonitor.cassandramonitor import main as boot
 boot.main()
 
 

@@ -12,7 +12,13 @@ corefetcher.py              - core tornado http client
 .......mycassandrahandler           - this does more performance-orientated stats
 .......mycassandrahmxhandler        - this is for internal cassandra JMX info
 
+graphing/                   - templates for graphing systems (+flot)
+graphs/                     - graph generation system
+js/                         - js libraries (usually flot)
+mylogger/                   - core logging system logger
+templates/                  - temporary template area for testing django/flot
+db/                         - temporary sqlite db area for testing
 
 
+Thu Nov 17 14:27:22 GMT 2011
 
-Thu Nov 17 13:15:20 GMT 2011

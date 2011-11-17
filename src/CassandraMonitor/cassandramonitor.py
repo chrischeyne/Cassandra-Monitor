@@ -29,9 +29,11 @@ __all__ = ["coreserver"]
 
 import sys
 import os
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
-# FIXME: catch coreserver.terminate() and garbage collection
+
+# FIXME: get rid of this once packaging begins
+currentfolder = os.path.dirname(os.path.abspath(__file__))
+if currentfolder not in sys.path: sys.path.insert(0,currentfolder)
 
 import coreserver as cs
 print "cs.main() booting..."

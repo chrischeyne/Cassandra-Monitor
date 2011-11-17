@@ -38,17 +38,20 @@ __all__ = ["mycassandramanager","myconfig","mydataanalysis","mydatagatherer"]
 
 import sys
 import os
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
+sys.path.append("/myconfig")
+
+# FIXME: get rid of this once packaging begins
 
 def main():
     """ our default bootstrapper. calls each module in turn. """
     """ diagramatically, this is: - """
  
     # CONFIGURATION HANDLER
-    import myconfig.config
 
-   
+    import myconfig.MyConfig
+
+    # import mydatagatherer.datagatherer
     # IMPORT DJANGO HANDLER
     # FIXME: import djangotornado as dt
    

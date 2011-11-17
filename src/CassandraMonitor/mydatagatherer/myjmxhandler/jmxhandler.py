@@ -140,6 +140,8 @@ class Myjmx():
         
         
     def _printjmxdata(self):
+        """ print internal jmx data """
+        
         self.name = "jmx2"
         # make thread safe
         # FIXME: migrate to dataanalysis.py
@@ -150,7 +152,6 @@ class Myjmx():
 
     def boot(self):
         #FIXME: re-add checkjdk; sort for import myconfig; myconfig.java_home
-
         #Tue Nov 15 12:13:02 GMT 2011
         # checkjdk()
         jmx = JMX()
@@ -162,13 +163,6 @@ class Myjmx():
 if __name__ == '__main__':
     jmxhandler = Myjmx()
     jmxhandler.boot()
-    print "CASSANDRA JMX DATA...."
-    # standard print function.
-    #FIXME: move to dataanalysis.py
-    #FIXME: this is rubbish use a generator
-    # GENERATE(data) <-- http_client() --> tornado()
-    # ASYNC
-
     jmxhandler._printjmxdata()
 
 
