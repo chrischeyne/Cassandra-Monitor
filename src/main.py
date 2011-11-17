@@ -14,7 +14,10 @@
 # under the License.
 
 """
-purely boots mytornado/main.py
+
+THIS IS A TEMPORARY CLASS FOR DEBUGGING
+
+purely boots CassandraMonitor/cassandramonitor.py
 
 FIXME: update for gc and other requriements 
 FIXME: change name from __init__
@@ -32,14 +35,14 @@ __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
-__all__ = ["mytornado"]
+__all__ = ["CassandraMonitor"]
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
 
 # boot the core handler
-from mytornado import main as boot
+from CassandraMonitor import main as boot
 boot.main()
 
 
