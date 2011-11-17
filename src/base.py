@@ -28,3 +28,11 @@ __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
+def main():
+    """ main boot handler """
+    pass
+
+
+if __name__ == '__main__':
+    main()
+

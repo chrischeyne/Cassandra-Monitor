@@ -1,8 +1,25 @@
 ---
-myconfiguration: myconfig
-date: 1234
-customer:
-    given:  bob
-    family: shite
+defaults: allrings 
+mysql:
+    user:   chris
+    host:   florence
+    db:     chris
+    pass:   Free1Kick
+
+ring0: live
+ring0:
+    mysqluser:   chris
+    mysqlhost:   florence
+    mysqldb:     chris
+    mysqlpass:   Free1Kick
+    cassuser:   cassuser
+    casspass:   casspass
+    casskeysp:  Keyspace1
+    cassrpc:    9160
+    cassjmx:    7199
+    cassstorage:    6999
+    cassmx4j:   7197
+    pythonhome: /opt/python-2.7.2
+    javahome:   /opt/jdk1.6.0_27
 ...
 

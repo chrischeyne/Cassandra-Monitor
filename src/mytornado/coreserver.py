@@ -35,6 +35,9 @@ __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
 # FIXME: reference localized python source
+__all__ = ["mycassandramanager","myconfig","mydataanalysis","mydatagatherer"]
+
+
 import tornado.httpserver
 import tornado.ioloop
 import tornado.options

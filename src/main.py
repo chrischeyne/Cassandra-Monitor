@@ -14,10 +14,14 @@
 # under the License.
 
 """
-Tests for 
+purely boots mytornado/main.py
+
+FIXME: update for gc and other requriements 
+FIXME: change name from __init__
+FIXME: this should be a handler to control Exceptions in mytornado 
+
 """
 
-# from import
 
 __author__ = "Chris T. Cheyne"
 __copyright__ = "Copyright 2011, The Cassandra Manager Project"
@@ -27,4 +31,17 @@ __version__ = "0.0.1"
 __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
+
+__all__ = ["mytornado","myconfig"]
+import sys,os
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+print "Cassandra Manager " + __version__ 
+print __copyright__
+
+from mytornado import main as boot
+from myconfig import MyConfig as myconf
+boot.main(myconf)
+
+
+
 
