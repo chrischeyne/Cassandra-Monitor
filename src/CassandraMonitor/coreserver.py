@@ -34,24 +34,24 @@ __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
-# __all__ = ["mycassandramanager","myconfig","mydataanalysis","mydatagatherer"]
+__all__ = ["mycassandramanager","myconfig","mydataanalysis","mydatagatherer"]
+
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
-# CONFIGURATION HANDLER
-# myconfig/config.py
-import myconfig
-myconf = myconfig.config.MyConfig()
-myconf.boot()
-sys.exit(1)
-
 
 def main():
-    """ import core python modules """
-        # IMPORT DJANGO HANDLER
-    # FIXME: import djangotornado as dt
+    """ our default bootstrapper. calls each module in turn. """
+    """ diagramatically, this is: - """
+ 
+    # CONFIGURATION HANDLER
+    import myconfig.config
 
+   
+    # IMPORT DJANGO HANDLER
+    # FIXME: import djangotornado as dt
+   
     # IMPORT CASSANDRA MANAGER
     # FIXME: import mycassandramanager
     

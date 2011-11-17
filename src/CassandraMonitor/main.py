@@ -12,6 +12,10 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
+
+"""
+main imports core*.py and performs any clean-up upon their termination
+"""
 __author__ = "Chris T. Cheyne"
 __copyright__ = "Copyright 2011, The Cassandra Manager Project"
 __credits__ = ["Chris Cheyne"]
@@ -21,14 +25,18 @@ __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
+__all__ = ["coreserver"]
 
-"""
-main imports core*.py and performs any clean-up upon their termination
-"""
-# FIXME: reference by module above __all__
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+
 # FIXME: catch coreserver.terminate() and garbage collection
+
 import coreserver as cs
+print "cs.main() booting..."
 cs.main()
+
 
 
 

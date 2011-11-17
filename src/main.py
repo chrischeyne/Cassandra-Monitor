@@ -35,11 +35,8 @@ __status__ = "Alpha"
 __all__ = ["mytornado"]
 import sys
 import os
-
-
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-print "Cassandra Manager " + __version__ 
-print __copyright__
+
 
 # boot the core handler
 from mytornado import main as boot

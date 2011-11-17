@@ -27,7 +27,6 @@ also determine where our java and python installs are
 import yaml
 
 
-
 __author__ = "Chris T. Cheyne"
 __copyright__ = "Copyright 2011, The Cassandra Manager Project"
 __credits__ = ["Chris Cheyne"]
@@ -40,13 +39,21 @@ __status__ = "Alpha"
 class MyConfig():
     def __init__(self):
         self.configurationfile='config.yaml'
-        print "MyConfig() instigated"
+    
     def boot(self):
         self.f = open(self.configurationfile)
         self.conf = yaml.load(self.f)
         self.f.close()
         print "dumping config...."
         print yaml.dump(self.conf,default_flow_style=False)
+
+    def updateattr(rowkey,colname,value):
+        """ important. This updates live running config """
+        """ conf.updateattr(ring0,mysqldb,newdatabasename) """
+        self.conf['rowkey']['colname'] = value
+        # FIXME: write new config file immediately
+        # self.f ...
+
 
 if __name__ == "__main__":
     myconf = MyConfig()
