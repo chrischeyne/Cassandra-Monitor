@@ -18,6 +18,12 @@ this module is the handler for my{jmx,cassandra...} data handlers
 """
 import operator
 from functional import compose, partial
+import mylogger.logger as loggingsystem
+SYSLOG = loggingsystem.MyLogger()
+SYSLOG.l.debug('booting....')
+import myconfig.config as config
+SYSCONFIG = config.MyConfig()
+SYSLOG.l.info('mysql host is %s ' % SYSCONFIG.conf['mysql']['host'])
 
 __author__ = "Chris T. Cheyne"
 __copyright__ = "Copyright 2011, The Cassandra Manager Project"

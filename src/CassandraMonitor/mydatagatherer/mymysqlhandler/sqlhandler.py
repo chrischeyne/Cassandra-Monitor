@@ -35,7 +35,12 @@ __status__ = "Alpha"
 
 # MySQL handler
 import MySQLdb
-print "sqlhandler.py: mysql host" , SYSCONFIG.conf['mysql']['host']
+
+SYSLOG = loggingsystem.MyLogger()
+SYSLOG.l.debug('booting....')
+import myconfig.config as config
+SYSCONFIG = config.MyConfig()
+SYSLOG.l.info('mysql host is %s ' % SYSCONFIG.conf['mysql']['host'])
 
 def MySQLdbError(e):
     """ raise an sql exception """

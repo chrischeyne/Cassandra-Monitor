@@ -50,7 +50,7 @@ class MyLogger():
         myformatter = logging.Formatter(myformat)
         ch.setFormatter(myformatter)
         self.l.addHandler(ch)
-        self.l.info('booting...')
+        self.l.debug('booting...')
 
     # testing for shared state
     def setvar(self,val):

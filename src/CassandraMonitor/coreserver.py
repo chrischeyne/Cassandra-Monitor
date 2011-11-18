@@ -38,12 +38,14 @@ __all__ = ["mycassandramanager","myconfig","mydataanalysis","mydatagatherer"]
 
 import sys
 import os
-#import myconfig.config as config
-import mylogger.logger as loggingsystem
-#SYSCONFIG = config.MyConfig()
-SYSLOG = loggingsystem.MyLogger()
-SYSLOG.l.info('booting....')
 
+import mylogger.logger as loggingsystem
+SYSLOG = loggingsystem.MyLogger()
+SYSLOG.l.debug('booting....')
+import myconfig.config as config
+SYSCONFIG = config.MyConfig()
+SYSLOG.l.info('mysql host is %s ' % SYSCONFIG.conf['mysql']['host'])
+#SYSCONFIG.dumpconfig()
 
 def main():
 

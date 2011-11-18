@@ -35,21 +35,29 @@ __version__ = "0.0.1"
 __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
+
 import os
+import mylogger.logger as loggingsystem
+SYSLOG = loggingsystem.MyLogger()
+SYSLOG.l.debug('booting....')
+
 
 # FIXME: obvious hack must be fixed to point to
 # src/myconfig/config.yaml
 CONFIG_FILE= os.getcwd() + '/CassandraMonitor/myconfig/config.yaml'
 class MyConfig():
+    """ returns a configuration holding object """
+    __shared_state = {}
     def __init__(self):
+        self.__dict__ = self.__shared_state
         self.boot()
     
     def boot(self):
         self.configurationfile = CONFIG_FILE
         with open(self.configurationfile) as self.f:
             self.conf = yaml.load(self.f)
-            print "dumping config...."
-            print yaml.dump(self.conf,default_flow_style=False)
+            SYSLOG.l.info("self.conf['mysql']['host'] = %s" % \
+                     self.conf['mysql']['host'])
 
     def updateattr(rowkey,colname,value):
         """ important. This updates live running config """
@@ -57,6 +65,10 @@ class MyConfig():
         self.conf['rowkey']['colname'] = value
         # FIXME: write new config file immediately
         # self.f ...
+    def dumpconfig(self):
+        """ dumps the current running config to stdout """
+        print yaml.dump(self.conf,default_flow_style=False)
+
 
 
 if __name__ == "__main__":
