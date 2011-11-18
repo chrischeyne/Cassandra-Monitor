@@ -37,7 +37,8 @@ __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 import os
 
-# FIXME: obvious hack
+# FIXME: obvious hack must be fixed to point to
+# src/myconfig/config.yaml
 CONFIG_FILE= os.getcwd() + '/CassandraMonitor/myconfig/config.yaml'
 class MyConfig():
     def __init__(self):
