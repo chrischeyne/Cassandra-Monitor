@@ -34,9 +34,11 @@ class MyLogger():
     """ returns an instance of the Python logger. """
     """ designed to allow <MYPROGRAMNAME><classinstance><fn><timestamp> """
     """ message type commenture """
-
+    __shared_state = {}
     l = None
+    myvar = '42'
     def __init__(self):
+        self.__dict__ = self.__shared_state
         self.boot()
     def boot(self):
         """ main boot handler """
@@ -44,16 +46,23 @@ class MyLogger():
         self.l.setLevel(logging.DEBUG)
         ch = logging.StreamHandler()
         ch.setLevel(logging.DEBUG)
-        myformat = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+        myformat = '%(asctime)s - %(name)s - %(levelname)s - %(filename)s - %(funcName)s - %(message)s'
         myformatter = logging.Formatter(myformat)
         ch.setFormatter(myformatter)
         self.l.addHandler(ch)
-        self.l.info('logger.py MyLogger() booting')
+        self.l.info('booting...')
+
+    # testing for shared state
+    def setvar(self,val):
+        self.myvar=val
+    def getvar(self): return self.myvar
         
 def main():
     SYSLOG = MyLogger()
-    SYSLOG.l.warn('BOOTED!')
-    
+    SYSLOG.l.warn('...BOOTED! ' +SYSLOG.getvar())
+    SYSLOG.setvar('91')
+    SYSLOG.l.warn('Changed Var to  ' +SYSLOG.getvar())
+
 if __name__ == '__main__':
     main()
 

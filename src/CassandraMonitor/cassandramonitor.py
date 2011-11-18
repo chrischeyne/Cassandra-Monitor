@@ -43,11 +43,8 @@ import myconfig.config as config
 import mylogger.logger as loggingsystem
 SYSCONFIG = config.MyConfig()
 SYSLOG = loggingsystem.MyLogger()
-SYSLOG.l.info('cassandramonitor - BOOTING...')
+SYSLOG.l.info('booting....')
 # boot data gathering subsystem
-import mydatagatherer.datagatherer as dg
-MYDATA = dg.DataGatherer()
-
 # boot the main handler for all modules 
 cs.main()
 

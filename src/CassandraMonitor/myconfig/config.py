@@ -45,13 +45,11 @@ class MyConfig():
         self.boot()
     
     def boot(self):
-        # FIXME: exceptions, exceptions dear oh dear.
         self.configurationfile = CONFIG_FILE
-        self.f = open(self.configurationfile)
-        self.conf = yaml.load(self.f)
-        self.f.close()
-        print "dumping config...."
-        print yaml.dump(self.conf,default_flow_style=False)
+        with open(self.configurationfile) as self.f:
+            self.conf = yaml.load(self.f)
+            print "dumping config...."
+            print yaml.dump(self.conf,default_flow_style=False)
 
     def updateattr(rowkey,colname,value):
         """ important. This updates live running config """

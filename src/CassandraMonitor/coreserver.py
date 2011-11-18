@@ -38,15 +38,19 @@ __all__ = ["mycassandramanager","myconfig","mydataanalysis","mydatagatherer"]
 
 import sys
 import os
+#import myconfig.config as config
+import mylogger.logger as loggingsystem
+#SYSCONFIG = config.MyConfig()
+SYSLOG = loggingsystem.MyLogger()
+SYSLOG.l.info('booting....')
 
 
 def main():
+
     """ our default bootstrapper. calls each module in turn. """
     """ diagramatically, this is: - """
  
     # CONFIGURATION HANDLER
-    CONFIG.bollocks()
-
 
     # import mydatagatherer.datagatherer
     # IMPORT DJANGO HANDLER
@@ -88,7 +92,6 @@ def main():
     tornado.ioloop.IOLoop.instance().start()
 
 
-# note we should be called from ./main.py
-# main.py is always the handler
+# note we should be called from cassandramonitor.py
 if __name__ == "__main__":
     main()
