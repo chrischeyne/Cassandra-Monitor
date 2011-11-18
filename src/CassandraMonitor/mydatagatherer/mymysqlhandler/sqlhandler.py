@@ -22,7 +22,6 @@ e.g. d = {'bytes_received':40000, 'yada':yada, 'Com_insert',42}.dictsort()
 FIXME: sqlhandler(manager.JmxHandler)
 """
 
-# from import
 
 __author__ = "Chris T. Cheyne"
 __copyright__ = "Copyright 2011, The Cassandra Manager Project"
@@ -35,21 +34,39 @@ __status__ = "Alpha"
 
 # MySQL handler
 import MySQLdb
-
-SYSLOG = loggingsystem.MyLogger()
-SYSLOG.l.debug('booting....')
 import myconfig.config as config
+
+# TEMPORARY MODULE TESTING - UNCOMMENT LATER
+# FIXME:
+# Fri Nov 18 15:53:23 GMT 2011
+
+
+#import mylogger.logger as loggingsystem
 SYSCONFIG = config.MyConfig()
-SYSLOG.l.info('mysql host is %s ' % SYSCONFIG.conf['mysql']['host'])
+#SYSLOG = loggingsystem.MyLogger()
+#SYSLOG.l.debug('booting....')
+#SYSLOG.l.info('mysql host is %s ' % SYSCONFIG.conf['mysql']['host'])
 
-def MySQLdbError(e):
-    """ raise an sql exception """
+class MyDatabaseConnection():
+    """ interface to MySQL """
+    def cursor():
+        """ returns a db object """
+        db = MySQLdb.connect(\
+            host=SYSCONFIG.conf['mysql']['host'], \
+            user=SYSCONFIG.conf['mysql']['user'], \
+            passwd=SYSCONFIG.conf['mysql']['pass'])
 
-    try:
-        debug.logger("MySQL error [%d]: %s" % (e.args[0],e.args[1]))
-    except IndexError:
-        debug.info("MySQL info : %s" % str(e))
-        pass
+        return db
+
+    def MySQLdbError(e):
+        """ raise an mysql exception """
+        try:
+            print "mysql error"
+            #SYSLOG.l.warn("MySQL error [%d]: %s" % (e.args[0],e.args[1]))
+        except IndexError:
+            print "indexerror"
+            #SYSLOG.l.warn("MySQL info : %s" % str(e))
+            pass
 
 def mysqlquery(mycursor,myquery='SELECT * FROM *'):
     """ the anti-deluvian ACME MYSQL QUERY FUNCTION """
@@ -67,18 +84,9 @@ def mysqlexecutequery(mycursor,myquery="SELECT * FROM *"):
     # FIXME: also call dataanalysis.sorted()
     mysqliterator(result)
 
-
-
 class Mysql():
     def __init__(self):
-        # FIXME: this ain't 2001
-        self.name="mysql1"
-        self.dbuser='chris'
-        self.dbpass='Free1Kick'
-        self.db='chris'
-        self.server='florence'
-        
-        #FIXME: more
+        # defaults 
         MYSQLDICT = {}
         MYSQLDICT['Bytes_received'] = 0
         MYSQLDICT['Com_insert'] = 0
@@ -96,17 +104,20 @@ class Mysql():
     def mysqliterator(mydict):
         """ iterate over all items and print """
         for i,j in mydict.iteritems(): print i,j
+
+
     def boot(self):
         #FIXME: subclass this. All of it.
         #Tue Nov 15 14:41:42 GMT 2011
         MYSQL_STATUS_CMD = "show status where variable_name = "
-        MYSQL_PARSER = "mysqladmin extended-status -p" + SYSCONFIG.MYSQLPASS + "-i1 -r"
-        db = MySQLdb.connect(host="florence",user="root",passwd="secret")
-        MYCURSOR = db.cursor()
-        #Tue Nov 15 12:13:02 GMT 2011
-        mysql = Mysql()
-        self._printsqldata()
-        del jmx
+        MYSQL_PARSER = "mysqladmin extended-status -p" + \
+                SYSCONFIG.conf['mysql']['pass'] + "-i1 -r"
+        
+        #SYSLOG.l.debug('MySQL parser ' , MYSQL_PARSER)
+
+        self.db_connection = DatabaseConnection()
+        with db_connection as cursor:
+            pass
 
 
 if __name__ == '__main__':
