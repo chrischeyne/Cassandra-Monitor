@@ -34,11 +34,8 @@ __status__ = "Alpha"
 
 # MySQL handler
 import MySQLdb
-import myconfig.config as config
-
-# TEMPORARY MODULE TESTING - UNCOMMENT LATER
-# FIXME:
-# Fri Nov 18 15:53:23 GMT 2011
+import sys
+import config as config
 
 
 #import mylogger.logger as loggingsystem
@@ -49,7 +46,8 @@ SYSCONFIG = config.MyConfig()
 
 class MyDatabaseConnection():
     """ interface to MySQL """
-    def cursor():
+
+    def __enter__(self):
         """ returns a db object """
         db = MySQLdb.connect(\
             host=SYSCONFIG.conf['mysql']['host'], \
@@ -57,6 +55,11 @@ class MyDatabaseConnection():
             passwd=SYSCONFIG.conf['mysql']['pass'])
 
         return db
+    
+    def __exit__(self,type,value,traceback):
+        return isinstance(value,TypeError)
+
+
 
     def MySQLdbError(e):
         """ raise an mysql exception """
@@ -85,13 +88,11 @@ def mysqlexecutequery(mycursor,myquery="SELECT * FROM *"):
     mysqliterator(result)
 
 class Mysql():
+    """ mysql connection handler that sends out dicts of mysql info """
     def __init__(self):
-        # defaults 
-        MYSQLDICT = {}
-        MYSQLDICT['Bytes_received'] = 0
-        MYSQLDICT['Com_insert'] = 0
-
-
+        self.db_connection = None
+        self.MYSQLDICT = {}
+        
     def mysqlkgenerator():
         """ throwaway data generator """
         for i in MYSQLDICT.keys(): yield i
@@ -107,15 +108,16 @@ class Mysql():
 
 
     def boot(self):
-        #FIXME: subclass this. All of it.
-        #Tue Nov 15 14:41:42 GMT 2011
+        """ main boot class. Initialises MYSQL dict """
+        self.MYSQLDICT['Bytes_received'] = 0
+        self.MYSQLDICT['Com_insert'] = 0
         MYSQL_STATUS_CMD = "show status where variable_name = "
         MYSQL_PARSER = "mysqladmin extended-status -p" + \
                 SYSCONFIG.conf['mysql']['pass'] + "-i1 -r"
         
         #SYSLOG.l.debug('MySQL parser ' , MYSQL_PARSER)
 
-        self.db_connection = DatabaseConnection()
+        db_connection = MyDatabaseConnection()
         with db_connection as cursor:
             pass
 
