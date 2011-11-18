@@ -30,21 +30,25 @@ __all__ = ["coreserver","mydatagatherer","myconfig","mylogger"]
 import sys
 import os
 
+# GLOBAL OBJECTS
+global SYSCONFIG
+global SYSLOG
 
 # FIXME: get rid of this once packaging begins
 currentfolder = os.path.dirname(os.path.abspath(__file__))
 if currentfolder not in sys.path: sys.path.insert(0,currentfolder)
 
 import coreserver as cs
-import mydatagatherer.datagatherer as dg
 import myconfig.config as config
 import mylogger.logger as loggingsystem
-
-# boot the objects
-MYCONFIG = config.MyConfig()
+SYSCONFIG = config.MyConfig()
+SYSLOG = loggingsystem.MyLogger()
+SYSLOG.l.info('cassandramonitor - BOOTING...')
+# boot data gathering subsystem
+import mydatagatherer.datagatherer as dg
 MYDATA = dg.DataGatherer()
-MYLOG = loggingsystem.Logger()
-# core boot
+
+# boot the main handler for all modules 
 cs.main()
 
 

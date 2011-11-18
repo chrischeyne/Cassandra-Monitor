@@ -17,7 +17,8 @@
 Tests for 
 """
 
-# from import
+import logging
+
 
 __author__ = "Chris T. Cheyne"
 __copyright__ = "Copyright 2011, The Cassandra Manager Project"
@@ -34,13 +35,25 @@ class MyLogger():
     """ designed to allow <MYPROGRAMNAME><classinstance><fn><timestamp> """
     """ message type commenture """
 
+    l = None
     def __init__(self):
         self.boot()
-    def boot():
+    def boot(self):
         """ main boot handler """
-        pass
-
-
+        self.l = logging.getLogger('CASSMGR')
+        self.l.setLevel(logging.DEBUG)
+        ch = logging.StreamHandler()
+        ch.setLevel(logging.DEBUG)
+        myformat = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+        myformatter = logging.Formatter(myformat)
+        ch.setFormatter(myformatter)
+        self.l.addHandler(ch)
+        self.l.info('logger.py MyLogger() booting')
+        
+def main():
+    SYSLOG = MyLogger()
+    SYSLOG.l.warn('BOOTED!')
+    
 if __name__ == '__main__':
     main()
 
