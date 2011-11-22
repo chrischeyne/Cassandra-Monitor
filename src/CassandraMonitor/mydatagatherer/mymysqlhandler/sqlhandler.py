@@ -121,41 +121,76 @@ class Mysql():
         except MySQLDb.Error, e:
             raise MySQLdbError
             
-    def _mysqlcommandgenerator(self,mydict):
+    def _mysqlcommanditerator(self,mydict):
         """ parse the cmd cmd using a parser for that command and update """
         """ self.MYSQLDICT """
         """ atm simply runs through ALL.keys() """
-        for i in mydict: yield i
+        print "_mysqlcommanditerator() - STARTING"
 
-       
-    def _mysqlkgenerator(self,mydict):
+        try:
+            while True:
+                try:
+                    for i in mydict.iteritems():
+                        yield i
+                except Exception, e:
+                    yield 'NAN'
+        finally:
+            #FIXME: run close
+            print "CMD closing..()"
+    
+    def _mysqliterator(self,mydict):
+        """ iterate over all items and print """
+        print "_mysqliterator() - STARTING"
+        try:
+            while True:
+                try:
+                    for (i,j) in mydict.iteritems():
+                        yield i,j
+                except Exception, e:
+                    yield 'NAN'
+        finally:
+            print "SQL closing..()"
+
+    def _mysqlkgenerator(self,mylist):
         """ throwaway data generator """
-        for i in self.mydict.keys(): yield i
+        for i in mylist:
+            yield i
     
     def _mysqlkvgenerator(self,mydict):
         """ throwaway data generator in 2-D """
-        print "_mysqlkvgenerator(): dict of len ", len(mydict)
+        #print "_mysqlkvgenerator(): dict of len ", len(mydict)
         for (i,j) in mydict.keys(),mydict.values(): yield (i,j)
 
-    def _mysqliterator(self,mydict):
-        """ iterate over all items and print """
-        print "mysqliterator() length of dict is " , len(mydict) 
-        for i,j in mydict.iteritems(): print i,j
-    
-    def builddata(self,mydict):
+      
+        
+    def printdata(self):
+        """ use generators above to print all data """
+        g1 = self._mysqlkgenerator(self.ALLCMDS)
+        g2 = self._mysqlkvgenerator(self.MYSQLDICT)
+        # print in format 
+        # ALLCMDS[i],MYSQLDICT[j,k]
+        for i in g1:
+            print "CMD ",i
+            for j,k in g2:
+                print "....(K,V) ", (j,k)
+
+
+    def builddata(self):
         """ async ticker to pick up new changes """
         """ and populate dictionary """
         """ iterates over ALLCMDS """
         # iterate over each of ALLCMDS, executing them
         # one-by-one, and updated mydict = self.MYSQLDICT{}
-        pass
+
+        self.printdata()
+     
         
     def getdata(self):
         """ returns a sorted dict of mysql values """
         """ populated from builddata() each tick """
+
         print "COMMANDS, DATA"
-        self._mysqliterator(self.MYSQLDICT) ,
-        self._mysqlcommandgenerator(self.ALLCMDS)
+        self.builddata()
 
     def boot(self,GENERATOR_TIMEOUT):
         """ main boot class. Initialises MYSQL dict """
