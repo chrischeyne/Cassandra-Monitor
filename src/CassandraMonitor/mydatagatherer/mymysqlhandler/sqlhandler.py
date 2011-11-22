@@ -90,29 +90,40 @@ def mysqlexecutequery(mycursor,myquery="SELECT * FROM *"):
 class Mysql():
     """ mysql connection handler that sends out dicts of mysql info """
     def __init__(self):
+        # DATABASE HANDLER
         self.db_connection = None
+        # OUR K,V PAIRS OF MYSQL INFO
         self.MYSQLDICT = {}
         
-    def mysqlkgenerator():
+    def mysqlkgenerator(self):
         """ throwaway data generator """
-        for i in MYSQLDICT.keys(): yield i
+        for i in self.MYSQLDICT.keys(): yield i
     
-    def mysqlkvgenerator(mydict):
+    def _mysqlkvgenerator(self,mydict):
         """ throwaway data generator in 2-D """
 
         for (i,j) in mydict.keys(),mydict.values(): yield (i,j)
 
-    def mysqliterator(mydict):
+    def _mysqliterator(self,mydict):
         """ iterate over all items and print """
         for i,j in mydict.iteritems(): print i,j
+    
+    def builddata(self,mydict):
+        """ async ticker to pick up new changes """
+        """ and populate dictionary """
+
+    def getdata(self):
+        """ returns a sorted dict of mysql values """
+        self._mysqlkvgenerator(self.MYSQLDICT)
 
 
     def boot(self):
         """ main boot class. Initialises MYSQL dict """
-        self.MYSQLDICT['Bytes_received'] = 0
-        self.MYSQLDICT['Com_insert'] = 0
+        
+        self.MYSQLDICT['Bytes_received'] = 2048 
+        self.MYSQLDICT['Com_insert'] = 1024
         MYSQL_STATUS_CMD = "show status where variable_name = "
-        MYSQL_PARSER = "mysqladmin extended-status -p" + \
+        MYSQL_EXTENDEDSTATUS_PARSER = "mysqladmin extended-status -p" + \
                 SYSCONFIG.conf['mysql']['pass'] + "-i1 -r"
         
         #SYSLOG.l.debug('MySQL parser ' , MYSQL_PARSER)
@@ -120,16 +131,17 @@ class Mysql():
         db_connection = MyDatabaseConnection()
         with db_connection as cursor:
             pass
-
+        print "boot(): finished"
 
 if __name__ == '__main__':
     mysqlhandler = Mysql()
     mysqlhandler.boot()
     print "MYSQL DATA HANDLER..."
+    
     # GENERATE(data) <-- http_client() --> tornado()
     # ASYNC
-
-    mysqlhandler._printsqldata()
+    mysqlhandler.getdata()
+    #print "BYTES RECEIVED: " , mysqlhandler.MYSQLDICT['Bytes_received']
 
 
 
