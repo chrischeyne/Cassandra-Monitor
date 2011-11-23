@@ -34,6 +34,7 @@ __status__ = "Alpha"
 
 # MySQL handler
 import MySQLdb
+import MySQLdb.cursors
 import sys
 import config as config
 
@@ -64,7 +65,7 @@ class MyDatabaseConnection():
             raise self.MySQLdbError(e)
         else:
             print "cursor() raised connection"
-            return db
+            return db.cursor()
         finally:
             print "cursor().... returned db in else()"
 
@@ -77,7 +78,9 @@ class MyDatabaseConnection():
    
     def __exit__(self,type,value,traceback):
         print "MDBC(): __exit__"
+        self.cursor().close
         return isinstance(value,TypeError)
+        
 
     def MySQLdbError(e):
         """ raise an mysql exception """
@@ -94,24 +97,25 @@ class Mysql():
         # iterator counters 
         self.loopcount = 0
         self.GENERATOR_TIMEOUT=1
-
+        self.cursor = None
         # DATABASE HANDLER
         self.db_connection = None
         # 2) MYSQL extended status
         MYSQL_ESP = "mysqladmin extended-status -p" + \
                 SYSCONFIG.conf['mysql']['pass'] + "-i1 -r"
-        
+
+        # initial connector cmd
+        MYSQL_CONNECT = "use " + SYSCONFIG.conf['mysql']['db']  + ";"
         # OUR K,V PAIRS OF MYSQL INFO
         # we map this almost as [row_key][colkey][colvalue]
         # from mapping MYSQLCMDS[i] and MYSQLDICT[i][j]
-        # OUR LIST OF ALL MYSQL CMDS ABOVE
-        # This is configured to allow dynamic generation from YAML 
-        self.MYSQLCMDS=[MYSQL_ESP \
+        
+        self.MYSQLCMDS=[MYSQL_CONNECT \
+                ,MYSQL_ESP \
                 ,SYSCONFIG.conf['mysql']['comins'] \
                 ,SYSCONFIG.conf['mysql']['bytes'] \
                 ]
         self.MYSQLDICT = {}
-
 
     def _mysqliterator(self,mydict):
         """ iterate over all items and print """
@@ -126,21 +130,24 @@ class Mysql():
         finally:
             print "SQL closing..()"
 
-    def mysqlexecutequery(mycursor,myquery="SELECT * FROM *"):
+    def mysqlexecutequery(self,mycursor,myquery="""show tables;"""):
         """ this returns values, so call the generators """
-        mycursor.execute(myquery)
         print "exqry()  doing query : ",myquery
-        result = cursor.fetchmany()
-        self._mysqliterator(result)
+        print "mycursor is " ,mycursor
+        mycursor.execute(myquery)
+        myresult = mycursor.fetchmany()
+        self._mysqliterator(myresult)
 
-    def mysqlquery(mycursor,myquery='SELECT * FROM *',parse=False):
+    def mysqlquery(self,mycursor,myquery='SELECT * FROM *',parse=False):
         """ the anti-deluvian ACME MYSQL QUERY FUNCTION """
         """ parse = parse results; if not Parse -> print results to stdout """
         try:
             # boot the query if possible, catch indexerror
             self.mysqlexecutequery(mycursor,myquery)
-        except MySQLDb.Error, e:
-            raise MySQLdbError
+        except MySQLdb.Error, e:
+            # FIXME: proper exception handling
+            #raise self.mycursor.MySQLdbError(e)
+            print e
            
     def _mysqlcommanditerator(self,mydict,mycursor):
         """ run through self.MYSQLCMDS and execute each statement """
@@ -190,6 +197,10 @@ class Mysql():
 
         # iterate over each of MYSQLCMDS, executing them
         # one-by-one, and updated mydict = self.MYSQLDICT{}
+        print "builddata()....called:  ", self.loopcount
+        print "DEBUG trying a sql command"
+
+        self.mysqlquery(mycursor,"show tables;")
         self._mysqlcommanditerator(self.MYSQLDICT,mycursor)
         self.loopcount+=1
 
@@ -225,8 +236,9 @@ class Mysql():
         # main loop
         # iterate over each __ALL__ and
         # populate our MYSQDICT. Iterator in builddata()
-        with db_connection as cursor:
-            self.getdata(cursor)
+        with db_connection as self.mycursor:
+            self.mysqlquery(self.mycursor,self.MYSQLCMDS[0])
+            self.getdata(self.mycursor)
             # temporary
             if self.loopcount == 10:
                 sys.exit(1) 
