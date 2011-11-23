@@ -37,7 +37,7 @@ import MySQLdb
 import sys
 import config as config
 
-
+# FIXME: MERGE BELOW
 #import mylogger.logger as loggingsystem
 SYSCONFIG = config.MyConfig()
 #SYSLOG = loggingsystem.MyLogger()
@@ -91,27 +91,27 @@ class Mysql():
         self.db_connection = None
         # QUERIES
         # 1) MYSQL status with variable 
-        MYSQL_STATUS_CMD = "show status where variable_name = "
         # 2) MYSQL extended status
         MYSQL_ESP = "mysqladmin extended-status -p" + \
                 SYSCONFIG.conf['mysql']['pass'] + "-i1 -r"
-
+        
         # OUR K,V PAIRS OF MYSQL INFO
         # initialise empty dictionary
         # we map this almost as [row_key][colkey][colvalue]
         # from mapping ALLCMDS[i] and MYSQLDICT[i][j]
         # OUR LIST OF ALL MYSQL CMDS ABOVE
-        self.ALLCMDS=[MYSQL_ESP,MYSQL_STATUS_CMD]
+        # This is configured to allow dynamic generation from YAML 
+        self.ALLCMDS=[MYSQL_ESP \
+                ,SYSCONFIG.conf['mysql']['comins'] \
+                ,SYSCONFIG.conf['mysql']['bytes'] \
+                ]
         self.MYSQLDICT = {}
-
 
     def mysqlexecutequery(mycursor,myquery="SELECT * FROM *"):
         """ this returns values, so call the generators """
         mycursor.execute(myquery)
         result = cursor.fetchmany()
-        # FIXME: in future call the generators for real-time display
-        # FIXME: also call dataanalysis.sorted()
-        mysqliterator(result)
+        self._mysqliterator(result)
 
     def mysqlquery(mycursor,myquery='SELECT * FROM *'):
         """ the anti-deluvian ACME MYSQL QUERY FUNCTION """
@@ -126,7 +126,6 @@ class Mysql():
         """ self.MYSQLDICT """
         """ atm simply runs through ALL.keys() """
         print "_mysqlcommanditerator() - STARTING"
-
         try:
             while True:
                 try:
@@ -179,12 +178,19 @@ class Mysql():
         """ async ticker to pick up new changes """
         """ and populate dictionary """
         """ iterates over ALLCMDS """
+
         # iterate over each of ALLCMDS, executing them
         # one-by-one, and updated mydict = self.MYSQLDICT{}
 
-        self.printdata()
-     
-        
+        # loop through all commands foreach tick
+
+        for i in self.ALLCMDS:
+            print i
+
+        # update current loop
+        self.loopcount+=1
+            
+
     def getdata(self):
         """ returns a sorted dict of mysql values """
         """ populated from builddata() each tick """

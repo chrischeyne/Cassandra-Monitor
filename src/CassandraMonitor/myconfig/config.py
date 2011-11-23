@@ -44,6 +44,9 @@ SYSLOG.l.debug('booting....')
 
 # FIXME: obvious hack must be fixed to point to
 # src/myconfig/config.yaml
+# FIXME: make this more modular. This hack will do for now
+# but you can no longer run this module as a separate entity
+# Tue Nov 22 17:19:53 GMT 2011
 CONFIG_FILE= os.getcwd() + '/CassandraMonitor/myconfig/config.yaml'
 class MyConfig():
     """ returns a configuration holding object """
@@ -56,6 +59,7 @@ class MyConfig():
         self.configurationfile = CONFIG_FILE
         with open(self.configurationfile) as self.f:
             self.conf = yaml.load(self.f)
+            # debug print
             SYSLOG.l.info("self.conf['mysql']['host'] = %s" % \
                      self.conf['mysql']['host'])
 
@@ -68,8 +72,6 @@ class MyConfig():
     def dumpconfig(self):
         """ dumps the current running config to stdout """
         print yaml.dump(self.conf,default_flow_style=False)
-
-
 
 if __name__ == "__main__":
     myconf = MyConfig()

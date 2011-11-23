@@ -5,6 +5,10 @@ mysql:
     host:   florence
     db:     chris
     pass:   Free1Kick
+    comins: show status where variable_name = 'Com_insert'\G;
+    bytes: show status where variable_name = 'Bytes_received'\G;
+
+
 
 ring0: live
 ring0:
