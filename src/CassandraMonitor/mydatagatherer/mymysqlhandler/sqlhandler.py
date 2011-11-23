@@ -46,29 +46,37 @@ SYSCONFIG = config.MyConfig()
 
 class MyDatabaseConnection():
     """ context manager so we can simply use a with statement """ 
+    db = None
     def __init__(self):
         print "MDBC(): connecting to " , SYSCONFIG.conf['mysql']['host']
+        self.db = None
         pass
 
     def cursor(self):
         """ return a cursor """
-        db = MySQLdb.connect(\
-            host=SYSCONFIG.conf['mysql']['host'], \
-            user=SYSCONFIG.conf['mysql']['user'], \
-            passwd=SYSCONFIG.conf['mysql']['pass'])
-        # FIXME: proper error handling!!
-        # Tue Nov 22 11:45:58 GMT 2011
-        # try: yield: finally
-        yield db
-    
+        try:
+            db = MySQLdb.connect(\
+                host=SYSCONFIG.conf['mysql']['host'], \
+                user=SYSCONFIG.conf['mysql']['user'], \
+                passwd=SYSCONFIG.conf['mysql']['pass'])
+            
+        except MySQLDb.Error, e:
+            raise self.MySQLdbError(e)
+        else:
+            print "cursor() raised connection"
+            return db
+        finally:
+            print "cursor().... returned db in else()"
+
     def __enter__(self):
         """ returns a db object """
         """ basically self.cursor() """
         cursor = self.cursor()
-        return cursor
+        return cursor 
 
    
     def __exit__(self,type,value,traceback):
+        print "MDBC(): __exit__"
         return isinstance(value,TypeError)
 
     def MySQLdbError(e):
@@ -89,54 +97,22 @@ class Mysql():
 
         # DATABASE HANDLER
         self.db_connection = None
-        # QUERIES
-        # 1) MYSQL status with variable 
         # 2) MYSQL extended status
         MYSQL_ESP = "mysqladmin extended-status -p" + \
                 SYSCONFIG.conf['mysql']['pass'] + "-i1 -r"
         
         # OUR K,V PAIRS OF MYSQL INFO
-        # initialise empty dictionary
         # we map this almost as [row_key][colkey][colvalue]
-        # from mapping ALLCMDS[i] and MYSQLDICT[i][j]
+        # from mapping MYSQLCMDS[i] and MYSQLDICT[i][j]
         # OUR LIST OF ALL MYSQL CMDS ABOVE
         # This is configured to allow dynamic generation from YAML 
-        self.ALLCMDS=[MYSQL_ESP \
+        self.MYSQLCMDS=[MYSQL_ESP \
                 ,SYSCONFIG.conf['mysql']['comins'] \
                 ,SYSCONFIG.conf['mysql']['bytes'] \
                 ]
         self.MYSQLDICT = {}
 
-    def mysqlexecutequery(mycursor,myquery="SELECT * FROM *"):
-        """ this returns values, so call the generators """
-        mycursor.execute(myquery)
-        result = cursor.fetchmany()
-        self._mysqliterator(result)
 
-    def mysqlquery(mycursor,myquery='SELECT * FROM *'):
-        """ the anti-deluvian ACME MYSQL QUERY FUNCTION """
-        try:
-            # boot the query if possible, catch indexerror
-            self.mysqlexecutequery(mycursor,myquery)
-        except MySQLDb.Error, e:
-            raise MySQLdbError
-            
-    def _mysqlcommanditerator(self,mydict):
-        """ parse the cmd cmd using a parser for that command and update """
-        """ self.MYSQLDICT """
-        """ atm simply runs through ALL.keys() """
-        print "_mysqlcommanditerator() - STARTING"
-        try:
-            while True:
-                try:
-                    for i in mydict.iteritems():
-                        yield i
-                except Exception, e:
-                    yield 'NAN'
-        finally:
-            #FIXME: run close
-            print "CMD closing..()"
-    
     def _mysqliterator(self,mydict):
         """ iterate over all items and print """
         print "_mysqliterator() - STARTING"
@@ -150,59 +126,85 @@ class Mysql():
         finally:
             print "SQL closing..()"
 
+    def mysqlexecutequery(mycursor,myquery="SELECT * FROM *"):
+        """ this returns values, so call the generators """
+        mycursor.execute(myquery)
+        print "exqry()  doing query : ",myquery
+        result = cursor.fetchmany()
+        self._mysqliterator(result)
+
+    def mysqlquery(mycursor,myquery='SELECT * FROM *',parse=False):
+        """ the anti-deluvian ACME MYSQL QUERY FUNCTION """
+        """ parse = parse results; if not Parse -> print results to stdout """
+        try:
+            # boot the query if possible, catch indexerror
+            self.mysqlexecutequery(mycursor,myquery)
+        except MySQLDb.Error, e:
+            raise MySQLdbError
+           
+    def _mysqlcommanditerator(self,mydict,mycursor):
+        """ run through self.MYSQLCMDS and execute each statement """
+        """ store the results in self.MYSQLDICT """
+        print "_mysqlcommanditerator() - STARTING"
+        try:
+            while True:
+                try:
+                    for myquery in mydict.iteritems():
+                        print "_cmditerator() query is : ",myquery
+                        self.mysqlupdatingquery(mycursor,myquery,True)
+                except Exception, e:
+                    yield 'NAN'
+        finally:
+            #FIXME: run close
+            print "CMD closing..()"
+
     def _mysqlkgenerator(self,mylist):
         """ throwaway data generator """
         for i in mylist:
             yield i
-    
+
     def _mysqlkvgenerator(self,mydict):
         """ throwaway data generator in 2-D """
         #print "_mysqlkvgenerator(): dict of len ", len(mydict)
         for (i,j) in mydict.keys(),mydict.values(): yield (i,j)
 
-      
-        
-    def printdata(self):
+    def printsavedata(self):
         """ use generators above to print all data """
-        g1 = self._mysqlkgenerator(self.ALLCMDS)
+        g1 = self._mysqlkgenerator(self.MYSQLCMDS)
         g2 = self._mysqlkvgenerator(self.MYSQLDICT)
         # print in format 
-        # ALLCMDS[i],MYSQLDICT[j,k]
+        # MYSQLCMDS[i],MYSQLDICT[j,k]
+        # FIXME: this is shite, build new dict from generators
+        # FIXME: save to disk or provide
+        # FIXME: return mydict = {MYSQLCMDS,{MYSQLDATA(i,j)}
+
         for i in g1:
             print "CMD ",i
-            for j,k in g2:
-                print "....(K,V) ", (j,k)
+            for j,k in g2: print "....(K,V) ", (j,k)
 
 
-    def builddata(self):
+    def builddata(self,mycursor):
         """ async ticker to pick up new changes """
         """ and populate dictionary """
-        """ iterates over ALLCMDS """
+        """ iterates over MYSQLCMDS """
 
-        # iterate over each of ALLCMDS, executing them
+        # iterate over each of MYSQLCMDS, executing them
         # one-by-one, and updated mydict = self.MYSQLDICT{}
-
-        # loop through all commands foreach tick
-
-        for i in self.ALLCMDS:
-            print i
-
-        # update current loop
+        self._mysqlcommanditerator(self.MYSQLDICT,mycursor)
         self.loopcount+=1
-            
 
-    def getdata(self):
+    def getdata(self,mycursor):
         """ returns a sorted dict of mysql values """
         """ populated from builddata() each tick """
-
-        print "COMMANDS, DATA"
-        self.builddata()
+        """ then prints using generators """
+        print "getdata():  building...."
+        self.builddata(mycursor)
+        print "getdata():  printing...."
+        self.printsavedata()
 
     def boot(self,GENERATOR_TIMEOUT):
         """ main boot class. Initialises MYSQL dict """
-        # FIXME: put data dictionary in YAML file?
-        #Tue Nov 22 11:18:09 GMT 2011
-        # generator timeout is number of iterations/sec
+        """ args: GENERATOR_TIMEOUT: no of loops/s """
         self.looptimeout = GENERATOR_TIMEOUT
         self.loopcount = 0
       
@@ -223,16 +225,16 @@ class Mysql():
         # main loop
         # iterate over each __ALL__ and
         # populate our MYSQDICT. Iterator in builddata()
-
         with db_connection as cursor:
-            self.builddata(self.ALLCMDS)
+            self.getdata(cursor)
+            # temporary
+            if self.loopcount == 10:
+                sys.exit(1) 
 
 if __name__ == '__main__':
     print "RUNNING AS __MAIN___"
     mysqlhandler = Mysql()
-    # FIXME: get the 1 second loop factor from config.yaml?
     mysqlhandler.boot(1)
-    mysqlhandler.getdata()
 
 
 
