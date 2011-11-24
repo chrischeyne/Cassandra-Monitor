@@ -3,10 +3,10 @@ defaults: allrings
 mysql:
     user:   chris
     host:   florence
-    db:     chris
+    db:    mysql 
     pass:   Free1Kick
-    comins: show status where variable_name = 'Com_insert\G;'
-    bytes: show status where variable_name = 'Bytes_received\G;'
+    0comins: show status where variable_name = 'Com_insert';
+    1bytes: show status where variable_name = 'Bytes_received';
 
 
 

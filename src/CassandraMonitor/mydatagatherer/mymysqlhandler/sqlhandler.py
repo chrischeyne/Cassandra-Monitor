@@ -101,19 +101,25 @@ class Mysql():
         # DATABASE HANDLER
         self.db_connection = None
         # 2) MYSQL extended status
-        MYSQL_ESP = "mysqladmin extended-status -p" + \
-                SYSCONFIG.conf['mysql']['pass'] + "-i1 -r"
+        # 3) .. see config.yaml for more
+        
+        MYSQL_ESP = "mysqladmin extended-status -h " \
+                + SYSCONFIG.conf['mysql']['host'] \
+                + " -u " + SYSCONFIG.conf['mysql']['user'] \
+                + " -p " + SYSCONFIG.conf['mysql']['pass']
+                # FIXME: iterate on this?  + " -i1 -r"
+        print MYSQL_ESP
 
         # initial connector cmd
         MYSQL_CONNECT = "use " + SYSCONFIG.conf['mysql']['db']  + ";"
         # OUR K,V PAIRS OF MYSQL INFO
         # we map this almost as [row_key][colkey][colvalue]
         # from mapping MYSQLCMDS[i] and MYSQLDICT[i][j]
-        
+        # initial element is connect to (db listed in myconfig)
+
         self.MYSQLCMDS=[MYSQL_CONNECT \
-                ,MYSQL_ESP \
-                ,SYSCONFIG.conf['mysql']['comins'] \
-                ,SYSCONFIG.conf['mysql']['bytes'] \
+                ,SYSCONFIG.conf['mysql']['0comins'] \
+                ,SYSCONFIG.conf['mysql']['1bytes'] \
                 ]
         self.MYSQLDICT = {}
 
@@ -130,20 +136,21 @@ class Mysql():
         finally:
             print "SQL closing..()"
 
-    def mysqlexecutequery(self,mycursor,myquery="""show tables;"""):
+    def mysqlexecutequery(self,mycursor,myquery="""show
+            tables;""",parse=False):
         """ this returns values, so call the generators """
         print "exqry()  doing query : ",myquery
-        print "mycursor is " ,mycursor
         mycursor.execute(myquery)
         myresult = mycursor.fetchmany()
-        self._mysqliterator(myresult)
+        print myresult
+        if parse: self._mysqliterator(myresult)
 
     def mysqlquery(self,mycursor,myquery='SELECT * FROM *',parse=False):
         """ the anti-deluvian ACME MYSQL QUERY FUNCTION """
         """ parse = parse results; if not Parse -> print results to stdout """
         try:
             # boot the query if possible, catch indexerror
-            self.mysqlexecutequery(mycursor,myquery)
+            self.mysqlexecutequery(mycursor,myquery,parse)
         except MySQLdb.Error, e:
             # FIXME: proper exception handling
             #raise self.mycursor.MySQLdbError(e)
@@ -184,9 +191,9 @@ class Mysql():
         # FIXME: this is shite, build new dict from generators
         # FIXME: save to disk or provide
         # FIXME: return mydict = {MYSQLCMDS,{MYSQLDATA(i,j)}
-
+        print "PRINTING RESULTS..."
         for i in g1:
-            print "CMD ",i
+            #print "CMD ",i
             for j,k in g2: print "....(K,V) ", (j,k)
 
 
@@ -197,10 +204,7 @@ class Mysql():
 
         # iterate over each of MYSQLCMDS, executing them
         # one-by-one, and updated mydict = self.MYSQLDICT{}
-        print "builddata()....called:  ", self.loopcount
-        print "DEBUG trying a sql command"
 
-        self.mysqlquery(mycursor,"show tables;")
         self._mysqlcommanditerator(self.MYSQLDICT,mycursor)
         self.loopcount+=1
 
@@ -237,11 +241,13 @@ class Mysql():
         # iterate over each __ALL__ and
         # populate our MYSQDICT. Iterator in builddata()
         with db_connection as self.mycursor:
-            self.mysqlquery(self.mycursor,self.MYSQLCMDS[0])
-            self.getdata(self.mycursor)
+            self.mysqlquery(self.mycursor,self.MYSQLCMDS[0],parse=True)
+            self.mysqlquery(self.mycursor,self.MYSQLCMDS[1],parse=True)
+            self.mysqlquery(self.mycursor,self.MYSQLCMDS[2],parse=True)
+            #self.getdata(self.mycursor)
             # temporary
-            if self.loopcount == 10:
-                sys.exit(1) 
+            #if self.loopcount == 10:
+            #    sys.exit(1) 
 
 if __name__ == '__main__':
     print "RUNNING AS __MAIN___"
