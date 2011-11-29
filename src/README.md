@@ -1,6 +1,5 @@
-main.py()
-
     CassandraMonitor/  - current live source 
+    bootcassandramonitor.py - initial boot system. Requires daemonization
 
 
-Thu Nov 17 13:12:35 GMT 2011
+Tue Nov 29 20:33:24 GMT 2011
