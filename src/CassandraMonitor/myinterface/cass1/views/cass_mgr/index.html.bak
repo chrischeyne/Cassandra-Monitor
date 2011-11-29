@@ -1,0 +1,5 @@
+{{extend 'layout.html'}}
+<h1>This is the cass_mgr/index.html template</h1>
+{{=BEAUTIFY(response._vars)}}
+
+<h2>Cassandra JMX is: {{=CASS_JMX}}</h2><br />
