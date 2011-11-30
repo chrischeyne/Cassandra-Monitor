@@ -2,7 +2,7 @@
 
 # just a little script to get me editing quickly
 # FIXME: err, all of it :)
-
+# currently redundant
 HD=/opt/cassandra-dev/PROJECTS/Cassandra-Monitor
 
 pip freeze > $HD/pip_freeze.txt
