@@ -37,6 +37,7 @@ __status__ = "Alpha"
 import MySQLdb
 import MySQLdb.cursors
 import sys
+# FIXME: relocate config modules
 import config as config
 
 # FIXME: MERGE BELOW once unit testing complete
@@ -102,7 +103,6 @@ class Mysql():
         # DATABASE HANDLER
         self.db_connection = None
         # 2) MYSQL extended status
-        # 3) .. see config.yaml for more
         
         MYSQL_ESP = "mysqladmin extended-status -h " \
                 + SYSCONFIG.conf['mysql']['host'] \
@@ -111,7 +111,7 @@ class Mysql():
                 # FIXME: iterate on this?  + " -i1 -r"
         print MYSQL_ESP
 
-        # initial connector cmd
+        # initial connector cmd - simply 'use db;'
         MYSQL_CONNECT = "use " + SYSCONFIG.conf['mysql']['db']  + ";"
         # OUR K,V PAIRS OF MYSQL INFO
         # we map this almost as [row_key][colkey][colvalue]
@@ -133,8 +133,10 @@ class Mysql():
         #FIXME: put in yaml?
 
         self.MYSQLDATA = {}
-       
-
+        # initialise defaults
+        for k in self.MYSQLCMDS:
+            self.MYSQLDATA[k]=0
+        
     def _mysqliterator(self,mydict):
         """ iterate over all items and print """
         print "_mysqliterator() - STARTING"
@@ -148,14 +150,13 @@ class Mysql():
         finally:
             print "SQL closing..()"
 
-    def mysqlexecutequery(self,mycursor,myquery="""show
-            tables;""",parse=False):
+    def mysqlexecutequery(self,mycursor,mydata,mycmds,myquery,parse=False):
         """ this returns values, so call the generators """
+
         print "exqry()  doing query : ",myquery
         mycursor.execute(myquery)
-        #FIXME: pass in our msql data and maniupulate 
-        #the dictionary; for now just print
         myresult = mycursor.fetchmany()
+        mydata[myquery] = myresult
         print myresult
         if parse: self._mysqliterator(myresult)
 
@@ -170,20 +171,19 @@ class Mysql():
             #raise self.mycursor.MySQLdbError(e)
             print e
            
-    def _mysqlcommanditerator(self,mydict,mycursor):
+    def _mysqlcommanditerator(self,mycursor,mycmds,mydata):
         """ run through self.MYSQLCMDS and execute each statement """
         """ store the results in self.MYSQLDATA """
         print "_mysqlcommanditerator() - STARTING"
         try:
             while True:
                 try:
-                    for myquery in mydict.iteritems():
-                        print "_cmditerator() query is : ",myquery
-                        self.mysqlupdatingquery(mycursor,myquery,True)
+                    for myquery in mycmds.iteritems():
+                        self.mysqlexecutequery(mycursor,mycmds,mydata,myquery,True)
                 except Exception, e:
                     yield 'NAN'
         finally:
-            #FIXME: run close
+            # FIXME: close properly
             print "CMD closing..()"
 
     def _mysqlkgenerator(self,mylist):
@@ -193,28 +193,20 @@ class Mysql():
 
     def _mysqlkvgenerator(self,mydict):
         """ throwaway data generator in 2-D """
-        #print "_mysqlkvgenerator(): dict of len ", len(mydict)
         for (i,j) in mydict.keys(),mydict.values(): yield (i,j)
 
     def printsavedata(self):
         """ use generators above to print all data """
-        g1 = self._mysqlkgenerator(self.MYSQLCMDS)
         g2 = self._mysqlkvgenerator(self.MYSQLDATA)
-        print "PRINTING RESULTS..."
-        for i in g1:
-            #print "CMD ",i
-            for j,k in g2: print "....(K,V) ", (j,k)
+        print "MYSQL PERFORMANCE DATA"
+        print [upper(s) for s in g2.next()]
 
 
     def builddata(self,mycursor):
         """ async ticker to pick up new changes """
         """ and populate dictionary """
         """ iterates over MYSQLCMDS """
-
-        # iterate over each of MYSQLCMDS, executing them
-        # one-by-one, and updated mydict = self.MYSQLDATA{}
-
-        self._mysqlcommanditerator(self.MYSQLDATA,mycursor)
+        self._mysqlcommanditerator(mycursor,self.MYSQLCMDS,self.MYSQLDATA)
         self.loopcount+=1
 
     def getdata(self,mycursor):
@@ -230,20 +222,18 @@ class Mysql():
         import time
         db_connection = MyDatabaseConnection()
         with db_connection as self.mycursor:
+            # whilst we have a connection
+            # loop over our dictionaries and populate
             self.getdata(self.mycursor)
             time.sleep(1)
             print self.loopcount
 
-
-
     def boot(self,GENERATOR_TIMEOUT):
-        """ main boot class. re-initialises MYSQL dict """
         """ args: GENERATOR_TIMEOUT: no of loops/s """
         self.looptimeout = GENERATOR_TIMEOUT
         self.MYSQLDATA = {}
         self.loopcount = 0
         self.mainloop()
-
 
 if __name__ == '__main__':
     print "RUNNING AS __MAIN___"

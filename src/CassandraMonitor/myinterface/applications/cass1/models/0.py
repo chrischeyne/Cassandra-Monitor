@@ -2,7 +2,7 @@ from gluon.storage import Storage
 # FIXME: include myconfig/config.py
 settings = Storage()
 settings.migrate = True
-settings.title = 'Cassandra Manager 0.0.14'
+settings.title = 'HEARST UK - Data System 0.0.14a'
 settings.subtitle = URL('static','logo.gif')
 settings.author = 'chris'
 settings.author_email = 'chris@cheynes.org'
