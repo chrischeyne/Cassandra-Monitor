@@ -1,4 +1,6 @@
 WARNING: UNDER UNIT TESTING WITH ISOLATED MY{LOGGER,CONFIG} MODULES
-Fri Nov 18 16:47:06 GMT 2011
-Tue Nov 22 09:42:43 GMT 2011
-Fri Nov 25 16:57:22 GMT 2011
+
+TODO:  MOVE mylogger, myconfig and related to live. These modules here
+are more up-to-date than in the directory above.
+
+Wed Nov 30 11:59:17 GMT 2011

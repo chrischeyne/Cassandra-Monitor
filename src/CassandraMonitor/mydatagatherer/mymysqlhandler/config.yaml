@@ -6,8 +6,10 @@ mysql:
     db:    chris 
     pass:   Free1Kick
     0comins: show status where variable_name = 'Com_insert';
-    1bytes: show status where variable_name = 'Bytes_received';
-
+    bytes: show status where variable_name = 'Bytes_received';
+    comcon: show status where variable_name = 'Connections';
+    comdbs: show status where variable_name = 'Com_show_databases';
+    
 cassperf:
     readstage: ReadStage
     RRS:    RequestResponseStage
