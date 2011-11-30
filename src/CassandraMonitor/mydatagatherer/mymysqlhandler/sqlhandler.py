@@ -23,6 +23,7 @@ FIXME: sqlhandler(manager.JmxHandler)
 """
 
 
+# Wed Nov 30 11:20:24 GMT 2011
 __author__ = "Chris T. Cheyne"
 __copyright__ = "Copyright 2011, The Cassandra Manager Project"
 __credits__ = ["Chris Cheyne"]
