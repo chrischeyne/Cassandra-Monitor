@@ -130,12 +130,7 @@ class Mysql():
         #SYSLOG.l.debug('MySQL parser ' , MYSQL_PARSER)
         #FIXME: put in yaml?
 
-        self.MYSQLDATA = {}
-        # initialise defaults
-        for k in self.MYSQLCMDS:
-            self.MYSQLDATA[k]=0
         
-
     def _mysqliterator(self,mydict):
         """ iterate over all items and print """
         print "_mysqliterator() - STARTING"
@@ -227,9 +222,11 @@ class Mysql():
         """ async ticker to pick up new changes """
         """ and populate dictionary """
         """ iterates over MYSQLCMDS """
-        print "builddata()"
-        print self.MYSQLCMDS
+
+        print "BUILDDATA():  MYSQL PERFORMANCE DATA"
         print self.MYSQLDATA
+        print "BUILDSAVEDATA():  MYSQL CMD DATA"
+        print self.MYSQLCMDS
         self.mysqlcommanditerator(mycursor,self.MYSQLCMDS,self.MYSQLDATA)
         self.loopcount+=1
 
@@ -256,7 +253,13 @@ class Mysql():
         """ args: GENERATOR_TIMEOUT: no of loops/s """
         self.looptimeout = GENERATOR_TIMEOUT
         self.MYSQLDATA = {}
+        # initialise defaults
+        for k in self.MYSQLCMDS:
+            self.MYSQLDATA[k]=0
+        
         self.loopcount = 0
+
+        # MAIN LOOP
         self.mainloop()
 
 if __name__ == '__main__':
