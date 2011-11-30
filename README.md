@@ -1,5 +1,9 @@
 CASSANDRA MANAGER PROJECT
 
+VERSION 0.0.14
+
+Modified: Wed Nov 30 11:01:30 GMT 2011
+
 This project aims to provide a management interface to Cassandra and also delve
 deep inside the JMX infrastructure to provide real-time health monitoring of
 the Cassandra/JVM internals by polling a python 'bean' attributes.  
@@ -15,12 +19,11 @@ of Apache Cassandra similar to say MS-SQL server management studio: -
 
 VISUAL: (inspiration) http://is.gd/tzDdPw
 
-
 It will be based around a daemon (per node) and a tornado/django (client+server)
 idea; however, experimenting with different technologies is the way to go so
-far.
+far.  At the moment we are experimenting with web2py.
 
-tornado + django + flot + ganglia + sshpt + jpype + pyjmx + pyYAML
+tornado + django or web2py + flot + ganglia + sshpt + jpype + pyjmx + pyYAML
 (configuration)
 
 
@@ -63,7 +66,3 @@ chris[[#FIXME:remove(at)]]cheynes.org
 SEE: live/site/site__links.php
 
 Instigated by Chris Cheyne 01NOV2011:1306
-This page modified 
-
-Tue Nov 29 20:26:21 GMT 2011
-
