@@ -109,9 +109,7 @@ class Mysql():
                 + " -u " + SYSCONFIG.conf['mysql']['user'] \
                 + " -p " + SYSCONFIG.conf['mysql']['pass']
                 # FIXME: iterate on this?  + " -i1 -r"
-        print MYSQL_ESP
 
-        # initial connector cmd - simply 'use db;'
         MYSQL_CONNECT = "use " + SYSCONFIG.conf['mysql']['db']  + ";"
         # OUR K,V PAIRS OF MYSQL INFO
         # we map this almost as [row_key][colkey][colvalue]
@@ -132,10 +130,6 @@ class Mysql():
         #SYSLOG.l.debug('MySQL parser ' , MYSQL_PARSER)
         #FIXME: put in yaml?
 
-        self.MYSQLDATA = {}
-        # initialise defaults
-        for k in self.MYSQLCMDS:
-            self.MYSQLDATA[k]=0
         
     def _mysqliterator(self,mydict):
         """ iterate over all items and print """
@@ -152,7 +146,12 @@ class Mysql():
 
     def mysqlexecutequery(self,mycursor,mydata,mycmds,myquery,parse=False):
         """ this returns values, so call the generators """
-
+        print "mysqlexecutequery()"
+        print mycursor
+        print mydata
+        print mycmds
+        print myquery
+        print parse
         print "exqry()  doing query : ",myquery
         mycursor.execute(myquery)
         myresult = mycursor.fetchmany()
@@ -160,21 +159,32 @@ class Mysql():
         print myresult
         if parse: self._mysqliterator(myresult)
 
-    def mysqlquery(self,mycursor,myquery='SELECT * FROM *',parse=False):
+    def mysqlquery(self,mycursor,myquery,parse=False):
         """ the anti-deluvian ACME MYSQL QUERY FUNCTION """
         """ parse = parse results; if not Parse -> print results to stdout """
         try:
+            print "mysqlquery()"
+            print mycursor
+            print mydata
+            print mycmds
+            print myquery
             # boot the query if possible, catch indexerror
             self.mysqlexecutequery(mycursor,myquery,parse)
+
         except MySQLdb.Error, e:
             # FIXME: proper exception handling
             #raise self.mycursor.MySQLdbError(e)
             print e
            
-    def _mysqlcommanditerator(self,mycursor,mycmds,mydata):
+    def mysqlcommanditerator(self,mycursor,mycmds,mydata):
         """ run through self.MYSQLCMDS and execute each statement """
         """ store the results in self.MYSQLDATA """
-        print "_mysqlcommanditerator() - STARTING"
+
+        print "=== mysqlcommanditerator() - STARTING ==="
+        print mycursor
+        print mycmds
+        print mydata
+        #
         try:
             while True:
                 try:
@@ -193,20 +203,31 @@ class Mysql():
 
     def _mysqlkvgenerator(self,mydict):
         """ throwaway data generator in 2-D """
-        for (i,j) in mydict.keys(),mydict.values(): yield (i,j)
+        print '_mysqlkvgenerator() dict is'
+        print mydict
+        #for (i,j) in mydict.keys(),mydict.values(): yield (i,j)
 
     def printsavedata(self):
         """ use generators above to print all data """
         g2 = self._mysqlkvgenerator(self.MYSQLDATA)
-        print "MYSQL PERFORMANCE DATA"
-        print [upper(s) for s in g2.next()]
+        print "PRINTSAVEDATA():  MYSQL PERFORMANCE DATA"
+        print self.MYSQLDATA
+        print "PRINTSAVEDATA():  MYSQL CMD DATA"
+        print self.MYSQLCMDS
+
+        #print [upper(s) for s in g2.next()]
 
 
     def builddata(self,mycursor):
         """ async ticker to pick up new changes """
         """ and populate dictionary """
         """ iterates over MYSQLCMDS """
-        self._mysqlcommanditerator(mycursor,self.MYSQLCMDS,self.MYSQLDATA)
+
+        print "BUILDDATA():  MYSQL PERFORMANCE DATA"
+        print self.MYSQLDATA
+        print "BUILDSAVEDATA():  MYSQL CMD DATA"
+        print self.MYSQLCMDS
+        self.mysqlcommanditerator(mycursor,self.MYSQLCMDS,self.MYSQLDATA)
         self.loopcount+=1
 
     def getdata(self,mycursor):
@@ -214,7 +235,7 @@ class Mysql():
         """ populated from builddata() each tick """
         """ then prints using generators """
         print "getdata():  building...."
-        self.builddata(mycursor)
+        self.builddata(self.mycursor)
         print "getdata():  printing...."
         self.printsavedata()
 
@@ -232,7 +253,13 @@ class Mysql():
         """ args: GENERATOR_TIMEOUT: no of loops/s """
         self.looptimeout = GENERATOR_TIMEOUT
         self.MYSQLDATA = {}
+        # initialise defaults
+        for k in self.MYSQLCMDS:
+            self.MYSQLDATA[k]=0
+        
         self.loopcount = 0
+
+        # MAIN LOOP
         self.mainloop()
 
 if __name__ == '__main__':

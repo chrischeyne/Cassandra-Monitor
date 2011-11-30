@@ -8,5 +8,7 @@ SOFTWARE/
 python-virtualenv/
 temp/
 BACKUP/
+*.bak
+
 
 
