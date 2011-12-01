@@ -17,7 +17,8 @@
 Tests for 
 """
 
-# from import
+import logging
+
 
 __author__ = "Chris T. Cheyne"
 __copyright__ = "Copyright 2011, The Cassandra Manager Project"
@@ -28,10 +29,59 @@ __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
-def main():
-    """ main boot handler """
-    pass
 
+class MyLogger():
+    """ returns an instance of the Python logger. """
+    """ designed to allow <MYPROGRAMNAME><classinstance><fn><timestamp> """
+    """ message type commenture """
+    __shared_state = {}
+    l = None
+    myvar = '42'
+    def __init__(self):
+        self.__dict__ = self.__shared_state
+        self.boot()
+    def boot(self):
+        """ main boot handler """
+        self.l = logging.getLogger('CASSMGR')
+        self.l.setLevel(logging.DEBUG)
+        ch = logging.StreamHandler()
+        ch.setLevel(logging.DEBUG)
+        myformat = '%(asctime)s - %(name)s - %(levelname)s - %(filename)s - %(funcName)s - %(message)s'
+        myformatter = logging.Formatter(myformat)
+        ch.setFormatter(myformatter)
+        self.l.addHandler(ch)
+        self.l.debug('booting...')
+
+    # testing for shared state
+    def setvar(self,val):
+        self.myvar=val
+    def getvar(self): return self.myvar
+
+class Helpers():
+    __shared_state = {}
+    def __init__(self):
+        import time
+
+    def follow(thefile):
+        thefile.seek(0,2)
+        while True:
+            line = thefile.readline()
+            if not line:
+                time.sleep(0.1)
+                continue
+            yield line
+
+
+
+
+
+        
+def main():
+    SYSLOG = MyLogger()
+    MYHELPERS = Helpers()
+    SYSLOG.l.warn('...BOOTED! ' +SYSLOG.getvar())
+    SYSLOG.setvar('91')
+    SYSLOG.l.warn('Changed Var to  ' +SYSLOG.getvar())
 
 if __name__ == '__main__':
     main()
