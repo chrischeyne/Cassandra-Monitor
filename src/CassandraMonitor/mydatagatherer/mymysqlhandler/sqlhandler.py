@@ -13,8 +13,8 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-# Wed Nov 30 18:12:09 GMT 2011
 
+# Thu Dec  1 12:42:43 GMT 2011
 """
 this module returns dictionarys of data from MYSQL DATA
 these are formatted by ../mydatagatherer/datagatherer
@@ -25,7 +25,6 @@ FIXME: sqlhandler(manager.JmxHandler)
 """
 
 
-# Wed Nov 30 11:20:24 GMT 2011
 __author__ = "Chris T. Cheyne"
 __copyright__ = "Copyright 2011, The Cassandra Manager Project"
 __credits__ = ["Chris Cheyne"]
