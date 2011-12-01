@@ -33,5 +33,11 @@ ring0:
     cassmx4j:   7197
     pythonhome: /opt/python-2.7.2
     javahome:   /opt/jdk1.6.0_27
+
+interface: live
+interface:
+    cassmgr: /core/cassmgr
+    jsonurl: /json/data.json
+
 ...
 

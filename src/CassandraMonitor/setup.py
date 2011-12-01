@@ -7,9 +7,9 @@ except ImportError:
 
 setup(
         name='cassmanager',
-        version='0.1.3',
+        version='0.1.5',
         author='Chris Cheyne',
-        author_email='chris.cheyne@hearst.co.uk',
+        author_email='chris@cheynes.org',
         scripts=['installer.py'],
         install_requires=[
             'setuptools',

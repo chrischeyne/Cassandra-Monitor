@@ -18,10 +18,10 @@
 """
 this module returns dictionarys of data from MYSQL DATA
 these are formatted by ../mydatagatherer/datagatherer
+and splashed out to JSON by ../myjsonhander/jsonhandler
 
-e.g. d = {'bytes_received':40000, 'yada':yada, 'Com_insert',42}.dictsort()
+e.g. d = {'bytes_received':40000, 'yada':yada, 'Com_insert',42}
 
-FIXME: sqlhandler(manager.JmxHandler)
 """
 
 
@@ -124,14 +124,7 @@ class Mysql():
                 ,SYSCONFIG.conf['mysql']['comcon'] \
                 ]
 
-        # ---
-        # MYSQL DATA DICTIONARY
-        # 
-        # our (k,v) store for MySQL
-        #SYSLOG.l.debug('MySQL parser ' , MYSQL_PARSER)
-        #FIXME: put in yaml?
-
-        
+                
     def _mysqliterator(self,mydict):
         """ iterate over all items and print """
         print "_mysqliterator() - STARTING"
@@ -147,12 +140,6 @@ class Mysql():
 
     def mysqlexecutequery(self,mycursor,mydata,mycmds,myquery,parse=False):
         """ this returns values, so call the generators """
-        print "mysqlexecutequery()"
-        print mycursor
-        print mydata
-        print mycmds
-        print myquery
-        print parse
         print "exqry()  doing query : ",myquery
         mycursor.execute(myquery)
         myresult = mycursor.fetchmany()
@@ -164,12 +151,7 @@ class Mysql():
         """ the anti-deluvian ACME MYSQL QUERY FUNCTION """
         """ parse = parse results; if not Parse -> print results to stdout """
         try:
-            print "mysqlquery()"
-            print mycursor
-            print mydata
-            print mycmds
-            print myquery
-            # boot the query if possible, catch indexerror
+           # boot the query if possible, catch indexerror
             self.mysqlexecutequery(mycursor,myquery,parse)
 
         except MySQLdb.Error, e:
@@ -197,26 +179,18 @@ class Mysql():
             # FIXME: close properly
             print "CMD closing..()"
 
-    def _mysqlkgenerator(self,mylist):
-        """ throwaway data generator """
-        for i in mylist:
-            yield i
-
-    def _mysqlkvgenerator(self,mydict):
-        """ throwaway data generator in 2-D """
-        print '_mysqlkvgenerator() dict is'
-        print mydict
-        #for (i,j) in mydict.keys(),mydict.values(): yield (i,j)
-
     def printsavedata(self):
         """ use generators above to print all data """
-        g2 = self._mysqlkvgenerator(self.MYSQLDATA)
+        """ implements JSON to write to file stream """
         print "PRINTSAVEDATA():  MYSQL PERFORMANCE DATA"
-        print self.MYSQLDATA
-        print "PRINTSAVEDATA():  MYSQL CMD DATA"
-        print self.MYSQLCMDS
-
-        #print [upper(s) for s in g2.next()]
+        keys = self.MYSQLDATA.keys()
+        items = self.MYSQLDATA.items()
+        values = self.MYSQLDATA.values()
+        # FIXME: bring in generators from myhelpers()
+        print ("KEYS:   %s"%(keys))
+        print ("VALUES:  %s"%(values))
+        print ("ITEMS:  %s"%(items))
+        # FIXME: bring in JSON formatters
 
 
     def builddata(self,mycursor):
@@ -224,10 +198,6 @@ class Mysql():
         """ and populate dictionary """
         """ iterates over MYSQLCMDS """
 
-        print "BUILDDATA():  MYSQL PERFORMANCE DATA"
-        print self.MYSQLDATA
-        print "BUILDSAVEDATA():  MYSQL CMD DATA"
-        print self.MYSQLCMDS
         self.mysqlcommanditerator(mycursor,self.MYSQLCMDS,self.MYSQLDATA)
         self.loopcount+=1
 
@@ -241,6 +211,11 @@ class Mysql():
         self.printsavedata()
 
     def mainloop(self):
+        """ set up db connection. """
+        """ set up timer tick """
+        """ whilst we have a db connection: """
+        """ .... builddata,  getdata, jsondata """
+        
         import time
         db_connection = MyDatabaseConnection()
         with db_connection as self.mycursor:

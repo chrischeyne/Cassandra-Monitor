@@ -43,9 +43,9 @@ import myconfig.config as config
 import mylogger.logger as loggingsystem
 SYSCONFIG = config.MyConfig()
 SYSLOG = loggingsystem.MyLogger()
-SYSLOG.l.debug('booting....')
 # boot data gathering subsystem
 # boot the main handler for all modules 
+SYSLOG.l.debug('CORE SERVER BOOTING....')
 cs.main()
 
 
