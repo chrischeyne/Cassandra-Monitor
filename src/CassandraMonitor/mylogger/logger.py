@@ -14,7 +14,8 @@
 # under the License.
 
 """
-Tests for 
+implements a logging system via stdlib logging
+
 """
 
 import logging

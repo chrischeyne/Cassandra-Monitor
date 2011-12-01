@@ -15,7 +15,7 @@
 
 
 
-# Tue Nov 15 17:45:41 GMT 2011
+# Thu Dec  1 14:38:08 GMT 2011
 """
 this is our configuration area. From here we can determine, via YAML, which
 variables to operate on; e.g.
@@ -42,24 +42,20 @@ SYSLOG = loggingsystem.MyLogger()
 SYSLOG.l.debug('booting....')
 
 
-# FIXME: obvious hack must be fixed to point to
-# src/myconfig/config.yaml
-# FIXME: make this more modular. This hack will do for now
-# but you can no longer run this module as a separate entity
-# Tue Nov 22 17:19:53 GMT 2011
-CONFIG_FILE= os.getcwd() + '/CassandraMonitor/myconfig/config.yaml'
+
 class MyConfig():
     """ returns a configuration holding object """
     __shared_state = {}
+
     def __init__(self):
         self.__dict__ = self.__shared_state
+        self.__dir__ = os.path.dirname(os.path.abspath(__file__))
+        self.filepath = os.path.join(self.__dir__,'config.yaml')
         self.boot()
     
     def boot(self):
-        self.configurationfile = CONFIG_FILE
-        with open(self.configurationfile) as self.f:
+        with open(self.filepath) as self.f:
             self.conf = yaml.load(self.f)
-            # debug print
             SYSLOG.l.info("self.conf['mysql']['host'] = %s" % \
                      self.conf['mysql']['host'])
 
@@ -72,6 +68,8 @@ class MyConfig():
     def dumpconfig(self):
         """ dumps the current running config to stdout """
         print yaml.dump(self.conf,default_flow_style=False)
+
+
 
 if __name__ == "__main__":
     myconf = MyConfig()
