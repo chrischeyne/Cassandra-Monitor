@@ -23,6 +23,10 @@ e.g. sorting dictionaries of JMX results
 
 also returns nodal information for management system
 
+also will implement a class-based inheritence system for different types of
+data analysis; including SciPy inparticular
+
+
 NOTE:  major re-write required; this is mostly a collection of scripts that
 operate on generate k,v tuples.
 
@@ -50,7 +54,7 @@ __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
 
-class MyDataHandlers():
+class MyDataAnalysis():
     """ main monitor object, of type {jmx,perf}Class """
     """ contains sorting methods for returning values """
     """ sorted and ready to stream """
@@ -179,7 +183,7 @@ class MyDataHandlers():
 
 
 if __name__ == '__main__':
-    mydata = MyDataHandlers()
+    mydata = MyDataAnalysis()
     d = dict(a=1,b=2,c='System',d=40.9)
 
     mydict = mydata.getkeyvalues(d)
