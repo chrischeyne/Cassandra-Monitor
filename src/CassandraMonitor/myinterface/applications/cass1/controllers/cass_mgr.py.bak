@@ -1,8 +1,0 @@
-# coding: utf8
-# try something like
-def index():
-    CASS_JMX = {}
-    CASS_JMX = {'jack': 4098, 'sape': 4139}
-    CASS_JMX['guido'] = 4127
-    
-    return dict(message="hello from cass_mgr.py")

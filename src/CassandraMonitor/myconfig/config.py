@@ -15,7 +15,7 @@
 
 
 
-# Thu Nov 24 14:49:25 GMT 2011
+# Fri Dec  2 11:19:46 GMT 2011
 """
 this is our configuration area. From here we can determine, via YAML, which
 variables to operate on; e.g.
@@ -37,14 +37,13 @@ __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
 import os
-import logger as loggingsystem
+import mylogger.logger as loggingsystem
 SYSLOG = loggingsystem.MyLogger()
 SYSLOG.l.debug('booting....')
 
-
-# FIXME: obvious hack must be fixed to point to
-# src/myconfig/config.yaml
-CONFIG_FILE='config.yaml'
+# FIXME: get paths from yaml
+CURRENT_PATH = os.path.dirname(__file__)
+CONFIG_FILE= CURRENT_PATH+ '/config.yaml'
 class MyConfig():
     """ returns a configuration holding object """
     __shared_state = {}
@@ -68,7 +67,6 @@ class MyConfig():
     def dumpconfig(self):
         """ dumps the current running config to stdout """
         print yaml.dump(self.conf,default_flow_style=False)
-
 
 
 if __name__ == "__main__":

@@ -35,8 +35,6 @@ __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
-__all__ = ["CassandraMonitor"]
-
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))

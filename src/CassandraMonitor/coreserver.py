@@ -38,6 +38,7 @@ __status__ = "Alpha"
 import sys
 import os
 import imp
+
 import mylogger.logger as loggingsystem
 SYSLOG = loggingsystem.MyLogger()
 SYSLOG.l.debug('booting....')
@@ -60,8 +61,6 @@ def findmodules(path="."):
             modules.add(m)
     return list(modules)
 
-
-
 def loadmodules(name,path=["."]):
     """ return modules for paths """
     (file,pathname,description) = imp.find_module(name,path)
@@ -70,12 +69,11 @@ def loadmodules(name,path=["."]):
 # MAIN LOOP
 __all__ = None
 def main():
-
     """ our default bootstrapper. calls each module in turn. """
-    """ diagramatically, this is: - """
-    __all__ = [loadmodules(name) for name in findmodules()]
-    print "ALL IS FULL OF LOVE ",__all__
-    sys.exit(1)
+
+    # FIXME: recursive module import?
+    #for name in findmodules():
+    #    loadmodules(name)
 
     # BOOT AND CONFIGURE TORNADO
     import tornado.httpserver

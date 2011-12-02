@@ -14,8 +14,10 @@
 # under the License.
 
 """
-main imports core*.py and performs any clean-up upon their termination
+relative module path manipulation
 """
+
+
 __author__ = "Chris T. Cheyne"
 __copyright__ = "Copyright 2011, The Cassandra Manager Project"
 __credits__ = ["Chris Cheyne"]
@@ -25,35 +27,15 @@ __maintainer__ = "Chris T. Cheyne"
 __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
-import sys
+
 import os
+import sys
 
-# GLOBAL OBJECTS
-global SYSCONFIG
-global SYSLOG
-global DATAHANDLERS
+thisdir = os.path.dirname(__file__)
+moddir =  os.path.join(thisdir,'../mycassandramonitor')
 
-# FIXME: get rid of this once packaging begins
-currentfolder = os.path.dirname(os.path.abspath(__file__))
-if currentfolder not in sys.path: sys.path.insert(0,currentfolder)
-
-
-import myconfig.config as config
-import mylogger.logger as loggingsystem
-import mydatahandlers.datahandlers as datasystem
-import coreserver as cs
-
-SYSCONFIG = config.MyConfig()
-SYSLOG = loggingsystem.MyLogger()
-DATAHANDLERS = datasystem.MyDataHandlers()
-
-# boot data gathering subsystem
-# boot the main handler for all modules 
-SYSLOG.l.debug('CORE SERVER BOOTING....')
-cs.main()
-
-
-
+if moddir not in sys.path:
+    sys.path.insert(0,moddir)
 
 
 

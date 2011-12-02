@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-
+# FIXME: include pip_requires.txt for pip -r pip_requires.txt
 try:
     from setuptools import setup
 except ImportError:
