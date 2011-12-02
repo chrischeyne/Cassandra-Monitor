@@ -13,7 +13,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-
+# NOTE UNDER HEAVY UNIT TESTING ==
 # Thu Dec  1 12:42:43 GMT 2011
 """
 this module returns dictionarys of data from MYSQL DATA
@@ -40,6 +40,8 @@ import MySQLdb.cursors
 import sys
 # FIXME: relocate config modules
 import config as config
+import jsonhandler
+
 
 # FIXME: MERGE BELOW once unit testing complete
 #import mylogger.logger as loggingsystem
@@ -180,17 +182,23 @@ class Mysql():
             print "CMD closing..()"
 
     def printsavedata(self):
+        self.alldata = {}
         """ use generators above to print all data """
         """ implements JSON to write to file stream """
         print "PRINTSAVEDATA():  MYSQL PERFORMANCE DATA"
-        keys = self.MYSQLDATA.keys()
         items = self.MYSQLDATA.items()
-        values = self.MYSQLDATA.values()
         # FIXME: bring in generators from myhelpers()
-        print ("KEYS:   %s"%(keys))
-        print ("VALUES:  %s"%(values))
         print ("ITEMS:  %s"%(items))
         # FIXME: bring in JSON formatters
+
+        MYJSON = jsonhandler.MyJSONHandler()
+        print ' JSON --- '
+        d1 = MYJSON.encodejson(self.MYSQLDATA)
+        MYJSON.printjson(d1)
+        print ' --- JSON'
+        sys.exit(1)
+
+
 
 
     def builddata(self,mycursor):

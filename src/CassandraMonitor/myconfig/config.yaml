@@ -31,13 +31,13 @@ ring0:
     cassjmx:    7199
     cassstorage:    6999
     cassmx4j:   7197
-    pythonhome: /opt/python-2.7.2
-    javahome:   /opt/jdk1.6.0_27
-
-interface: live
-interface:
-    cassmgr: /core/cassmgr
-    jsonurl: /json/data.json
-
+    PYTHONHOME: /opt/python-2.7.2
+    JAVA_HOME:   /opt/jdk1.6.0_27
+ring0nodes:
+    node0: florence
+    node1: ermintrude
+    node2: celeste
+    node4: rosalie
+    nodemgt: casr1-vm10-dev
 ...
 

@@ -15,7 +15,7 @@
 
 
 
-# Thu Dec  1 14:38:08 GMT 2011
+# Thu Nov 24 14:49:25 GMT 2011
 """
 this is our configuration area. From here we can determine, via YAML, which
 variables to operate on; e.g.
@@ -37,24 +37,24 @@ __email__ = "maintainer@cassandra-manager.org"
 __status__ = "Alpha"
 
 import os
-import mylogger.logger as loggingsystem
+import logger as loggingsystem
 SYSLOG = loggingsystem.MyLogger()
 SYSLOG.l.debug('booting....')
 
 
-
+# FIXME: obvious hack must be fixed to point to
+# src/myconfig/config.yaml
+CONFIG_FILE='config.yaml'
 class MyConfig():
     """ returns a configuration holding object """
     __shared_state = {}
-
     def __init__(self):
         self.__dict__ = self.__shared_state
-        self.__dir__ = os.path.dirname(os.path.abspath(__file__))
-        self.filepath = os.path.join(self.__dir__,'config.yaml')
         self.boot()
     
     def boot(self):
-        with open(self.filepath) as self.f:
+        self.configurationfile = CONFIG_FILE
+        with open(self.configurationfile) as self.f:
             self.conf = yaml.load(self.f)
             SYSLOG.l.info("self.conf['mysql']['host'] = %s" % \
                      self.conf['mysql']['host'])
@@ -77,6 +77,17 @@ if __name__ == "__main__":
     print "mysql host" 
     print myconf.conf['mysql']['host']
     print myconf.conf['ring0']['mysqluser']
+    def getnodes(ring):
+        from operator import itemgetter
+        x = sorted(myconf.conf[ring].values(),key=itemgetter(1))
+        return x
+    print "via getnodes()"
+    mynodes = getnodes('ring0nodes')
+    for i in mynodes: print i
+
+
+
+
 
 
 

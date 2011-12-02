@@ -4,9 +4,9 @@ __init__.py
 cassandramonitor.py         - core launcher
 coredjango.py               - core django handler
 coreserver.py               - core tornado http server 
-corefetcher.py              - core tornado http client
+corefetcher.py              - core tornado http client launcher
 
-....mydatagatherer                  - core gathering 'daemons'
+....mydatagatherer                  - core gathering 'daemons' manager
 .......myjmxhandler                 - captures internal JVM JMX info
 .......mymysqlhandler               - working on this as a side project
 .......mycassandrahandler           - this does more performance-orientated stats
@@ -18,7 +18,8 @@ js/                         - js libraries (usually flot)
 mylogger/                   - core logging system logger
 templates/                  - temporary template area for testing django/flot
 db/                         - temporary sqlite db area for testing
+plugins/                    - future development area for plugins
 
 
-Thu Nov 17 14:27:22 GMT 2011
 
+Fri Dec  2 10:13:52 GMT 2011

@@ -48,11 +48,14 @@ class MyJSONHandler():
 
     def encodejson(self,data):
         """ return a json object representation of data """
-        s = self.json.dumps(data,separators=(',',':'))
+        # FIXME: check separators are correct for yaml dicts
+        # s = self.json.dumps(data,separators=(',',':'))
+        s = self.json.dumps(data,separators=(',',','))
         return s
 
     def printjson(self,data):
         s = self.json.dumps(data,sort_keys=True,indent=4 * ' ')
+        print '\n'.join([l.rstrip() for l in s.splitlines()])
 
 
 

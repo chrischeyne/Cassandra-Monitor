@@ -13,17 +13,29 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+# Fri Dec  2 10:16:09 GMT 2011
 
-# Thu Dec  1 11:29:58 GMT 2011
 """
+helper class.
+
 functions for sorting out details from data gathering
 e.g. sorting dictionaries of JMX results
+
+also returns nodal information
+
 """
 
 from operator import itemgetter, attrgetter
 import os
 import fnmatch
 import time
+import config as config
+import mylogger.logger as loggingsystem
+SYSCONFIG = config.MyConfig()
+SYSLOG = loggingsystem.MyLogger()
+SYSLOG.l.debug('booting....')
+
+
 
 __author__ = "Chris T. Cheyne"
 __copyright__ = "Copyright 2011, The Cassandra Manager Project"
@@ -40,12 +52,6 @@ class MyMonitors():
     """ contains sorting methods for returning values """
     """ sorted and ready to stream """
     def __init__(self,name):
-        # FIXME: this structure will look at follows: -
-        # MyMonitors
-        # .... name (e.g. ring0node3)
-        # .... dictionary of jmxobjects if exist
-        # .... dictionary of perfobjects if exist
-        # .... timestamp of update
         pass
 
 
@@ -159,8 +165,11 @@ def consumequeue(myqueue):
         if item is StopIteration: break
         yield item
 
+def getnodes(ring):
+    """ return nodes in ring <ring> """
+    x = sorted(myconf.conf[ring].values(), key = itemgetter(1))
+    return x
 
-    
 
 # random code to be sorted
 # sorted("This is a test string from Me".split(),key=str.lower)
