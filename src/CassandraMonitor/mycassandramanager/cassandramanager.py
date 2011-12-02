@@ -45,9 +45,12 @@ SYSLOG.l.info('mysql host is %s ' % SYSCONFIG.conf['mysql']['host'])
 
 
 # MAIN LOOP
+class CassandraManager():
+    def __init__(self):
+        self.main()
 
-def main():
-    """ our default bootstrapper. calls each module in turn. """
+    def main(self):
+        """ our default bootstrapper. calls each module in turn. """
 
 # note we should be called from cassandramonitor.py
 if __name__ == "__main__":

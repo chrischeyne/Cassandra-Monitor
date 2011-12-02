@@ -40,12 +40,10 @@ if currentfolder not in sys.path: sys.path.insert(0,currentfolder)
 
 import myconfig.config as config
 import mylogger.logger as loggingsystem
-import mydatahandlers.datahandlers as datasystem
 import coreserver as cs
 
 SYSCONFIG = config.MyConfig()
 SYSLOG = loggingsystem.MyLogger()
-DATAHANDLERS = datasystem.MyDataHandlers()
 
 # boot data gathering subsystem
 # boot the main handler for all modules 

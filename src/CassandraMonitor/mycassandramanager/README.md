@@ -1,3 +1,7 @@
+# DIRECTORY STRUCTURE
+
+Fri Dec  2 17:10:59 GMT 2011
+
 cassandramanager.py     - boots web2py and all below modules
 
 mycassandramanager/         - core management system

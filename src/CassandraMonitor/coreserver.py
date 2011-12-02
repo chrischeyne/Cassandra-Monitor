@@ -13,7 +13,8 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-# Thu Dec  1 15:37:42 GMT 2011
+
+# Fri Dec  2 17:08:59 GMT 2011
 """
 core management server.  Handles: -
 
@@ -70,39 +71,46 @@ def loadmodules(name,path=["."]):
 __all__ = None
 def main():
     """ our default bootstrapper. calls each module in turn. """
-
+    # FIXME: *** README ***
+    # FIXME: *** CURRENTLY USING web2py not tornado ***
+    # FIXME: *** functionality moved inside
+    # mycassandramanager/cassandramanager.yp
     # FIXME: recursive module import?
     #for name in findmodules():
     #    loadmodules(name)
 
-    # BOOT AND CONFIGURE TORNADO
-    import tornado.httpserver
-    import tornado.ioloop
-    import tornado.options
-    import tornado.web
-    
-    # FIXME: remap this to import myconfig; myconfig.tornado.port
-    from tornado.options import define, options
-    define("port", default=8888, help="default to port 8888", type=int)
-    tornado.options.parse_command_line()
+    ## BOOT AND CONFIGURE TORNADO
+    #import tornado.httpserver
+    #import tornado.ioloop
+    #import tornado.options
+    #import tornado.web
+    #
+    ## FIXME: remap this to import myconfig; myconfig.tornado.port
+    #from tornado.options import define, options
+    #define("port", default=8888, help="default to port 8888", type=int)
+    #tornado.options.parse_command_line()
 
-    # Handlers:  root, cacti, ganglia, flot in graphs, manager
-    # TODO: others
+    ## Handlers:  root, cacti, ganglia, flot in graphs, manager
+    ## TODO: others
 
-    coreserver = tornado.web.Application([
-           (r"/", dt.ListMessagesHandler),
-        (r"/cacti/[0-9]+",dt.CactiHandler),
-        (r"/ganglia/[0-9]+",dt.GangliaHandler),
-        (r"/form/", dt.FormHandler),
-        (r"/graphs/",dt.GraphHandler),
+    #coreserver = tornado.web.Application([
+    #       (r"/", dt.ListMessagesHandler),
+    #    (r"/cacti/[0-9]+",dt.CactiHandler),
+    #    (r"/ganglia/[0-9]+",dt.GangliaHandler),
+    #    (r"/form/", dt.FormHandler),
+    #    (r"/graphs/",dt.GraphHandler),
 
-    ])
-    
-    # launch the 'front page' server
-    http_server = tornado.httpserver.HTTPServer(coreserver)
-    http_server.listen(options.port)
-    # FIXME: terminator on user connection close
-    tornado.ioloop.IOLoop.instance().start()
+    #])
+    #
+    ## launch the 'front page' server
+    #http_server = tornado.httpserver.HTTPServer(coreserver)
+    #http_server.listen(options.port)
+    ## FIXME: terminator on user connection close
+    #tornado.ioloop.IOLoop.instance().start()
+    # FIXME: all of this. Use tornado with web2py?
+    import mycassandramanager.cassandramanager
+    cassmgr = mycassandramanager.cassandramanager.MyCassandraManager()
+    MyCassandraManager().boot()
 
 
 # note we should be called from cassandramonitor.py
