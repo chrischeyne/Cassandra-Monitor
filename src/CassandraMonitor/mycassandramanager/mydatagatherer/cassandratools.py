@@ -13,6 +13,11 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+
+# Mon Dec  5 12:39:18 GMT 2011
+# NOTE: this is a mess as of above date; copied from old code
+# requires re-working
+
 """
 cassandratools - cassandra management tools. Wrapper around nodetool
 ClusterSSH

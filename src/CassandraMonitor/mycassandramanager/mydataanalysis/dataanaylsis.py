@@ -13,8 +13,8 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-# Fri Dec  2 10:16:09 GMT 2011
 
+# Mon Dec  5 10:08:27 GMT 2011
 """
 helper class.
 
@@ -59,7 +59,8 @@ class MyDataAnalysis():
     """ contains sorting methods for returning values """
     """ sorted and ready to stream """
     """ global module """
-
+    # data analysis is a global module
+    # so any module can call it
     __shared_state = {}
     def __init__(self):
         self.__dict__ = self.__shared_state
@@ -150,7 +151,7 @@ class MyDataAnalysis():
             yield d
 
     def generatoropen(filenames):
-        """ opens compressed cassandra logs """
+        """ opens compressed mysql/cass log files """
         for name in filenames:
             if name.endswith("*.gz"):
                 yield gzip.open(name)
