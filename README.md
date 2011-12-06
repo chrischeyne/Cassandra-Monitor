@@ -1,16 +1,14 @@
 CASSANDRA MANAGER PROJECT
 
-VERSION 0.0.15
+VERSION 0.0.16a
 
 
-Thu Dec  1 15:06:41 GMT 2011
+Tue Dec  6 16:56:08 GMT 2011
 
-This project aims to provide a management interface to Cassandra and also delve
+This project initially aims to provide a management interface to Cassandra and also delve
 deep inside the JMX infrastructure to provide real-time health monitoring of
 the Cassandra/JVM internals by polling a python 'bean-like' attributes.
-
-It is also envisioned that there will be a
-benchmarking system using statistical theories for schema/data optimisation and
+It is also envisioned that there will be a benchmarking system using statistical theories for schema/data optimisation and
 real-time graphing of individual node structures and benchmarks.  In other
 words, real-time analysis of incoming data; real-time analysis of actual
 performance and also integrating (FUTURE) hadoop-based mapreduce system and
