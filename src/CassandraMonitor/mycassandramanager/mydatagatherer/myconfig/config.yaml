@@ -1,0 +1,43 @@
+---
+defaults: allrings 
+mysql:
+    user:   chris
+    host:   florence
+    db:    chris 
+    pass:   Free1Kick
+    0comins: show status where variable_name = 'Com_insert';
+    bytes: show status where variable_name = 'Bytes_received';
+    comcon: show status where variable_name = 'Connections';
+    comdbs: show status where variable_name = 'Com_show_databases';
+    
+cassperf:
+    readstage: ReadStage
+    RRS:    RequestResponseStage
+    MS:     MutationsStage
+    RRPS:   ReadRepairStage
+    GS: GossipStage
+
+
+ring0: live
+ring0:
+    mysqluser:   chris
+    mysqlhost:   florence
+    mysqldb:     chris
+    mysqlpass:   Free1Kick
+    cassuser:   cassuser
+    casspass:   casspass
+    casskeysp:  Keyspace1
+    cassrpc:    9160
+    cassjmx:    7199
+    cassstorage:    6999
+    cassmx4j:   7197
+    PYTHONHOME: /opt/python-2.7.2
+    JAVA_HOME:   /opt/jdk1.6.0_27
+ring0nodes:
+    node0: florence
+    node1: ermintrude
+    node2: celeste
+    node4: rosalie
+    nodemgt: casr1-vm10-dev
+...
+

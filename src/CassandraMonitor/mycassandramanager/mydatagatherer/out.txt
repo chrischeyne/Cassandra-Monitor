@@ -1,0 +1,1044 @@
+execve("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/bin/python", ["python", "cassandratools.py"], [/* 34 vars */]) = 0
+brk(0)                                  = 0x1f93000
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24c75000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY)      = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=124381, ...}) = 0
+mmap(NULL, 124381, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f7e24c56000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/x86_64-linux-gnu/libpthread.so.0", O_RDONLY) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\300\\\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=140254, ...}) = 0
+mmap(NULL, 2217000, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f7e24839000
+mprotect(0x7f7e24851000, 2097152, PROT_NONE) = 0
+mmap(0x7f7e24a51000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x18000) = 0x7f7e24a51000
+mmap(0x7f7e24a53000, 13352, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f7e24a53000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/x86_64-linux-gnu/libdl.so.2", O_RDONLY) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\340\r\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=14696, ...}) = 0
+mmap(NULL, 2109720, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f7e24635000
+mprotect(0x7f7e24637000, 2097152, PROT_NONE) = 0
+mmap(0x7f7e24837000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2000) = 0x7f7e24837000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/x86_64-linux-gnu/libutil.so.1", O_RDONLY) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\20\16\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=10640, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24c55000
+mmap(NULL, 2105608, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f7e24432000
+mprotect(0x7f7e24434000, 2093056, PROT_NONE) = 0
+mmap(0x7f7e24633000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1000) = 0x7f7e24633000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/x86_64-linux-gnu/libm.so.6", O_RDONLY) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\360>\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=543104, ...}) = 0
+mmap(NULL, 2638136, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f7e241ad000
+mprotect(0x7f7e24231000, 2093056, PROT_NONE) = 0
+mmap(0x7f7e24430000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x83000) = 0x7f7e24430000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\20\360\1\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=1638120, ...}) = 0
+mmap(NULL, 3749080, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f7e23e19000
+mprotect(0x7f7e23fa3000, 2093056, PROT_NONE) = 0
+mmap(0x7f7e241a2000, 20480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x189000) = 0x7f7e241a2000
+mmap(0x7f7e241a7000, 21720, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f7e241a7000
+close(3)                                = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24c54000
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24c52000
+arch_prctl(ARCH_SET_FS, 0x7f7e24c52720) = 0
+mprotect(0x7f7e241a2000, 16384, PROT_READ) = 0
+mprotect(0x7f7e24430000, 4096, PROT_READ) = 0
+mprotect(0x7f7e24633000, 4096, PROT_READ) = 0
+mprotect(0x7f7e24837000, 4096, PROT_READ) = 0
+mprotect(0x7f7e24a51000, 4096, PROT_READ) = 0
+mprotect(0x77b000, 4096, PROT_READ)     = 0
+mprotect(0x7f7e24c77000, 4096, PROT_READ) = 0
+munmap(0x7f7e24c56000, 124381)          = 0
+set_tid_address(0x7f7e24c529f0)         = 26991
+set_robust_list(0x7f7e24c52a00, 0x18)   = 0
+futex(0x7fff3f13289c, FUTEX_WAKE_PRIVATE, 1) = 0
+futex(0x7fff3f13289c, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 1, NULL, 7f7e24c52720) = -1 EAGAIN (Resource temporarily unavailable)
+rt_sigaction(SIGRTMIN, {0x7f7e2483e740, [], SA_RESTORER|SA_SIGINFO, 0x7f7e24848c60}, NULL, 8) = 0
+rt_sigaction(SIGRT_1, {0x7f7e2483e7d0, [], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x7f7e24848c60}, NULL, 8) = 0
+rt_sigprocmask(SIG_UNBLOCK, [RTMIN RT_1], NULL, 8) = 0
+getrlimit(RLIMIT_STACK, {rlim_cur=8192*1024, rlim_max=RLIM_INFINITY}) = 0
+ioctl(0, SNDCTL_TMR_TIMEBASE or TCGETS, {B38400 opost isig icanon echo ...}) = 0
+brk(0)                                  = 0x1f93000
+brk(0x1fb4000)                          = 0x1fb4000
+mmap(NULL, 266240, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24c11000
+open("/proc/meminfo", O_RDONLY)         = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24c74000
+read(3, "MemTotal:        2056284 kB\nMemF"..., 1024) = 1024
+close(3)                                = 0
+munmap(0x7f7e24c74000, 4096)            = 0
+brk(0x1fe0000)                          = 0x1fe0000
+fstat(0, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 4), ...}) = 0
+fstat(0, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 4), ...}) = 0
+fstat(1, {st_mode=S_IFREG|0644, st_size=5892, ...}) = 0
+fstat(2, {st_mode=S_IFREG|0644, st_size=5948, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/bin/python", {st_mode=S_IFREG|0775, st_size=6904355, ...}) = 0
+readlink("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/bin/python", 0x7fff3f12f5d0, 4096) = -1 EINVAL (Invalid argument)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/bin/Modules/Setup", 0x7fff3f12f540) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/bin/lib/python2.7/os.py", 0x7fff3f12f540) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/bin/lib/python2.7/os.pyc", 0x7fff3f12f540) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/os.py", {st_mode=S_IFREG|0644, st_size=26300, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/bin/Modules/Setup", 0x7fff3f12f540) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/bin/lib/python2.7/lib-dynload", 0x7fff3f12f540) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-dynload", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+rt_sigaction(SIGPIPE, {SIG_IGN, [], SA_RESTORER, 0x7f7e24848c60}, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGXFSZ, {SIG_IGN, [], SA_RESTORER, 0x7f7e24848c60}, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGHUP, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGINT, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGQUIT, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGILL, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGTRAP, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGABRT, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGBUS, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGFPE, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGKILL, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGUSR1, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGSEGV, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGUSR2, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGPIPE, NULL, {SIG_IGN, [], SA_RESTORER, 0x7f7e24848c60}, 8) = 0
+rt_sigaction(SIGALRM, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGTERM, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGSTKFLT, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGCHLD, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGCONT, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGSTOP, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGTSTP, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGTTIN, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGTTOU, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGURG, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGXCPU, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGXFSZ, NULL, {SIG_IGN, [], SA_RESTORER, 0x7f7e24848c60}, 8) = 0
+rt_sigaction(SIGVTALRM, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGPROF, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGWINCH, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGIO, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGPWR, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGSYS, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_2, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_3, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_4, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_5, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_6, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_7, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_8, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_9, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_10, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_11, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_12, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_13, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_14, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_15, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_16, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_17, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_18, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_19, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_20, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_21, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_22, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_23, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_24, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_25, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_26, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_27, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_28, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_29, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_30, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_31, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGRT_32, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGINT, {0x4e51c0, [], SA_RESTORER, 0x7f7e24848c60}, {SIG_DFL, [], 0}, 8) = 0
+mmap(NULL, 266240, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24bd0000
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python27.zip", 0x7fff3f12aed0) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python27.zip", 0x7fff3f12df40) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site", 0x7fff3f12e280) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/sitemodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site.py", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0775, st_size=26322, ...}) = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site.pyc", O_RDONLY) = 4
+fstat(4, {st_mode=S_IFREG|0775, st_size=25643, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24bc8000
+read(4, "\3\363\r\n}\360\257Nc\0\0\0\0\0\0\0\0\5\0\0\0@\0\0\0s\t\2\0\0d\0"..., 32768) = 25643
+fstat(4, {st_mode=S_IFREG|0775, st_size=25643, ...}) = 0
+read(4, "", 32768)                      = 0
+close(4)                                = 0
+munmap(0x7f7e24bc8000, 32768)           = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/os", 0x7fff3f12acb0) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/os.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/osmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/os.py", O_RDONLY) = 4
+fstat(4, {st_mode=S_IFREG|0644, st_size=26300, ...}) = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/os.pyc", O_RDONLY) = 6
+fstat(6, {st_mode=S_IFREG|0775, st_size=29221, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24bc8000
+read(6, "\3\363\r\n\2\342\237Nc\0\0\0\0\0\0\0\0\16\0\0\0@\0\0\0s\22\7\0\0d\0"..., 32768) = 29221
+fstat(6, {st_mode=S_IFREG|0775, st_size=29221, ...}) = 0
+brk(0x2004000)                          = 0x2004000
+read(6, "", 32768)                      = 0
+brk(0x1ffd000)                          = 0x1ffd000
+close(6)                                = 0
+munmap(0x7f7e24bc8000, 32768)           = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/posixpath", 0x7fff3f1276e0) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/posixpath.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/posixpathmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/posixpath.py", O_RDONLY) = 6
+fstat(6, {st_mode=S_IFREG|0644, st_size=13182, ...}) = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/posixpath.pyc", O_RDONLY) = 7
+fstat(7, {st_mode=S_IFREG|0775, st_size=12505, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24bc8000
+read(7, "\3\363\r\n\4\342\237Nc\0\0\0\0\0\0\0\0&\0\0\0@\0\0\0s\345\1\0\0d\0"..., 32768) = 12505
+fstat(7, {st_mode=S_IFREG|0775, st_size=12505, ...}) = 0
+read(7, "", 32768)                      = 0
+close(7)                                = 0
+munmap(0x7f7e24bc8000, 32768)           = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/stat", 0x7fff3f124110) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/stat.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/statmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/stat.py", O_RDONLY) = 7
+fstat(7, {st_mode=S_IFREG|0644, st_size=1718, ...}) = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/stat.pyc", O_RDONLY) = 8
+fstat(8, {st_mode=S_IFREG|0775, st_size=3273, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24bc8000
+read(8, "\3\363\r\n\32\342\237Nc\0\0\0\0\0\0\0\0\1\0\0\0@\0\0\0so\1\0\0d\0"..., 32768) = 3273
+fstat(8, {st_mode=S_IFREG|0775, st_size=3273, ...}) = 0
+read(8, "", 32768)                      = 0
+mmap(NULL, 200704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24b97000
+close(8)                                = 0
+munmap(0x7f7e24bc8000, 32768)           = 0
+close(7)                                = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/genericpath", 0x7fff3f124110) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/genericpath.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/genericpathmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/genericpath.py", O_RDONLY) = 7
+fstat(7, {st_mode=S_IFREG|0644, st_size=3015, ...}) = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/genericpath.pyc", O_RDONLY) = 8
+fstat(8, {st_mode=S_IFREG|0775, st_size=3833, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24bc8000
+read(8, "\3\363\r\n\17\342\237Nc\0\0\0\0\0\0\0\0\10\0\0\0@\0\0\0s\221\0\0\0d\0"..., 32768) = 3833
+fstat(8, {st_mode=S_IFREG|0775, st_size=3833, ...}) = 0
+read(8, "", 32768)                      = 0
+close(8)                                = 0
+munmap(0x7f7e24bc8000, 32768)           = 0
+close(7)                                = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/warnings", 0x7fff3f124110) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/warnings.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/warningsmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/warnings.py", O_RDONLY) = 7
+fstat(7, {st_mode=S_IFREG|0644, st_size=14044, ...}) = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/warnings.pyc", O_RDONLY) = 8
+fstat(8, {st_mode=S_IFREG|0775, st_size=14427, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24bc8000
+read(8, "\3\363\r\n\2\342\237Nc\0\0\0\0\0\0\0\0\7\0\0\0@\0\0\0sS\2\0\0d\0"..., 32768) = 14427
+fstat(8, {st_mode=S_IFREG|0775, st_size=14427, ...}) = 0
+read(8, "", 32768)                      = 0
+close(8)                                = 0
+munmap(0x7f7e24bc8000, 32768)           = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/linecache", 0x7fff3f120b40) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/linecache.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/linecachemodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/linecache.py", O_RDONLY) = 8
+fstat(8, {st_mode=S_IFREG|0644, st_size=3964, ...}) = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/linecache.pyc", O_RDONLY) = 9
+fstat(9, {st_mode=S_IFREG|0775, st_size=3553, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24bc8000
+read(9, "\3\363\r\nD\342\237Nc\0\0\0\0\0\0\0\0\3\0\0\0@\0\0\0sp\0\0\0d\0"..., 32768) = 3553
+fstat(9, {st_mode=S_IFREG|0775, st_size=3553, ...}) = 0
+read(9, "", 32768)                      = 0
+close(9)                                = 0
+munmap(0x7f7e24bc8000, 32768)           = 0
+close(8)                                = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/types", 0x7fff3f120b40) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/types.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/typesmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/types.py", O_RDONLY) = 8
+fstat(8, {st_mode=S_IFREG|0644, st_size=2040, ...}) = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/types.pyc", O_RDONLY) = 9
+fstat(9, {st_mode=S_IFREG|0775, st_size=2848, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24bc8000
+read(9, "\3\363\r\n\4\342\237Nc\0\0\0\0\0\0\0\0\5\0\0\0@\0\0\0s/\2\0\0d\0"..., 32768) = 2848
+fstat(9, {st_mode=S_IFREG|0775, st_size=2848, ...}) = 0
+read(9, "", 32768)                      = 0
+close(9)                                = 0
+munmap(0x7f7e24bc8000, 32768)           = 0
+close(8)                                = 0
+close(7)                                = 0
+close(6)                                = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/UserDict", 0x7fff3f1276e0) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/UserDict.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/UserDictmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/UserDict.py", O_RDONLY) = 6
+fstat(6, {st_mode=S_IFREG|0644, st_size=5811, ...}) = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/UserDict.pyc", O_RDONLY) = 7
+fstat(7, {st_mode=S_IFREG|0775, st_size=11385, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24bc8000
+read(7, "\3\363\r\n\32\342\237Nc\0\0\0\0\0\0\0\0\3\0\0\0@\0\0\0sb\0\0\0d\0"..., 32768) = 11385
+fstat(7, {st_mode=S_IFREG|0775, st_size=11385, ...}) = 0
+read(7, "", 32768)                      = 0
+close(7)                                = 0
+munmap(0x7f7e24bc8000, 32768)           = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/_abcoll", 0x7fff3f124110) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/_abcoll.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/_abcollmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/_abcoll.py", O_RDONLY) = 7
+fstat(7, {st_mode=S_IFREG|0644, st_size=14672, ...}) = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/_abcoll.pyc", O_RDONLY) = 8
+fstat(8, {st_mode=S_IFREG|0775, st_size=27743, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24bc8000
+read(8, "\3\363\r\n\374\341\237Nc\0\0\0\0\0\0\0\0\20\0\0\0@\0\0\0sI\2\0\0d\0"..., 32768) = 27743
+fstat(8, {st_mode=S_IFREG|0775, st_size=27743, ...}) = 0
+read(8, "", 32768)                      = 0
+mmap(NULL, 266240, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24b56000
+close(8)                                = 0
+munmap(0x7f7e24bc8000, 32768)           = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/abc", 0x7fff3f120b40) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/abc.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/abcmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/abc.py", O_RDONLY) = 8
+fstat(8, {st_mode=S_IFREG|0644, st_size=7145, ...}) = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/abc.pyc", O_RDONLY) = 9
+fstat(9, {st_mode=S_IFREG|0775, st_size=6770, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24bc8000
+read(9, "\3\363\r\n\1\342\237Nc\0\0\0\0\0\0\0\0\3\0\0\0@\0\0\0s}\0\0\0d\0"..., 32768) = 6770
+fstat(9, {st_mode=S_IFREG|0775, st_size=6770, ...}) = 0
+read(9, "", 32768)                      = 0
+close(9)                                = 0
+munmap(0x7f7e24bc8000, 32768)           = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/_weakrefset", 0x7fff3f11d570) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/_weakrefset.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/_weakrefsetmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/_weakrefset.py", O_RDONLY) = 9
+fstat(9, {st_mode=S_IFREG|0644, st_size=6389, ...}) = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/_weakrefset.pyc", O_RDONLY) = 10
+fstat(10, {st_mode=S_IFREG|0775, st_size=13140, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24bc8000
+read(10, "\3\363\r\n\374\341\237Nc\0\0\0\0\0\0\0\0\3\0\0\0@\0\0\0sI\0\0\0d\0"..., 32768) = 13140
+fstat(10, {st_mode=S_IFREG|0775, st_size=13140, ...}) = 0
+read(10, "", 32768)                     = 0
+close(10)                               = 0
+munmap(0x7f7e24bc8000, 32768)           = 0
+close(9)                                = 0
+close(8)                                = 0
+brk(0x201e000)                          = 0x201e000
+close(7)                                = 0
+close(6)                                = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/copy_reg", 0x7fff3f1276e0) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/copy_reg.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/copy_regmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/copy_reg.py", O_RDONLY) = 6
+fstat(6, {st_mode=S_IFREG|0644, st_size=6800, ...}) = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/copy_reg.pyc", O_RDONLY) = 7
+fstat(7, {st_mode=S_IFREG|0775, st_size=5740, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24bc8000
+read(7, "\3\363\r\n>\342\237Nc\0\0\0\0\0\0\0\0\5\0\0\0@\0\0\0s\326\0\0\0d\0"..., 32768) = 5740
+fstat(7, {st_mode=S_IFREG|0775, st_size=5740, ...}) = 0
+read(7, "", 32768)                      = 0
+close(7)                                = 0
+munmap(0x7f7e24bc8000, 32768)           = 0
+close(6)                                = 0
+close(4)                                = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/orig-prefix.txt", O_RDONLY) = 4
+fstat(4, {st_mode=S_IFREG|0775, st_size=17, ...}) = 0
+fstat(4, {st_mode=S_IFREG|0775, st_size=17, ...}) = 0
+lseek(4, 0, SEEK_CUR)                   = 0
+fstat(4, {st_mode=S_IFREG|0775, st_size=17, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24bc8000
+lseek(4, 0, SEEK_CUR)                   = 0
+read(4, "/opt/python-2.7.2", 32768)     = 17
+read(4, "", 32768)                      = 0
+close(4)                                = 0
+munmap(0x7f7e24bc8000, 32768)           = 0
+stat("/opt/python-2.7.2/lib64/python2.7", 0x7fff3f12ebd0) = -1 ENOENT (No such file or directory)
+stat("/opt/python-2.7.2/lib/python2.7/plat-linux2", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/opt/python-2.7.2/lib/python2.7/lib-tk", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/opt/python-2.7.2/lib/python2.7/plat-linux2/lib-tk", 0x7fff3f12ebd0) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/no-global-site-packages.txt", {st_mode=S_IFREG|0775, st_size=0, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/local/lib64/python2.7/site-packages", 0x7fff3f12eb20) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/local/lib/python2.7/site-packages", 0x7fff3f12eb20) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/local/lib/site-python", 0x7fff3f12eb20) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/local/python2.7/lib-dynload", 0x7fff3f12eb20) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/local/lib/python2.7/dist-packages", 0x7fff3f12eb20) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/local/local/lib/python2.7/dist-packages", 0x7fff3f12eb20) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/local/lib/dist-python", 0x7fff3f12eb20) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib64/python2.7/site-packages", 0x7fff3f12eb20) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages", O_RDONLY|O_NONBLOCK|O_DIRECTORY|O_CLOEXEC) = 4
+fcntl(4, F_GETFD)                       = 0x1 (flags FD_CLOEXEC)
+getdents(4, /* 92 entries */, 32768)    = 3760
+getdents(4, /* 0 entries */, 32768)     = 0
+close(4)                                = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/PIL.pth", O_RDONLY) = 4
+fstat(4, {st_mode=S_IFREG|0644, st_size=4, ...}) = 0
+fstat(4, {st_mode=S_IFREG|0644, st_size=4, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24bc8000
+read(4, "PIL\n", 32768)                 = 4
+read(4, "", 32768)                      = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/PIL", {st_mode=S_IFDIR|0755, st_size=12288, ...}) = 0
+read(4, "", 32768)                      = 0
+close(4)                                = 0
+munmap(0x7f7e24bc8000, 32768)           = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/Paste-1.7.5.1-py2.7-nspkg.pth", O_RDONLY) = 4
+fstat(4, {st_mode=S_IFREG|0644, st_size=304, ...}) = 0
+fstat(4, {st_mode=S_IFREG|0644, st_size=304, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24bc8000
+read(4, "import sys,types,os; p = os.path"..., 32768) = 304
+read(4, "", 32768)                      = 0
+brk(0x203f000)                          = 0x203f000
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/paste/__init__.py", 0x7fff3f12e490) = -1 ENOENT (No such file or directory)
+read(4, "", 32768)                      = 0
+close(4)                                = 0
+munmap(0x7f7e24bc8000, 32768)           = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/easy-install.pth", O_RDONLY) = 4
+fstat(4, {st_mode=S_IFREG|0775, st_size=266, ...}) = 0
+fstat(4, {st_mode=S_IFREG|0775, st_size=266, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24bc8000
+read(4, "import sys; sys.__plen = len(sys"..., 32768) = 266
+read(4, "", 32768)                      = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+read(4, "", 32768)                      = 0
+close(4)                                = 0
+munmap(0x7f7e24bc8000, 32768)           = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/js.jquery-1.6.1-py2.7-nspkg.pth", O_RDONLY) = 4
+fstat(4, {st_mode=S_IFREG|0644, st_size=295, ...}) = 0
+fstat(4, {st_mode=S_IFREG|0644, st_size=295, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24bc8000
+read(4, "import sys,types,os; p = os.path"..., 32768) = 295
+read(4, "", 32768)                      = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/js/__init__.py", 0x7fff3f12e490) = -1 ENOENT (No such file or directory)
+read(4, "", 32768)                      = 0
+close(4)                                = 0
+munmap(0x7f7e24bc8000, 32768)           = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/js.jquery_flot-0.7_2-py2.7-nspkg.pth", O_RDONLY) = 4
+fstat(4, {st_mode=S_IFREG|0644, st_size=295, ...}) = 0
+fstat(4, {st_mode=S_IFREG|0644, st_size=295, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24bc8000
+read(4, "import sys,types,os; p = os.path"..., 32768) = 295
+read(4, "", 32768)                      = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/js/__init__.py", 0x7fff3f12e490) = -1 ENOENT (No such file or directory)
+read(4, "", 32768)                      = 0
+close(4)                                = 0
+munmap(0x7f7e24bc8000, 32768)           = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/setuptools.pth", O_RDONLY) = 4
+fstat(4, {st_mode=S_IFREG|0775, st_size=30, ...}) = 0
+fstat(4, {st_mode=S_IFREG|0775, st_size=30, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24bc8000
+read(4, "./distribute-0.6.19-py2.7.egg\n", 32768) = 30
+read(4, "", 32768)                      = 0
+read(4, "", 32768)                      = 0
+close(4)                                = 0
+munmap(0x7f7e24bc8000, 32768)           = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/site-python", 0x7fff3f12eb20) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/python2.7/lib-dynload", 0x7fff3f12eb20) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/dist-packages", 0x7fff3f12eb20) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/local/lib/python2.7/dist-packages", 0x7fff3f12eb20) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/dist-python", 0x7fff3f12eb20) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/sitecustomize", 0x7fff3f12aa30) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/sitecustomize.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/sitecustomizemodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/sitecustomize.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/sitecustomize.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/sitecustomize", 0x7fff3f12aa30) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/sitecustomize.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/sitecustomizemodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/sitecustomize.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/sitecustomize.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/sitecustomize", 0x7fff3f12aa30) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/sitecustomize.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/sitecustomizemodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/sitecustomize.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/sitecustomize.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/sitecustomize", 0x7fff3f12aa30) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/sitecustomize.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/sitecustomizemodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/sitecustomize.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/sitecustomize.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/plat-linux2", 0x7fff3f127680) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/plat-linux2", 0x7fff3f12a6f0) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-tk", 0x7fff3f127680) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-tk", 0x7fff3f12a6f0) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-old", 0x7fff3f127680) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-old", 0x7fff3f12a6f0) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-dynload", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-dynload", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-dynload/sitecustomize", 0x7fff3f12aa30) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-dynload/sitecustomize.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-dynload/sitecustomizemodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-dynload/sitecustomize.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-dynload/sitecustomize.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/python-2.7.2/lib/python2.7", {st_mode=S_IFDIR|0755, st_size=20480, ...}) = 0
+stat("/opt/python-2.7.2/lib/python2.7", {st_mode=S_IFDIR|0755, st_size=20480, ...}) = 0
+stat("/opt/python-2.7.2/lib/python2.7/sitecustomize", 0x7fff3f12aa30) = -1 ENOENT (No such file or directory)
+open("/opt/python-2.7.2/lib/python2.7/sitecustomize.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/python-2.7.2/lib/python2.7/sitecustomizemodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/python-2.7.2/lib/python2.7/sitecustomize.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/python-2.7.2/lib/python2.7/sitecustomize.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/python-2.7.2/lib/python2.7/plat-linux2", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/opt/python-2.7.2/lib/python2.7/plat-linux2", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/opt/python-2.7.2/lib/python2.7/plat-linux2/sitecustomize", 0x7fff3f12aa30) = -1 ENOENT (No such file or directory)
+open("/opt/python-2.7.2/lib/python2.7/plat-linux2/sitecustomize.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/python-2.7.2/lib/python2.7/plat-linux2/sitecustomizemodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/python-2.7.2/lib/python2.7/plat-linux2/sitecustomize.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/python-2.7.2/lib/python2.7/plat-linux2/sitecustomize.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/python-2.7.2/lib/python2.7/lib-tk", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/opt/python-2.7.2/lib/python2.7/lib-tk", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/opt/python-2.7.2/lib/python2.7/lib-tk/sitecustomize", 0x7fff3f12aa30) = -1 ENOENT (No such file or directory)
+open("/opt/python-2.7.2/lib/python2.7/lib-tk/sitecustomize.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/python-2.7.2/lib/python2.7/lib-tk/sitecustomizemodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/python-2.7.2/lib/python2.7/lib-tk/sitecustomize.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/python-2.7.2/lib/python2.7/lib-tk/sitecustomize.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/sitecustomize", 0x7fff3f12aa30) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/sitecustomize.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/sitecustomizemodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/sitecustomize.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/sitecustomize.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/PIL", {st_mode=S_IFDIR|0755, st_size=12288, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/PIL", {st_mode=S_IFDIR|0755, st_size=12288, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/PIL/sitecustomize", 0x7fff3f12aa30) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/PIL/sitecustomize.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/PIL/sitecustomizemodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/PIL/sitecustomize.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/PIL/sitecustomize.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+close(3)                                = 0
+open("/usr/lib/locale/locale-archive", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=2768240, ...}) = 0
+mmap(NULL, 2768240, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f7e23b75000
+close(3)                                = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/encodings", 0x7fff3f12e390) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/encodings.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/encodingsmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/encodings.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/encodings.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/encodings", 0x7fff3f12e390) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/encodings.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/encodingsmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/encodings.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/encodings.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/encodings", 0x7fff3f12e390) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/encodings.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/encodingsmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/encodings.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/encodings.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings", {st_mode=S_IFDIR|0755, st_size=12288, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/__init__.py", {st_mode=S_IFREG|0644, st_size=5698, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/__init__", 0x7fff3f12d330) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/__init__.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/__init__module.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/__init__.py", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=5698, ...}) = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/__init__.pyc", O_RDONLY) = 4
+fstat(4, {st_mode=S_IFREG|0644, st_size=4422, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24c6d000
+read(4, "\3\363\r\nB\342\237Nc\0\0\0\0\0\0\0\0\3\0\0\0@\0\0\0s\216\0\0\0d\0"..., 32768) = 4422
+fstat(4, {st_mode=S_IFREG|0644, st_size=4422, ...}) = 0
+read(4, "", 32768)                      = 0
+close(4)                                = 0
+munmap(0x7f7e24c6d000, 32768)           = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings", {st_mode=S_IFDIR|0755, st_size=12288, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings", {st_mode=S_IFDIR|0755, st_size=12288, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/codecs", 0x7fff3f129d60) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/codecs.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/codecsmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/codecs.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/codecs.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/codecs", 0x7fff3f129d60) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/codecs.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/codecsmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/codecs.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/codecs.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/codecs", 0x7fff3f129d60) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/codecs.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/codecsmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/codecs.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/codecs.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/codecs", 0x7fff3f129d60) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/codecs.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/codecsmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/codecs.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/codecs.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/codecs", 0x7fff3f129d60) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/codecs.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/codecsmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/codecs.py", O_RDONLY) = 4
+fstat(4, {st_mode=S_IFREG|0644, st_size=35266, ...}) = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/codecs.pyc", O_RDONLY) = 6
+fstat(6, {st_mode=S_IFREG|0775, st_size=41960, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24c6d000
+read(6, "\3\363\r\n=\342\237Nc\0\0\0\0\0\0\0\0\30\0\0\0@\0\0\0s7\3\0\0d\0"..., 32768) = 32768
+fstat(6, {st_mode=S_IFREG|0775, st_size=41960, ...}) = 0
+read(6, "OJECTS/Cassandra-Monitor/python-"..., 32768) = 9192
+read(6, "", 32768)                      = 0
+close(6)                                = 0
+munmap(0x7f7e24c6d000, 32768)           = 0
+mmap(NULL, 266240, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24b15000
+close(4)                                = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/encodings", 0x7fff3f129d60) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/encodings.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/encodingsmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/encodings.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/encodings.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/aliases", 0x7fff3f129d50) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/aliases.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/aliasesmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/aliases.py", O_RDONLY) = 4
+fstat(4, {st_mode=S_IFREG|0644, st_size=14848, ...}) = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/aliases.pyc", O_RDONLY) = 6
+fstat(6, {st_mode=S_IFREG|0644, st_size=8781, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24b0d000
+read(6, "\3\363\r\n?\342\237Nc\0\0\0\0\0\0\0\0\3\0\0\0@\0\0\0su\10\0\0d\0"..., 32768) = 8781
+fstat(6, {st_mode=S_IFREG|0644, st_size=8781, ...}) = 0
+read(6, "", 32768)                      = 0
+close(6)                                = 0
+munmap(0x7f7e24b0d000, 32768)           = 0
+close(4)                                = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/__builtin__", 0x7fff3f129d60) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/__builtin__.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/__builtin__module.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/__builtin__.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/__builtin__.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+close(3)                                = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/utf_8", 0x7fff3f12e090) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/utf_8.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/utf_8module.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/utf_8.py", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=1005, ...}) = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/encodings/utf_8.pyc", O_RDONLY) = 4
+fstat(4, {st_mode=S_IFREG|0644, st_size=2054, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24b0d000
+read(4, "\3\363\r\nC\342\237Nc\0\0\0\0\0\0\0\0\3\0\0\0@\0\0\0s\230\0\0\0d\0"..., 32768) = 2054
+fstat(4, {st_mode=S_IFREG|0644, st_size=2054, ...}) = 0
+read(4, "", 32768)                      = 0
+close(4)                                = 0
+munmap(0x7f7e24b0d000, 32768)           = 0
+close(3)                                = 0
+ioctl(0, SNDCTL_TMR_TIMEBASE or TCGETS, {B38400 opost isig icanon echo ...}) = 0
+ioctl(1, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fff3f132570) = -1 ENOTTY (Inappropriate ioctl for device)
+ioctl(2, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fff3f132570) = -1 ENOTTY (Inappropriate ioctl for device)
+readlink("cassandratools.py", 0x7fff3f130710, 4096) = -1 EINVAL (Invalid argument)
+getcwd("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer", 4096) = 101
+lstat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/cassandratools.py", {st_mode=S_IFREG|0755, st_size=7287, ...}) = 0
+stat("cassandratools.py", {st_mode=S_IFREG|0755, st_size=7287, ...}) = 0
+open("cassandratools.py", O_RDONLY)     = 3
+fstat(3, {st_mode=S_IFREG|0755, st_size=7287, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24b0d000
+fstat(3, {st_mode=S_IFREG|0755, st_size=7287, ...}) = 0
+lseek(3, 0, SEEK_SET)                   = 0
+read(3, "#!/usr/bin/env python\n# -*- codi"..., 7265) = 7265
+read(3, "   pygetversion()\n\n\n\n\n", 32768) = 22
+close(3)                                = 0
+munmap(0x7f7e24b0d000, 32768)           = 0
+stat("cassandratools.py", {st_mode=S_IFREG|0755, st_size=7287, ...}) = 0
+open("cassandratools.py", O_RDONLY)     = 3
+fstat(3, {st_mode=S_IFREG|0755, st_size=7287, ...}) = 0
+ioctl(3, SNDCTL_TMR_TIMEBASE or TCGETS, 0x7fff3f1326b0) = -1 ENOTTY (Inappropriate ioctl for device)
+fstat(3, {st_mode=S_IFREG|0755, st_size=7287, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24b0d000
+lseek(3, 0, SEEK_CUR)                   = 0
+read(3, "#!/usr/bin/env python\n# -*- codi"..., 32768) = 7287
+lseek(3, 7287, SEEK_SET)                = 7287
+brk(0x2063000)                          = 0x2063000
+mmap(NULL, 266240, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24acc000
+read(3, "", 32768)                      = 0
+close(3)                                = 0
+munmap(0x7f7e24b0d000, 32768)           = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/string", 0x7fff3f12e130) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/string.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/stringmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/string.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/string.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/string", 0x7fff3f12e130) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/string.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/stringmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/string.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/string.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/string", 0x7fff3f12e130) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/string.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/stringmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/string.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/string.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/string", 0x7fff3f12e130) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/string.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/stringmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/string.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/string.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/string", 0x7fff3f12e130) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/string.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/stringmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/string.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/string.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-dynload/string", 0x7fff3f12e130) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-dynload/string.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-dynload/stringmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-dynload/string.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-dynload/string.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/python-2.7.2/lib/python2.7/string", 0x7fff3f12e130) = -1 ENOENT (No such file or directory)
+open("/opt/python-2.7.2/lib/python2.7/string.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/python-2.7.2/lib/python2.7/stringmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/python-2.7.2/lib/python2.7/string.py", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=20756, ...}) = 0
+open("/opt/python-2.7.2/lib/python2.7/string.pyc", O_RDONLY) = 4
+fstat(4, {st_mode=S_IFREG|0644, st_size=20569, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24b0d000
+read(4, "\3\363\r\n\21\342\237Nc\0\0\0\0\0\0\0\0\5\0\0\0@\0\0\0s\226\2\0\0d\0"..., 32768) = 20569
+fstat(4, {st_mode=S_IFREG|0644, st_size=20569, ...}) = 0
+read(4, "", 32768)                      = 0
+close(4)                                = 0
+munmap(0x7f7e24b0d000, 32768)           = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/re", 0x7fff3f12ab60) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/re.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/remodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/re.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/re.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/re", 0x7fff3f12ab60) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/re.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/remodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/re.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/re.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/re", 0x7fff3f12ab60) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/re.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/remodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/re.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/re.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/re", 0x7fff3f12ab60) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/re.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/remodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/re.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/re.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/re", 0x7fff3f12ab60) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/re.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/remodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/re.py", O_RDONLY) = 4
+fstat(4, {st_mode=S_IFREG|0644, st_size=12984, ...}) = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/re.pyc", O_RDONLY) = 6
+fstat(6, {st_mode=S_IFREG|0775, st_size=14316, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24b0d000
+read(6, "\3\363\r\n\10\342\237Nc\0\0\0\0\0\0\0\0\27\0\0\0@\0\0\0s?\2\0\0d\0"..., 32768) = 14316
+fstat(6, {st_mode=S_IFREG|0775, st_size=14316, ...}) = 0
+read(6, "", 32768)                      = 0
+close(6)                                = 0
+munmap(0x7f7e24b0d000, 32768)           = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/sre_compile", 0x7fff3f127590) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/sre_compile.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/sre_compilemodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/sre_compile.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/sre_compile.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/sre_compile", 0x7fff3f127590) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/sre_compile.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/sre_compilemodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/sre_compile.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/sre_compile.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/sre_compile", 0x7fff3f127590) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/sre_compile.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/sre_compilemodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/sre_compile.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/sre_compile.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/sre_compile", 0x7fff3f127590) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/sre_compile.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/sre_compilemodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/sre_compile.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/sre_compile.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/sre_compile", 0x7fff3f127590) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/sre_compile.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/sre_compilemodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/sre_compile.py", O_RDONLY) = 6
+fstat(6, {st_mode=S_IFREG|0644, st_size=16427, ...}) = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/sre_compile.pyc", O_RDONLY) = 7
+fstat(7, {st_mode=S_IFREG|0775, st_size=11793, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24b0d000
+read(7, "\3\363\r\n\2\342\237Nc\0\0\0\0\0\0\0\0\5\0\0\0@\0\0\0sk\1\0\0d\0"..., 32768) = 11793
+fstat(7, {st_mode=S_IFREG|0775, st_size=11793, ...}) = 0
+read(7, "", 32768)                      = 0
+close(7)                                = 0
+munmap(0x7f7e24b0d000, 32768)           = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/sre_parse", 0x7fff3f123fc0) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/sre_parse.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/sre_parsemodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/sre_parse.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/sre_parse.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/sre_parse", 0x7fff3f123fc0) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/sre_parse.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/sre_parsemodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/sre_parse.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/sre_parse.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/sre_parse", 0x7fff3f123fc0) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/sre_parse.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/sre_parsemodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/sre_parse.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/sre_parse.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/sre_parse", 0x7fff3f123fc0) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/sre_parse.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/sre_parsemodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/sre_parse.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/sre_parse.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/sre_parse", 0x7fff3f123fc0) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/sre_parse.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/sre_parsemodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/sre_parse.py", O_RDONLY) = 7
+fstat(7, {st_mode=S_IFREG|0644, st_size=26798, ...}) = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/sre_parse.pyc", O_RDONLY) = 8
+fstat(8, {st_mode=S_IFREG|0775, st_size=21152, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24b0d000
+read(8, "\3\363\r\n;\342\237Nc\0\0\0\0\0\0\0\0\4\0\0\0@\0\0\0s\312\2\0\0d\0"..., 32768) = 21152
+fstat(8, {st_mode=S_IFREG|0775, st_size=21152, ...}) = 0
+read(8, "", 32768)                      = 0
+close(8)                                = 0
+munmap(0x7f7e24b0d000, 32768)           = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/sre_constants", 0x7fff3f1209f0) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/sre_constants.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/sre_constantsmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/sre_constants.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/sre_constants.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/sre_constants", 0x7fff3f1209f0) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/sre_constants.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/sre_constantsmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/sre_constants.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/sre_constants.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/sre_constants", 0x7fff3f1209f0) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/sre_constants.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/sre_constantsmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/sre_constants.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/sre_constants.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/sre_constants", 0x7fff3f1209f0) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/sre_constants.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/sre_constantsmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/sre_constants.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/sre_constants.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/sre_constants", 0x7fff3f1209f0) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/sre_constants.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/sre_constantsmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/sre_constants.py", O_RDONLY) = 8
+fstat(8, {st_mode=S_IFREG|0644, st_size=7137, ...}) = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/sre_constants.pyc", O_RDONLY) = 9
+fstat(9, {st_mode=S_IFREG|0775, st_size=6373, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24b0d000
+read(9, "\3\363\r\n\20\342\237Nc\0\0\0\0\0\0\0\0 \0\0\0@\0\0\0s\357\4\0\0d\0"..., 32768) = 6373
+fstat(9, {st_mode=S_IFREG|0775, st_size=6373, ...}) = 0
+read(9, "", 32768)                      = 0
+close(9)                                = 0
+munmap(0x7f7e24b0d000, 32768)           = 0
+close(8)                                = 0
+close(7)                                = 0
+close(6)                                = 0
+close(4)                                = 0
+brk(0x2084000)                          = 0x2084000
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/strop", 0x7fff3f12ab60) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/strop.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/stropmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/strop.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/strop.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/strop", 0x7fff3f12ab60) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/strop.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/stropmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/strop.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/strop.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/strop", 0x7fff3f12ab60) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/strop.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/stropmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/strop.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/strop.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/strop", 0x7fff3f12ab60) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/strop.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/stropmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/strop.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/strop.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/strop", 0x7fff3f12ab60) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/strop.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/stropmodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/strop.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/strop.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-dynload/strop", 0x7fff3f12ab60) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-dynload/strop.so", O_RDONLY) = 4
+fstat(4, {st_mode=S_IFREG|0755, st_size=72344, ...}) = 0
+futex(0x7f7e248380e0, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-dynload/strop.so", O_RDONLY) = 6
+read(6, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\360\25\0\0\0\0\0\0"..., 832) = 832
+fstat(6, {st_mode=S_IFREG|0755, st_size=72344, ...}) = 0
+mmap(NULL, 2122704, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 6, 0) = 0x7f7e2396e000
+mprotect(0x7f7e23973000, 2093056, PROT_NONE) = 0
+mmap(0x7f7e23b72000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 6, 0x4000) = 0x7f7e23b72000
+close(6)                                = 0
+mprotect(0x7f7e23b72000, 4096, PROT_READ) = 0
+close(4)                                = 0
+close(3)                                = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/datetime", 0x7fff3f12e130) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/datetime.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/datetimemodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/datetime.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/datetime.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/datetime", 0x7fff3f12e130) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/datetime.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/datetimemodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/datetime.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/datetime.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/datetime", 0x7fff3f12e130) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/datetime.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/datetimemodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/datetime.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/datetime.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/datetime", 0x7fff3f12e130) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/datetime.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/datetimemodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/datetime.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/datetime.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/datetime", 0x7fff3f12e130) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/datetime.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/datetimemodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/datetime.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/datetime.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-dynload/datetime", 0x7fff3f12e130) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-dynload/datetime.so", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0755, st_size=306332, ...}) = 0
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-dynload/datetime.so", O_RDONLY) = 4
+read(4, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\300H\0\0\0\0\0\0"..., 832) = 832
+fstat(4, {st_mode=S_IFREG|0755, st_size=306332, ...}) = 0
+mmap(NULL, 2188584, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0x7f7e23757000
+mprotect(0x7f7e2376a000, 2093056, PROT_NONE) = 0
+mmap(0x7f7e23969000, 20480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x12000) = 0x7f7e23969000
+close(4)                                = 0
+mprotect(0x7f7e23969000, 4096, PROT_READ) = 0
+close(3)                                = 0
+fstat(1, {st_mode=S_IFREG|0644, st_size=101295, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24c6d000
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/mylogger", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/mylogger/__init__.py", 0x7fff3f12e0a0) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/mylogger/__init__.pyc", 0x7fff3f12e0a0) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/mylogger.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/myloggermodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/mylogger.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/mylogger.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/mylogger", 0x7fff3f12e130) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/mylogger.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/myloggermodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/mylogger.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg/mylogger.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/mylogger", 0x7fff3f12e130) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/mylogger.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/myloggermodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/mylogger.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg/mylogger.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/mylogger", 0x7fff3f12e130) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/mylogger.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/myloggermodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/mylogger.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg/mylogger.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/mylogger", 0x7fff3f12e130) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/mylogger.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/myloggermodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/mylogger.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/mylogger.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-dynload/mylogger", 0x7fff3f12e130) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-dynload/mylogger.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-dynload/myloggermodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-dynload/mylogger.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-dynload/mylogger.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/python-2.7.2/lib/python2.7/mylogger", 0x7fff3f12e130) = -1 ENOENT (No such file or directory)
+open("/opt/python-2.7.2/lib/python2.7/mylogger.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/python-2.7.2/lib/python2.7/myloggermodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/python-2.7.2/lib/python2.7/mylogger.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/python-2.7.2/lib/python2.7/mylogger.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/python-2.7.2/lib/python2.7/plat-linux2/mylogger", 0x7fff3f12e130) = -1 ENOENT (No such file or directory)
+open("/opt/python-2.7.2/lib/python2.7/plat-linux2/mylogger.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/python-2.7.2/lib/python2.7/plat-linux2/myloggermodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/python-2.7.2/lib/python2.7/plat-linux2/mylogger.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/python-2.7.2/lib/python2.7/plat-linux2/mylogger.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/python-2.7.2/lib/python2.7/lib-tk/mylogger", 0x7fff3f12e130) = -1 ENOENT (No such file or directory)
+open("/opt/python-2.7.2/lib/python2.7/lib-tk/mylogger.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/python-2.7.2/lib/python2.7/lib-tk/myloggermodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/python-2.7.2/lib/python2.7/lib-tk/mylogger.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/python-2.7.2/lib/python2.7/lib-tk/mylogger.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/mylogger", 0x7fff3f12e130) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/mylogger.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/myloggermodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/mylogger.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/mylogger.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/PIL/mylogger", 0x7fff3f12e130) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/PIL/mylogger.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/PIL/myloggermodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/PIL/mylogger.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/PIL/mylogger.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("mylogger", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("mylogger/__init__.py", 0x7fff3f12e0a0) = -1 ENOENT (No such file or directory)
+stat("mylogger/__init__.pyc", 0x7fff3f12e0a0) = -1 ENOENT (No such file or directory)
+open("mylogger.so", O_RDONLY)           = -1 ENOENT (No such file or directory)
+open("myloggermodule.so", O_RDONLY)     = -1 ENOENT (No such file or directory)
+open("mylogger.py", O_RDONLY)           = -1 ENOENT (No such file or directory)
+open("mylogger.pyc", O_RDONLY)          = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mylogger", 0x7fff3f12e130) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mylogger.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/myloggermodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mylogger.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mylogger.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/mylogger", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/mylogger/__init__.py", 0x7fff3f12e0a0) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/mylogger/__init__.pyc", 0x7fff3f12e0a0) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/mylogger.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/myloggermodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/mylogger.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/mylogger.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/myconfig", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/myconfig", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/myconfig/mylogger", 0x7fff3f12e130) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/myconfig/mylogger.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/myconfig/myloggermodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/myconfig/mylogger.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/myconfig/mylogger.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/mylogger", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/mylogger", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+stat("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/mylogger/mylogger", 0x7fff3f12e130) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/mylogger/mylogger.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/mylogger/myloggermodule.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/mylogger/mylogger.py", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/mylogger/mylogger.pyc", O_RDONLY) = -1 ENOENT (No such file or directory)
+write(1, "['/opt/cassandra-dev/PROJECTS/Ca"..., 1315['/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer', '/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/distribute-0.6.19-py2.7.egg', '/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/pip-1.0.2-py2.7.egg', '/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/functional-0.7.0-py2.7.egg', '/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python27.zip', '/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7', '/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/plat-linux2', '/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-tk', '/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-old', '/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/lib-dynload', '/opt/python-2.7.2/lib/python2.7', '/opt/python-2.7.2/lib/python2.7/plat-linux2', '/opt/python-2.7.2/lib/python2.7/lib-tk', '/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages', '/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/python-virtualenv/lib/python2.7/site-packages/PIL', '']
+) = 1315
+write(2, "Traceback (most recent call last"..., 35Traceback (most recent call last):
+) = 35
+write(2, "  File \"cassandratools.py\", line"..., 49  File "cassandratools.py", line 58, in <module>
+) = 49
+open("cassandratools.py", O_RDONLY)     = 3
+fstat(3, {st_mode=S_IFREG|0755, st_size=7287, ...}) = 0
+mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7e24c65000
+read(3, "#!/usr/bin/env python\n# -*- codi"..., 32768) = 7287
+write(2, "    ", 4    )                     = 4
+write(2, "import mylogger.logger as loggin"..., 40import mylogger.logger as loggingsystem
+) = 40
+close(3)                                = 0
+munmap(0x7f7e24c65000, 32768)           = 0
+write(2, "ImportError", 11ImportError)             = 11
+write(2, ": ", 2: )                       = 2
+write(2, "No module named mylogger.logger", 31No module named mylogger.logger) = 31
+write(2, "\n", 1
+)                       = 1
+rt_sigaction(SIGINT, {SIG_DFL, [], SA_RESTORER, 0x7f7e24848c60}, {0x4e51c0, [], SA_RESTORER, 0x7f7e24848c60}, 8) = 0
+exit_group(1)                           = ?

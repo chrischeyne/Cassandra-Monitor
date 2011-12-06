@@ -14,9 +14,9 @@
 # under the License.
 
 
-# Mon Dec  5 12:39:18 GMT 2011
-# NOTE: this is a mess as of above date; copied from old code
-# requires re-working
+# Mon Dec  5 14:48:38 GMT 2011
+# UNDER UNIT TESTING
+
 
 """
 cassandratools - cassandra management tools. Wrapper around nodetool
@@ -33,73 +33,64 @@ email = "maintainer@cassandra-manager.org"
 status = "Alpha"
 
 
-try:
-    # bring in environment variables
-    import mylogger.logger as loggingsystem
-    SYSLOG = loggingsystem.MyLogger()
-    SYSLOG.l.debug('booting....')
-    import myconfig.config as config
-    SYSCONFIG = config.MyConfig()
-    SYSLOG.l.info('mysql host is %s ' % SYSCONFIG.conf['mysql']['host'])
+import os
+import sys
+import string
+import datetime
+# FIXME: remove after unit testing
+APPEND=os.path.dirname(__file__)
+sys.path.append(APPEND)
+print sys.path
+sys.path.append('\
+/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager')
+sys.path.append('\
+/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer')
+sys.path.append('\
+/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/myconfig')
+sys.path.append('\
+/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/mydatagatherer/mylogger')
 
-    # ClusterShell ( pip install clustershell )
-    from ClusterShell.NodeSet import NodeSet
-    from ClusterShell.Task import taskself
-    import os
-    import string
-    import datetime
-    from socket import gethostname
-except ImportError:
-    raise ImportError('Please install clustershell >= 1.2.0')
+
+
+# bring in environment variables
+import mylogger.logger as loggingsystem
+SYSLOG = loggingsystem.MyLogger()
+SYSLOG.l.debug('booting....')
+import myconfig.config as config
+SYSCONFIG = config.MyConfig()
+SYSLOG.l.info('mysql host is %s ' % SYSCONFIG.conf['mysql']['host'])
+
+# ClusterShell ( pip install clustershell )
+from ClusterShell.NodeSet import NodeSet
+from ClusterShell.Task import taskself
+from socket import gethostname
+
 # -----------------------------------------------------------------------------
 
 
 def taskrun(taskname,mynodes):
     """ run a specific command <taskname> on cluster <mynodes> """
-    print "FULLRUN"
     task = taskself()
-    print "Booting task: " , taskname
     
     # first initiate environment to run our python+java
     os.chdir(CASSANDRAHOME)
-    
-    #FIXME: set initenvironment to actually work
-    #task.shell("clusterconfig/initenvironment.sh",nodes=mynodes)
-    cmdenv = "export PYTHONHOME=/opt/python2.7.2; \
-            export JAVAHOME=/opt/jdk1.6.027; \
-            export PYTHONPATH=/opt/python2.7.2/lib; \
-            export \
-            PATH=/opt/python2.7.2/lib:/opt/python2.7.2/bin:/opt/jdk1.6.027/bin:/usr/kerberos/sbin:/usr/kerberos/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin;"
-    
-
-    
     task.run(cmdenv+taskname,nodes=mynodes)
     print ":\n".join(["%s=%s" % (i,j) for j,i in task.iterbuffers()])
 
 def tasksimplerun(taskname):
     """ tasksimplerun(<argv2>)"""
     
-    print "SIMPLERUN"
     task = taskself()
-    print "Booting simpletask: " , taskname
-
-    cmdenv = "export PYTHONHOME=/opt/python2.7.2; \
-            export JAVAHOME=/opt/jdk1.6.027; \
-            export PYTHONPATH=/opt/python2.7.2/lib; \
-            export \
-            PATH=/opt/python2.7.2/lib:/opt/python2.7.2/bin:/opt/jdk1.6.027/bin:/usr/kerberos/sbin:/usr/kerberos/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin;"
-    
     task.run(cmdenv+taskname,nodes=RING1devallnodes)
     print ":\n".join(["%s=%s" % (i,j) for j,i in task.iterbuffers()])
 
 
-def listhosts():
+def listhosts(ring):
     """ simply list hosts as we write """
-    taskrun("/bin/hostname -f",RING1devallnodes)
+    taskrun("/bin/hostname -f",ring)
 
 def cassandranodetool(mycluster=RING1devallnodes,cmd="ring"):
     """ display the status of the current cluster using nodetool """
-    print CASSANDRANODETOOL
     cmd1 = CASSANDRANODETOOL + " -hlocalhost -p " + str(PORT) + " "
     taskrun(cmd1+cmd,mycluster)
     
@@ -137,9 +128,6 @@ def cassandrainfo(mycluster=RING1devallnodes):
 
     cmd = "cfstats | egrep -i latency"
     cassandranodetool(mycluster,cmd)
-
-def cassandragetkeyspaces():
-    print "Cassandra RING information..."
     os.chdir(CASSANDRAHOME)
     task.run(CASSANDRABIN + "/bin/nodetool -hlocalhost -p" + str(PORT) + " ring",nodes=RING1devbootstrapnodes)
 
@@ -195,7 +183,9 @@ def myportscan(mycluster=RING1devallnodes,myport=7199):
 
 
 def initenvironment(mycluster=RING1devallnodes):
-        
+    """ ensure clusterSSH is running in the correct environment"""
+    """ this ensures system python etc does not get in the way"""
+    """ read in environment variables from myconfig """
     os.environ["PYTHONHOME"]=PYTHONHOME
     os.environ["PYTHONPATH"]=PYTHONPATH
     os.environ["JAVAHOME"]=JAVAHOME
@@ -206,30 +196,19 @@ def initenvironment(mycluster=RING1devallnodes):
     os.chdir(PYTHONHOME)
     print "initenvironment(): path is ",PATH," pythonhome is, ", PYTHONHOME
 
-# initialise rings from config file
-print "python home is now " , PYTHONHOME , "ring 1 is " , RING1devallnodes
-
 # -- MAIN --
 
-
 if name == "main":
-    
-    
-    import sys,os
-   
        
-    #FIXME: obvious.
+    #FIXME: obvious.  Apply error-checking and chained arguments
     cmd = int(sys.argv[1])
-    os.chdir(CASSANDRAHOME)
-    os.system('clear')
-    #initenvironment()
+    ring = str(sys.argv[2])
+
+    initenvironment()
     listhosts()
     
-    # FIXME: luban/django interface 
-    # pass in 1 to boot cluster    
     if cmd == 1:
         cassandrainit()
-    # 2 to shutdown-
     if cmd == 2:
         cassandrastop()
     if cmd == 3:
@@ -248,7 +227,7 @@ if name == "main":
         cassandrahistograms()
 
 
-    # run argument 2 quickly from cli ..mgr.py 10 "hostname -f" 
+    # simply run argument 2 quickly from cli cassandratools.py 10 "hostname -f" 
     if cmd == 10:
             print "arguments"
             print sys.argv
