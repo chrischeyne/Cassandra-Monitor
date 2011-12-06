@@ -33,6 +33,9 @@ maintainer = "Chris T. Cheyne"
 email = "maintainer@cassandra-manager.org"
 status = "Alpha"
 
+# FIXME: contained in datagatherer.py
+from operator import itemgetter, attrgetter
+
 
 import os
 import sys
@@ -66,28 +69,29 @@ from socket import gethostname
 class CassandraTools():
     """ our CassandraTools collection of objects to operate on a casssandra
     cluster """
+    # default nodes, empty if not initialised
+    mynodes = {'florence'}
+    
     def __init__(self):
-        self.mynodes = SYSCONFIG.conf['ring0nodes']
+        self.mynodes = SYSCONFIG.conf['ringlive']['nodes']
         pass
 
-    def getnodes(ring):
+    def getnodes(self,ring):
         """ return nodes from ring ring """
-        x = sorted(myconf.conf[ring].values(),key = itemgetter(1))
-        nodeset = NoseSet.fromlist(x)
+        x = sorted(SYSCONFIG.conf[ring]['nodes'].values(),key = itemgetter(1))
+        mynodeset = NodeSet.fromlist(x)
 
-        return x
+        return mynodeset
 
-
-    def taskrun(taskname,mynodes):
+    def taskrun(self,taskname,mynodes):
         """ run a specific command <taskname> on cluster <mynodes> """
         task = task_self()
-        
         # first initiate environment to run our python+java
-        os.chdir(CASSANDRAHOME)
+        os.chdir(SYSCONFIG.conf[mynodes]['CASSANDRAHOME'])
         task.run(cmdenv+taskname,nodes=mynodes)
         print ":\n".join(["%s=%s" % (i,j) for j,i in task.iter_buffers()])
 
-    def tasksimplerun(taskname):
+    def tasksimplerun(self,taskname):
         """ tasksimplerun(<argv2>)"""
         
         task = task_self()
@@ -95,44 +99,45 @@ class CassandraTools():
         print ":\n".join(["%s=%s" % (i,j) for j,i in task.iter_buffers()])
 
 
-    def listhosts(ring):
-        """ simply list hosts as we write """
-        taskrun("/bin/hostname -f",ring)
+    def listhosts(self,ring):
+        """ simply list hostname using hostname as a test """
+        print "listhodes, ring received as " ,ring
+        self.taskrun("/bin/hostname -f",ring)
 
-    def cassandranodetool(nodes=mynodes,cmd="ring"):
+    def cassandranodetool(self,nodes=mynodes,cmd="ring"):
         """ display the status of the current cluster using nodetool """
         cmd1 = CASSANDRANODETOOL + " -hlocalhost -p " + str(PORT) + " "
         taskrun(cmd1+cmd,nodes)
         
-    def cassandraconfiguredtokens(mycluster=mynodes):
+    def cassandraconfiguredtokens(self,mycluster=mynodes):
         """ display the status of the current cluster RING """
         taskrun("cat "+ CASSANDRAYAML + "|egrep \
                 -i 'initialtoken'",mycluster)
 
 
-    def cassandraringstatus(mycluster=mynodes):
+    def cassandraringstatus(self,mycluster=mynodes):
         """ display the status of the current cluster RING """
         cassandranodetool(mycluster)
 
-    def cassandrahistograms(mycluster=mynodes):
+    def cassandrahistograms(self,mycluster=mynodes):
          """ display the status of the current cluster RING """
          cassandranodetool(mycluster,cmd="cfhistograms")
 
 
 
-    def cassandrainit(mycluster=mynodes):
+    def cassandrainit(self,mycluster=mynodes):
         print "** BOOTING CASSANDRA CLUSTER **"
         os.chdir(CASSANDRAHOME)
         taskrun(CASSANDRAINITSCRIPT + " start", mycluster)
 
 
-    def cassandrastop(mycluster=mynodes):
+    def cassandrastop(self,mycluster=mynodes):
         print "** Shutting down cassandra ... **"
         os.chdir(CASSANDRAHOME)
         taskrun(CASSANDRAINITSCRIPT + " stop", mycluster) 
 
 
-    def cassandrainfo(mycluster=mynodes):
+    def cassandrainfo(self,mycluster=mynodes):
         print "Cassandra INFO information..."
         os.chdir(CASSANDRAHOME)
 
@@ -143,7 +148,7 @@ class CassandraTools():
 
 
 
-    def cassandrastresstest(cluster=mynodes):
+    def cassandrastresstest(self,cluster=mynodes):
         print "Stress testing CLUSTER %s",cluster
         os.chdir(CASSANDRACORE)
         taskrun(CASSANDRACORE + "/cluster-node-stress-test.sh",cluster)
@@ -157,7 +162,7 @@ class CassandraTools():
         taskrun(CASSANDRABIN + "/cassandra-cli -hlocalhost -p" +str(PORT) + "-f \
                 "+filename, nodes=RING1devbootstrapnodes)
 
-    def cassandralistening(mycluster=mynodes):
+    def cassandralistening(self,mycluster=mynodes):
 
         print "**LISTENING** ON CLUSTER ..." ,mycluster
         os.chdir(CASSANDRAHOME)
@@ -170,13 +175,13 @@ class CassandraTools():
 
 
 
-    def jdkgetversion(mycluster=mynodes):
+    def jdkgetversion(self,mycluster=mynodes):
         print "** JDK VERSIONS **"
         print "Java home is " , os.environ["JAVAHOME"]
         os.chdir(JAVAHOME)
         taskrun(JAVAHOME + "/bin/javac -version", mycluster)
 
-    def pygetversion(mycluster=mynodes):
+    def pygetversion(self,mycluster=mynodes):
         print "** PYTHON VERSIONS **"
         print "PYTHON home is " , os.environ["PYTHONHOME"]
         os.chdir(PYTHONHOME)
@@ -184,15 +189,12 @@ class CassandraTools():
 
 
      
-    def myportscan(mycluster=mynodes,myport=7199):
+    def myportscan(self,mycluster=mynodes,myport=7199):
         print "Port scanning for node listening..." , mycluster, myport
         
         taskrun("fuser -v " + str(myport) + "/tcp",mycluster)
 
-
-
-
-    def initenvironment(mycluster=mynodes):
+    def initenvironment(self,mycluster=mynodes):
         """ ensure clusterSSH is running in the correct environment"""
         """ this ensures system python etc does not get in the way"""
         """ read in environment variables from myconfig """
@@ -207,15 +209,17 @@ class CassandraTools():
         print "initenvironment(): path is ",PATH," pythonhome is, ", PYTHONHOME
 
 # -- MAIN --
+if __name__ == "__main__":
 
-if name == "main":
-       
     #FIXME: obvious.  Apply error-checking and chained arguments
     cmd = int(sys.argv[1])
     ring = str(sys.argv[2])
-    mytools = CassandraTools()
-    mynodes = CassandraTools.getnodes('ring0live')
-    mytools.listhosts(mynodes)
+    print "Running ",cmd," on ring ",ring, " ..."
+    mycassietools = CassandraTools()
+    mynodes = mycassietools.getnodes('ringlive')
+    for j in mynodes:
+        print j
+    mycassietools.listhosts(mynodes)
     sys.exit(1)
 
 
