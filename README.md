@@ -1,4 +1,4 @@
-![Management Logo](http://i.imgur.com/m6R8Dpng)
+![Management Logo](http://i.imgur.com/m6R8D.png)
 
 CASSANDRA MANAGEMENT AND ANALYTICS PROJECT
 
