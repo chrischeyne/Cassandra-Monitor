@@ -14,7 +14,7 @@
 # under the License.
 
 
-# Tue Dec  6 12:36:25 GMT 2011
+# Wed Dec  7 11:19:53 GMT 2011
 # =====
 # UNDER UNIT TESTING - LOCAL COPIES OF MYCONFIG{py,yaml} MYLOGGER
 # =====
@@ -66,11 +66,48 @@ from ClusterShell.Task import task_self
 from socket import gethostname
 
 # -----------------------------------------------------------------------------
+class MyNodeTool():
+    """ run commands on host <myhost> """
+    def __init__(self,host='florence',ring='ringlive'):
+        """ defaults to a single node in the live ring """
+        self.myhost = host
+        self.myring = ring
+        NT = "nodetool" 
+        pass
+
+    def _nodetool(self,cmd):
+        """ run nodetool command <c>"""
+        """ on ring <ring>"""
+        NT = SYSCONFIG.conf[self.myring]['CASSANDRAHOME'] \
+                + SYSCONFIG.conf[self.myring]['nodetool']
+        NT = str(NT) + "-h" + str(self.myhost)
+        NT = str(NT) + "-p" + str(SYSCONFIG.conf[self.myring]['cassrpc'])
+        print "cmd NT is ",cmd, " " , NT
+        return NT
+
+    def configuredtokens(self):
+        """ display the status of the current cluster token information """
+        nodetool = self._nodetool('ring')
+
+
+    def ringstatus(self):
+        """ display the status of the current cluster RING """
+        nodetool = self._nodetool('ring')
+
+    def histograms(self):
+         """ display the status of the current cluster RING """
+         nodetool = self._nodetool('cfhistograms')
+
+# -----------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------
+
 class CassandraTools():
     """ our CassandraTools collection of objects to operate on a casssandra
     cluster """
     # default nodes, empty if not initialised
     mynodes = {'florence'}
+    nodetool = MyNodeTool()
     
     def __init__(self):
         self.mynodes = SYSCONFIG.conf['ringlive']['nodes']
@@ -78,9 +115,9 @@ class CassandraTools():
 
     def getnodes(self,ring):
         """ return nodes from ring ring """
+        """ FIXME: return to mydatatools.py """
         x = sorted(SYSCONFIG.conf[ring]['nodes'].values(),key = itemgetter(1))
         mynodeset = NodeSet.fromlist(x)
-
         return mynodeset
 
     def taskrun(self,taskname,myring):
@@ -93,7 +130,7 @@ class CassandraTools():
         os.chdir(SYSCONFIG.conf[myring]['CASSANDRAHOME'])
         # FIXME: initenvironment?
         task.run(taskname,nodes=mynodes)
-        # FIXME: return data
+        # FIXME: return data in dictionarys
         print ":\n".join(["%s=%s" % (i,j) for j,i in task.iter_buffers()])
 
     def tasksimplerun(self,myring,taskname):
@@ -103,36 +140,17 @@ class CassandraTools():
         mynodes = mycassietools.getnodes(myring)
         task = task_self()
         task.run(cmdenv+taskname,nodes=mynodes)
+        # FIXME: return data in dicts
         print ":\n".join(["%s=%s" % (i,j) for j,i in task.iter_buffers()])
 
 
     def listhosts(self,myring):
-        """ simply list hostname using hostname as a test """
+        """ retrieve kernel versions """ 
         self.taskrun("/bin/uname -r",myring)
 
-    def cassandranodetool(self,myring=ringlive,cmd="ring"):
-        """ display the status of the current cluster using nodetool """
-        """ with default to ringlive and command 'ring' """
-        NODETOOL = SYSCONFIG.conf[myring] + " -hlocalhost -p " \
-                + SYSCONFIG.conf[myring]['cassrpc'] + " "
-        taskrun(NODETOOL+cmd,myring)
-        
-    def cassandraconfiguredtokens(self,mycluster=mynodes):
-        """ display the status of the current cluster RING """
-        taskrun("cat "+ CASSANDRAYAML + "|egrep \
-                -i 'initialtoken'",mycluster)
+    # FIXME: DAEMONIZE see http://pypi.python.org/pypi/python-daemon/
 
-
-    def cassandraringstatus(self,mycluster=mynodes):
-        """ display the status of the current cluster RING """
-        cassandranodetool(mycluster)
-
-    def cassandrahistograms(self,mycluster=mynodes):
-         """ display the status of the current cluster RING """
-         cassandranodetool(mycluster,cmd="cfhistograms")
-
-
-
+    # -------------------------------------------------------------------------
     def cassandrainit(self,mycluster=mynodes):
         print "** BOOTING CASSANDRA CLUSTER **"
         os.chdir(CASSANDRAHOME)
@@ -144,6 +162,7 @@ class CassandraTools():
         os.chdir(CASSANDRAHOME)
         taskrun(CASSANDRAINITSCRIPT + " stop", mycluster) 
 
+    # -------------------------------------------------------------------------
 
     def cassandrainfo(self,mycluster=mynodes):
         print "Cassandra INFO information..."
@@ -196,10 +215,8 @@ class CassandraTools():
         taskrun(PYTHONHOME + "/bin/python -V", mycluster)
 
 
-     
     def myportscan(self,mycluster=mynodes,myport=7199):
         print "Port scanning for node listening..." , mycluster, myport
-        
         taskrun("fuser -v " + str(myport) + "/tcp",mycluster)
 
     def initenvironment(self,mycluster=mynodes):
@@ -216,6 +233,8 @@ class CassandraTools():
         os.chdir(PYTHONHOME)
         print "initenvironment(): path is ",PATH," pythonhome is, ", PYTHONHOME
 
+# -----------------------------------------------------------------------------
+
 # -- MAIN --
 if __name__ == "__main__":
 
@@ -223,17 +242,21 @@ if __name__ == "__main__":
     cmd = int(sys.argv[1])
     ring = str(sys.argv[2])
     print "Running ",cmd," on ring ",ring, " ...", "with nodes: -"
+    nt = MyNodeTool('florence')
     mycassietools = CassandraTools()
     mynodes = mycassietools.getnodes('ringlive')
     for j in mynodes:
         print j
     mycassietools.listhosts('ringlive')
-    sys.exit(1)
+    #sys.exit(1)
 
 
     
     if cmd == 1:
-        cassandrainit()
+        nt.configuredtokens()
+        nt.ringstatus()
+        nt.histograms()
+        #cassandrainit()
     if cmd == 2:
         cassandrastop()
     if cmd == 3:
