@@ -83,31 +83,39 @@ class CassandraTools():
 
         return mynodeset
 
-    def taskrun(self,taskname,mynodes):
+    def taskrun(self,taskname,myring):
         """ run a specific command <taskname> on cluster <mynodes> """
         task = task_self()
+        # retrieve a list of nodes from the ring, and pass to task.run()
+        mynodes = mycassietools.getnodes(myring)
         # first initiate environment to run our python+java
-        os.chdir(SYSCONFIG.conf[mynodes]['CASSANDRAHOME'])
-        task.run(cmdenv+taskname,nodes=mynodes)
+        SYSCONFIG.conf[myring]['CASSANDRAHOME']
+        os.chdir(SYSCONFIG.conf[myring]['CASSANDRAHOME'])
+        # FIXME: initenvironment?
+        task.run(taskname,nodes=mynodes)
+        # FIXME: return data
         print ":\n".join(["%s=%s" % (i,j) for j,i in task.iter_buffers()])
 
-    def tasksimplerun(self,taskname):
+    def tasksimplerun(self,myring,taskname):
         """ tasksimplerun(<argv2>)"""
-        
+        """ run a very quick task """
+        """ purely prints to stdout """
+        mynodes = mycassietools.getnodes(myring)
         task = task_self()
         task.run(cmdenv+taskname,nodes=mynodes)
         print ":\n".join(["%s=%s" % (i,j) for j,i in task.iter_buffers()])
 
 
-    def listhosts(self,ring):
+    def listhosts(self,myring):
         """ simply list hostname using hostname as a test """
-        print "listhodes, ring received as " ,ring
-        self.taskrun("/bin/hostname -f",ring)
+        self.taskrun("/bin/uname -r",myring)
 
-    def cassandranodetool(self,nodes=mynodes,cmd="ring"):
+    def cassandranodetool(self,myring=ringlive,cmd="ring"):
         """ display the status of the current cluster using nodetool """
-        cmd1 = CASSANDRANODETOOL + " -hlocalhost -p " + str(PORT) + " "
-        taskrun(cmd1+cmd,nodes)
+        """ with default to ringlive and command 'ring' """
+        NODETOOL = SYSCONFIG.conf[myring] + " -hlocalhost -p " \
+                + SYSCONFIG.conf[myring]['cassrpc'] + " "
+        taskrun(NODETOOL+cmd,myring)
         
     def cassandraconfiguredtokens(self,mycluster=mynodes):
         """ display the status of the current cluster RING """
@@ -214,12 +222,12 @@ if __name__ == "__main__":
     #FIXME: obvious.  Apply error-checking and chained arguments
     cmd = int(sys.argv[1])
     ring = str(sys.argv[2])
-    print "Running ",cmd," on ring ",ring, " ..."
+    print "Running ",cmd," on ring ",ring, " ...", "with nodes: -"
     mycassietools = CassandraTools()
     mynodes = mycassietools.getnodes('ringlive')
     for j in mynodes:
         print j
-    mycassietools.listhosts(mynodes)
+    mycassietools.listhosts('ringlive')
     sys.exit(1)
 
 
