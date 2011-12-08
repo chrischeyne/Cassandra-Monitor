@@ -1,7 +1,4 @@
 # DIRECTORY STRUCTURE
-
-Fri Dec  2 17:10:59 GMT 2011
-
 cassandramanager.py     - boots web2py and all below modules
 
 mycassandramanager/         - core management system
@@ -11,12 +8,15 @@ mycassandramanager/         - core management system
     js/                         - js libraries (usually flot)
     templates/                  - temporary template area for testing django/flot
     db/                         - temporary sqlite db area for testing
+    /cacti-templates            - Cassandra 1.x compatible CACTI templates
 
     mydatagatherer/datagatherer.py      - core gathering 'daemons' manager
     .......myjmxhandler/                 - captures internal JVM JMX info
     .......mymysqlhandler/               - working on this as a side project
     .......mycassandrahandle/r           - this does more performance-orientated stats
     .......mycassandrahmxhandler/        - this is for internal cassandra JMX info
-    .......myjsonhandler/                - JSON manipulation
+    .......myjsonhandler/                - JSON manipulation - streams JSON
+                                           between tornado/rocket instances
 
 
+Thu Dec  8 11:42:55 GMT 2011

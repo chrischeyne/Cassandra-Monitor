@@ -28,7 +28,8 @@ import mydata.data as d
 def index():
     data = d.MyData()
     myjmx = data.mydict()
-    return dict(myjmx)
+    session.counter = (session.counter or 0) + 1
+    return dict(myjmx,message="Cass Manager",counter=session.counter)
 
 if __name__ == '__main__':
     data = d.MyData()

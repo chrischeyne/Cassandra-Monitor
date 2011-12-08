@@ -4,5 +4,7 @@ This is the main interface to the system. It is naturally under heavy testing.
 Please place subsequent versions under Cass2, Cass3...etc, representing
 Cassandra-Manager-0.0.16+
 
+includes/               - HTML templates and other includes
+
 
 Thu Dec  8 10:06:57 GMT 2011

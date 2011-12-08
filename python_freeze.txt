@@ -1,7 +1,6 @@
 # what's not in pip but installed
-
-# 
-# Tue Nov 29 20:28:30 GMT 2011
+# please example pip_freeze_includes.txt
+# Thu Dec  8 11:22:44 GMT 2011
 jpype
 http://is.gd/FJmRRd
 
