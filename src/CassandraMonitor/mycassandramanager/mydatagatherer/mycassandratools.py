@@ -80,8 +80,8 @@ class MyNodeTool():
         """ on ring <ring>"""
         NT = SYSCONFIG.conf[self.myring]['CASSANDRAHOME'] \
                 + SYSCONFIG.conf[self.myring]['nodetool']
-        NT = str(NT) + "-h" + str(self.myhost)
-        NT = str(NT) + "-p" + str(SYSCONFIG.conf[self.myring]['cassrpc'])
+        NT = str(NT) + " -h " + str(self.myhost)
+        NT = str(NT) + " -p " + str(SYSCONFIG.conf[self.myring]['cassrpc'])
         print "cmd NT is ",cmd, " " , NT
         return NT
 

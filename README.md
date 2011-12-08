@@ -3,8 +3,8 @@
 CASSANDRA MANAGEMENT AND ANALYTICS PROJECT
 
 VERSION 0.0.16a
+Thu Dec  8 09:49:40 GMT 2011
 
-Tue Dec  6 16:56:08 GMT 2011
 
 This project initially aims to provide a management interface to Cassandra and also delve
 deep inside the JMX infrastructure to provide real-time health monitoring of
@@ -29,9 +29,9 @@ tornado + django or web2py + flot + ganglia + sshpt + jpype + pyjmx + pyYAML
 tornado : non-blocking host for rendering django (mycassandramanager)
     [tornado <- django(site/dir)]
 
-mycassandramanager: combining sshpt (or ClusterSsh) for actual node management
+mycassandramanager: combining ClusterSSH for actual node management
     # run nodetool on all hosts to compact
-    sshpt TOOLS.NODETOOL cluster1 
+    mycasssandramanager.nodetool(ring0live, compact)  
 
 torando + httpclient + myjmxhandler ('daemon'-like tool for monitoring local
 node but also presenting that data to mycassandramanger
@@ -39,13 +39,11 @@ node but also presenting that data to mycassandramanger
 
 my{jmx,cassandra,mysql,json}handler : using jpype and pyjmx to report in real-time what a node is
 doing
-    myjmxhandler.watchvariables <-- tornado.httpclient (async)
-
+    mydatagatherer.jmx.watchvariables(mytornado.httpclient()) 
 
 mystresshandler : using custom pystress code to stress test a new{ly upgraded}
 cluster
-    mycassandramanager.stresstest(cluster1)
-
+    mycassandramanager.stresstest(ring0live)
 
 flot : real-time graphing; using with tornado+django as a 'web administrator'
 tool
