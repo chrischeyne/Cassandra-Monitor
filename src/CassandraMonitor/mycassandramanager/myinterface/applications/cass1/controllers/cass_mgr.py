@@ -61,6 +61,47 @@ class ClusterOverview():
         plt.show()
         return G 
 
+
+class ClusterAdministration():
+    def __init__(self):
+        pass
+    def _clusteradministration(self):
+        """ draw the cluster overview """
+        return dict()
+
+    def _admin(self):
+        pass
+class NodeInformation():
+    def __init__(self):
+        pass
+    def _clusteradministration(self):
+        """ draw the cluster overview """
+        return dict()
+
+    def _admin(self):
+        pass
+class KeyspaceManagement():
+    def __init__(self):
+        pass
+    def _clusteradministration(self):
+        """ draw the cluster overview """
+        return dict()
+
+    def _admin(self):
+        pass
+class DataManagement():
+    def __init__(self):
+        pass
+    def _clusteradministration(self):
+        """ draw the cluster overview """
+        return dict()
+
+    def _admin(self):
+        pass
+
+
+
+
 def clusteroverview():
     """ CLUSTEROVERVIEW PAGE """
     co = ClusterOverview()
@@ -70,6 +111,76 @@ def clusteroverview():
     return mydict
 
 
+def clusteradministration():
+    """ CLUSTER ADMINISTRATION PAGE """
+    co = ClusterAdministration()
+    #return d
+    mydict = dict(a=1,b=2,cluster='RING0LIVE')
+    return mydict
+
+def keyspacemanagement(): 
+    """ CLUSTER ADMINISTRATION PAGE """
+    co = ClusterAdministration()
+    #return d
+    mydict = dict(a=1,b=2,cluster='RING0LIVE')
+    return mydict
+
+def datamanagement(): 
+    """ CLUSTER ADMINISTRATION PAGE """
+    co = ClusterAdministration()
+    #return d
+    mydict = dict(a=1,b=2,cluster='RING0LIVE')
+    return mydict
+
+
+def ajaxwiki():
+        form=FORM(TEXTAREA(_id='text',_name='text'),
+                 INPUT(_type='button',_value='markmin',
+                       _onclick="ajax('ajaxwiki_onclick',['text'],'html')"))
+        return dict(form=form,html=DIV(_id='html'))
+
+def ajaxwiki_onclick():
+    return MARKMIN(request.vars.text).xml()
+
+
+
+def rss():
+    import datetime
+    import gluon.contrib.rss2 as rss2
+    import gluon.contrib.feedparser as feedparser
+    d = feedparser.parse("http://rss.slashdot.org/Slashdot/slashdot/to")
+    rss = rss2.RSS2(title=d.channel.title,
+            link = d.channel.link,
+            description = d.channel.description,
+            lastBuildDate = datetime.datetime.now(),
+
+            items = [
+                rss2.RSSItem(
+                    title = entry.title,
+                    link = entry.link,
+                    description = entry.description,
+                    pubDate=datetime.datetime.now()) for entry in d.entries]
+                )
+
+    response.headers['Content-Type']='application/rss+xml'
+    return rss2.dumps(rss)
+
+
+def page():
+    mydict = dict(a=12,b='RSS FEED')
+    return mydict
+
+def page():
+    mydict = dict(a=12,b='RSS FEED')
+    return mydict
+
+def page():
+    mydict = dict(a=12,b='RSS FEED')
+    return mydict
+
+def page():
+    mydict = dict(a=12,b='RSS FEED')
+    return mydict
 
 
 
