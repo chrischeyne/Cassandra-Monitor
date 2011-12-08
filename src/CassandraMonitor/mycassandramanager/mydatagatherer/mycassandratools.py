@@ -78,6 +78,7 @@ class MyNodeTool():
     def _nodetool(self,cmd):
         """ run nodetool command <c>"""
         """ on ring <ring>"""
+        """ nodetool object should be dynamic as config is dynamic """
         NT = SYSCONFIG.conf[self.myring]['CASSANDRAHOME'] \
                 + SYSCONFIG.conf[self.myring]['nodetool']
         NT = str(NT) + " -h " + str(self.myhost)
@@ -107,10 +108,11 @@ class CassandraTools():
     cluster """
     # default nodes, empty if not initialised
     mynodes = {'florence'}
-    nodetool = MyNodeTool()
+    nodetool = None 
     
     def __init__(self):
         self.mynodes = SYSCONFIG.conf['ringlive']['nodes']
+        self.nodetool = MyNodeTool()
         pass
 
     def getnodes(self,ring):
@@ -121,16 +123,15 @@ class CassandraTools():
         return mynodeset
 
     def taskrun(self,taskname,myring):
-        """ run a specific command <taskname> on cluster <mynodes> """
+        """ run a specific command <taskname> on ring <mynodes> """
         task = task_self()
-        # retrieve a list of nodes from the ring, and pass to task.run()
         mynodes = mycassietools.getnodes(myring)
         # first initiate environment to run our python+java
         SYSCONFIG.conf[myring]['CASSANDRAHOME']
         os.chdir(SYSCONFIG.conf[myring]['CASSANDRAHOME'])
         # FIXME: initenvironment?
         task.run(taskname,nodes=mynodes)
-        # FIXME: return data in dictionarys
+        # FIXME: return data in dictionarys for mydatatools
         print ":\n".join(["%s=%s" % (i,j) for j,i in task.iter_buffers()])
 
     def tasksimplerun(self,myring,taskname):
