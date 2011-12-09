@@ -50,7 +50,7 @@ class ClusterAdministration():
     def _admin(self):
         pass
 
-class NodeInformation():
+class NodeAdministration():
     def __init__(self):
         pass
     def _clusteradministration(self):
@@ -102,8 +102,6 @@ def second():
 def clusteradministration():
     """ PAGE:  CLUSTEROVERVIEW  """
     co = ClusterAdministration()
-    d = co._generategraph()
-    #return d
     mydict = dict(a=1,b=2,cluster='RING0LIVE')
     return mydict
 
