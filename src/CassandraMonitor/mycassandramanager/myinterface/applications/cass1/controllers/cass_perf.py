@@ -75,5 +75,8 @@ def CassandraPerformance():
     mydict = dict(a=1,b=2,cluster='RING0LIVE')
     return mydict
 
+def flot1():
+    """ draw a graph """
+    return dict()
 
 
