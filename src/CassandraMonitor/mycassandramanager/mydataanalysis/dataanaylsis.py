@@ -129,7 +129,7 @@ class MyDataAnalysis():
                 yield os.path.join(path,name)
 
                 # example
-                #pyfiles = generatorfind("*.py","/")
+                # pyfiles = generatorfind("*.py","/")
 
     def generatorcat(sources):
         for s in sources:

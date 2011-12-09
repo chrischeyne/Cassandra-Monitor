@@ -13,76 +13,67 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+# Fri Dec  9 09:20:50 GMT 2011
 """
-Tests for 
+Initial testing controller.  Runs 'Cass Perf'
+TODO: migrate each class to it's own module to allow for
+wide-scale development.  
+TODO: expose more variables internally for extension/plugin system
 """
 
-import logging
+from __future__ import absolute_import
+# FIXME: reconfigure paths
+import sys
+sys.path.append("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/myinterface/applications/cass1/controllers")
+sys.path.append("/opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager/myinterface/applications/cass1/controllers/mydata")
 
+import mydata.data as d
+import networkx  as nx
+import matplotlib.pyplot as plt
 
-__author__ = "Chris T. Cheyne"
-__copyright__ = "Copyright 2011, The Cassandra Manager Project"
-__credits__ = ["Chris Cheyne"]
-__license__ = "GPL"
-__version__ = "0.0.1"
-__maintainer__ = "Chris T. Cheyne"
-__email__ = "maintainer@cassandra-manager.org"
-__status__ = "Alpha"
+# CLASS PAGE HANDLERS - BELOW FOR METHOD HANDLERS
 
-
-class MyLogger():
-    """ returns an instance of the Python logger. """
-    """ designed to allow <MYPROGRAMNAME><classinstance><fn><timestamp> """
-    """ message type commenture """
-    __shared_state = {}
-    l = None
-    myvar = '42'
+class CassandraPerformance():
     def __init__(self):
-        self.__dict__ = self.__shared_state
-        self.boot()
-    def boot(self):
-        """ main boot handler """
-        self.l = logging.getLogger('CASSMGR')
-        self.l.setLevel(logging.DEBUG)
-        ch = logging.StreamHandler()
-        ch.setLevel(logging.DEBUG)
-        myformat = '%(asctime)s - %(name)s - %(levelname)s - %(filename)s - %(funcName)s - %(message)s'
-        myformatter = logging.Formatter(myformat)
-        ch.setFormatter(myformatter)
-        self.l.addHandler(ch)
-        self.l.debug('booting...')
+        pass
+    def _perf1(self):
+        """ draw the cluster overview """
+        return dict()
 
-    # testing for shared state
-    def setvar(self,val):
-        self.myvar=val
-    def getvar(self): return self.myvar
+    def _generategraph(self):
+        """ return a graph of cluster """
+        pass
+        G=nx.Graph(cluster="ring0live")
+        G.add_node(1)
+        G.add_nodes_from([2,3])
+        H=nx.path_graph(10)
+        G.add_nodes_from(H)
+        G.add_node(H)
+        G.add_edge(1,2)
+        e=(2,3)
+        G.add_edge(*e)
+        nx.draw(G)
+        plt.show()
+        return G 
 
-class Helpers():
-    __shared_state = {}
-    def __init__(self):
-        import time
-
-    def follow(thefile):
-        thefile.seek(0,2)
-        while True:
-            line = thefile.readline()
-            if not line:
-                time.sleep(0.1)
-                continue
-            yield line
+    def _admin(self):
+        pass
 
 
+def index():
+    data = d.MyData()
+    myjmx = data.mydict()
+    session.counter = (session.counter or 0) + 1
+    return dict(myjmx,message="Cassandra Real-time Performance",counter=session.counter)
 
 
+def CassandraPerformance():
+    """ PAGE:  CASSANDRA PERFORMANCE - OVERVIEW """ 
+    cp = CassandraPerformance() 
+    d = co._generategraph()
+    #return d
+    mydict = dict(a=1,b=2,cluster='RING0LIVE')
+    return mydict
 
-        
-def main():
-    SYSLOG = MyLogger()
-    MYHELPERS = Helpers()
-    SYSLOG.l.warn('...BOOTED! ' +SYSLOG.getvar())
-    SYSLOG.setvar('91')
-    SYSLOG.l.warn('Changed Var to  ' +SYSLOG.getvar())
 
-if __name__ == '__main__':
-    main()
 
