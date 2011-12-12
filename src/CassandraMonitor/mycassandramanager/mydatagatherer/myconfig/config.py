@@ -15,7 +15,6 @@
 
 
 
-# Fri Dec  2 11:19:46 GMT 2011
 """
 this is our configuration area. From here we can determine, via YAML, which
 variables to operate on; e.g.
@@ -25,7 +24,7 @@ also determine where our java and python installs are
 
 """
 import yaml
-
+MYDATE = "Mon Dec 12 11:24:02 GMT 2011"
 
 __author__ = "Chris T. Cheyne"
 __copyright__ = "Copyright 2011, The Cassandra Manager Project"
@@ -66,6 +65,7 @@ class MyConfig():
         # self.f ...
     def dumpconfig(self):
         """ dumps the current running config to stdout """
+        print MYDATE
         print yaml.dump(self.conf,default_flow_style=False)
 
 

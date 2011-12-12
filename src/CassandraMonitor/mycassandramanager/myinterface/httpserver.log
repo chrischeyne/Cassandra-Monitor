@@ -2414,3 +2414,13 @@
 127.0.0.1, 2011-12-12 09:43:56, GET, /cass1/static/plugin_layouts/layouts/Oxidation/images/img05.gif, HTTP/1.1, 304, 0.003115
 127.0.0.1, 2011-12-12 09:43:56, GET, /cass1/static/plugin_layouts/layouts/Oxidation/images/img06.gif, HTTP/1.1, 304, 0.003053
 127.0.0.1, 2011-12-12 09:43:57, GET, /favicon.ico, HTTP/1.1, 400, 0.001747
+127.0.0.1, 2011-12-12 10:09:15, GET, /cass1/cass_perf/index, HTTP/1.1, 200, 0.431996
+127.0.0.1, 2011-12-12 10:09:15, GET, /favicon.ico, HTTP/1.1, 400, 0.001029
+127.0.0.1, 2011-12-12 10:09:19, GET, /cass1/cass_perf/flot1, HTTP/1.1, 200, 0.081826
+127.0.0.1, 2011-12-12 10:09:19, GET, /favicon.ico, HTTP/1.1, 400, 0.001947
+127.0.0.1, 2011-12-12 11:12:30, GET, /cass1/cass_perf/index, HTTP/1.1, 200, 0.196626
+127.0.0.1, 2011-12-12 11:12:32, GET, /favicon.ico, HTTP/1.1, 400, 0.000835
+127.0.0.1, 2011-12-12 11:12:32, GET, /cass1/cass_perf/flot1, HTTP/1.1, 200, 0.093883
+127.0.0.1, 2011-12-12 11:12:33, GET, /favicon.ico, HTTP/1.1, 400, 0.002022
+127.0.0.1, 2011-12-12 11:12:34, GET, /cass1/cass_perf/index, HTTP/1.1, 200, 0.097241
+127.0.0.1, 2011-12-12 11:12:35, GET, /favicon.ico, HTTP/1.1, 400, 0.002307

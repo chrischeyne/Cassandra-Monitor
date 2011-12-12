@@ -14,14 +14,15 @@
 # under the License.
 
 
-# Wed Dec  7 11:19:53 GMT 2011
+# Mon Dec 12 11:35:09 GMT 2011
 # =====
 # UNDER UNIT TESTING - LOCAL COPIES OF MYCONFIG{py,yaml} MYLOGGER
+# RETURN MODIFIED COPIES TO myconfig/
 # =====
 
 """
-cassandratools - cassandra management tools. Wrapper around nodetool
-ClusterSSH
+cassandratools - cassandra management tools. Wrapper around nodetool using 
+ClusterSSH and bubble configlets
 
 """
 author = "Chris T. Cheyne"
@@ -93,7 +94,6 @@ class MyNodeTool():
         print "cmd NT is ",cmd, " " , NT
         return NT
 
-    
 # -----------------------------------------------------------------------------
 
 # -----------------------------------------------------------------------------
@@ -104,7 +104,10 @@ class CassandraTools():
     # default nodes, empty if not initialised
     mynodes = None
     myring = None
-    
+    mybubbles = \
+    dict(zip(('bootcassie','stopcassie','migratecassie','mutatecassie'),
+        (1,2,3,4)))
+
     def __init__(self,ring):
         """ initialise, set our current operational ring """
         """ set our list of nodes """
@@ -123,25 +126,28 @@ class CassandraTools():
     def configuredtokens(self):
         """ display the status of the current cluster token information """
         nt = MyNodeTool(self.myring,'localhost','info')
-        tokens = dict(self.taskrunlocal(nt.nodetool()))
+        cmd = nt.nodetool()
+        print "configuredtokens(): cmd is ",cmd
+        tokens = dict(self.taskrunlocal(cmd))
         print "configuredtokens:  ",tokens
         pass
 
 
     def ringstatus(self):
         """ display the status of the current cluster RING """
-        nt = MyNodeTool(ring,'localhost','info')
-        address,status,state,load,owns,token = dict(taskrunlocal(nt))
-        d = dict(nodetool='RING STATUS') 
-        return d
+        ringstatus = {}
+        nt = MyNodeTool(self.myring,'localhost','info')
+        cmd = nt.nodetool()
+        ringstatus = dict(self.taskrunlocal(cmd))
+        return ringstatus
 
     def histograms(self):
         """ display the status of the current cluster RING """
-
-        nt = MyNodeTool('florence','ring')
-        of,ss,wl,rl,rs,cc = dict(taskrunlocal(nodetool))
-        d = dict(nodetool='CFHISTOGRAMS')
-        return d
+        histograms = {}
+        nt = MyNodeTool(self.myring,'localhost','info')
+        cmd = nt.nodetool()
+        histograms = dict(self.taskrunlocal(cmd))
+        return histograms
 
 
     def getnodes(self,ring):
@@ -154,6 +160,7 @@ class CassandraTools():
     def taskrunring(self,taskname,myring):
         """ run a specific command <taskname> on ring <mynodes> """
         task = task_self()
+        myenv = self.cmdenv()
         mynodes = mycassietools.getnodes(myring)
         # first initiate environment to run our python+java
         SYSCONFIG.conf[myring]['CASSANDRAHOME']
@@ -163,16 +170,18 @@ class CassandraTools():
         # FIXME: return data in dictionarys for mydatatools
         print ":\n".join(["%s=%s" % (i,j) for j,i in task.iter_buffers()])
 
-    def taskrunlocal(self,taskname):
+    def taskrunlocal(self,cmd):
         """ taskrunlocal - run <taskname> on localhost """
+        """ note I have kept this isolated from taskrunring for plugin use """
         task = task_self()
         myenv = self.cmdenv()
         print "runlocal: env is ",myenv
-        print "runlocal: taskname is ",taskname
-        task.run(myenv+taskname,nodes='localhost')
+        print "runlocal: cmd is ",cmd
+        task.run(myenv+cmd,nodes='localhost')
         # FIXME: return data in dicts
+        mydict = dict({'one':1,'two':2})
         print ":\n".join(["%s=%s" % (i,j) for j,i in task.iter_buffers()])
-
+        return mydict
 
     def listhosts(self,myring):
         """ retrieve kernel versions """ 
