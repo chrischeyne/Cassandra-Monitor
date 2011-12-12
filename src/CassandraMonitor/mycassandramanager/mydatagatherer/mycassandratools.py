@@ -65,63 +65,122 @@ SYSLOG.l.info('mysql host is %s ' % SYSCONFIG.conf['mysql']['host'])
 from ClusterShell.NodeSet import NodeSet
 from ClusterShell.Task import task_self
 from socket import gethostname
+import subprocess
+import time
 
 # -----------------------------------------------------------------------------
 class MyNodeTool():
     """ run command <cmd> on host <host> """
-    """ defaults to a single node """
+    """ defaults to a single node and the info command """
     myhost = None
     mycmd = None
     myring = None
-
 
     def __init__(self,ring='ringlive',host='florence',cmd='info'):
         self.myhost = host
         self.mycmd = cmd
         self.myring = ring
         NT = "nodetool" 
-        pass
 
     def nodetool(self,cmd='info'):
         """ run nodetool command <c>"""
         """ on ring <ring>"""
-        """ nodetool object should be dynamic as config is dynamic """
-        print "NOTETOOL() booting on ring,host,cmd " ,self.myring, self.myhost,cmd
+        """ nodetool object should be dynamic as config is dynamic  """
+        """ thus e.g. the port might change each time we are called """
         NT = SYSCONFIG.conf[self.myring]['CASSANDRAHOME'] \
                 + SYSCONFIG.conf[self.myring]['nodetool']
         NT = str(NT) + " -h " + str(self.myhost)
         NT = str(NT) + " -p " + str(SYSCONFIG.conf[self.myring]['cassrpc'])
-        print "cmd NT is ",cmd, " " , NT
+        NT = NT + " ",cmd
+        #returns a tuple of (nodetool,cmd)
         return NT
 
 # -----------------------------------------------------------------------------
 
 # -----------------------------------------------------------------------------
 
+class Timeout(Exception):
+    """ fixme: report properly """
+    """ used for run() as an exception handler """
+    pass
+
 class CassandraTools():
     """ our CassandraTools collection of objects to operate on a casssandra
     cluster """
     # default nodes, empty if not initialised
+    # FIXME: bring in dictionary tools module
     mynodes = None
     myring = None
+    #FIXME: get from myconfig -> 1,2,3,4
     mybubbles = \
     dict(zip(('bootcassie','stopcassie','migratecassie','mutatecassie'),
         (1,2,3,4)))
-
+    pairs = zip(mybubbles.itervalues(),mybubbles.iterkeys())
+    
     def __init__(self,ring):
         """ initialise, set our current operational ring """
         """ set our list of nodes """
-
         self.myring = ring
         self.mynodes = self.getnodes(self.myring) 
         pass
 
+    def getbubble(self):
+        """" return the current environment for current ring """
+        ring = self.myring
+
+        x = sorted(SYSCONFIG.conf[myring]['environ'].values(),key = itemgetter(1))
+        print 'GETBUBBLE, RECEIVED' ,x
+
+
     def cmdenv(self):
         """ configure the environment for clusterssh """
         """ to ensure we run correct python/java etc """
-        from os import environ as env
-        environment = env['HOME']
-        return environment
+        env = os.environ
+        self.newenv = env
+        print "CMDENV: env IS"
+        for k,v in env.items():
+            print('{0:<10}{1}'.format(k,v))
+
+        newenv = getbubble('cassandra')
+        return newenv
+
+   
+        #FIXME: this requires a complete re-write to set the operating
+        #penv when executuing a clustershell command
+        #psee OLD/cassandra_env.{py,sh}
+        return newenv['PY_PREFIX']
+    def getbubble(self,system):
+        """ return an environment variable setting for system SYSTEM"""
+        """ SYSTEM in {'cassanrda','mysql'...} """
+        """ current ring is self.myring """
+
+   
+    def run(cmd,env,timeout=10):
+        """ run a local command, capture output """
+        """ returns stdout,stderr,returncode """
+        """ FIXME: put in module """
+
+        # first we set up the environment for the current cassie
+        # by getting current environment and remapping with getenv <- bubble
+        
+        
+        
+        # then we boot the run command, running in the environment and return
+        # STD{out,err}
+
+        proc = \
+            subprocess.Popen(cmd,bufsize=0,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+        poll_seconds = .250
+        deadline = time.time()+timeout
+        while time.time()<deadline and proc.poll()==None:
+            time.sleep(poll_seconds)
+
+        if proc.poll() == None:
+            if float(sys.version[:3]) >= 2.6:
+                proc.terminate()
+            raise Timeout()
+
+        stdout,stderr = proc.communicate()
 
     def configuredtokens(self):
         """ display the status of the current cluster token information """
@@ -130,8 +189,6 @@ class CassandraTools():
         print "configuredtokens(): cmd is ",cmd
         tokens = dict(self.taskrunlocal(cmd))
         print "configuredtokens:  ",tokens
-        pass
-
 
     def ringstatus(self):
         """ display the status of the current cluster RING """
@@ -168,19 +225,22 @@ class CassandraTools():
         # FIXME: initenvironment?
         task.run(taskname,nodes=mynodes)
         # FIXME: return data in dictionarys for mydatatools
+        print "VECTOR RUN RING"
         print ":\n".join(["%s=%s" % (i,j) for j,i in task.iter_buffers()])
+        mydict = dict({'one':1,'two':2})
+        return mydict
 
-    def taskrunlocal(self,cmd):
+    def taskrunlocal(self,cmd,myring):
         """ taskrunlocal - run <taskname> on localhost """
         """ note I have kept this isolated from taskrunring for plugin use """
         task = task_self()
-        myenv = self.cmdenv()
-        print "runlocal: env is ",myenv
-        print "runlocal: cmd is ",cmd
-        task.run(myenv+cmd,nodes='localhost')
-        # FIXME: return data in dicts
+        myenv = self.cmdenv(myring)
+        print 'taskrunlocal(): RUNNING ',cmd[0]+cmd[1]
+        localcmd = cmd[0]+cmd[1]
+        stdout,stderr,proc,returncode = self.run(myenv+localcmd)
         mydict = dict({'one':1,'two':2})
-        print ":\n".join(["%s=%s" % (i,j) for j,i in task.iter_buffers()])
+        print "VECTOR RUN LOCAL"
+        print stdout
         return mydict
 
     def listhosts(self,myring):

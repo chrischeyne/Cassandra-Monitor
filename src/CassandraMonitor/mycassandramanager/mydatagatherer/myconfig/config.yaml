@@ -1,6 +1,7 @@
 ---
 defaults: allrings 
 mysql:
+    TITLE: MYSQL PERFORMANCE ANALYSIS
     user:   chris
     host:   florence
     db:    chris 
@@ -11,6 +12,7 @@ mysql:
     comdbs: show status where variable_name = 'Com_show_databases';
     
 cassperf:
+    TITLE: CASSANDRA PERFORMANCE ANALYSIS
     readstage: ReadStage
     RRS:    RequestResponseStage
     MS:     MutationsStage
@@ -30,19 +32,20 @@ ringlive:
     cassjmx:    7199
     cassstorage:    6999
     cassmx4j:   7197
-    PYTHONHOME: /opt/python-2.7.2
-    JAVA_HOME:   /opt/jdk1.6.0_27
-    CASSANDRAHOME: /opt/cassandra-dev/apache-cassandra-0.8.5
-    cassandrabin: /bin/cassandra
-    cassandrayaml: -Dcassandra.config=file:cassandra.yaml
-    cassandraroot: /opt/cassandra-dev
-    cassandraverison: 0.8.5
-    cassandrastress: mycassandrastress/cassandrastress.py
-    nodetool: /bin/nodetool
-    CASSANDRALOGROOT: /opt/cassandra-dev/log
-    log: = /log/cassandra.log
-    pid: = /run/cassandra.pid
-    core: = /lock/subsys/cassandra
+    environ:
+        PYTHONHOME: /opt/python-2.7.2
+        JAVA_HOME:   /opt/jdk1.6.0_27
+        CASSANDRAHOME: /opt/cassandra-dev/apache-cassandra-0.8.5
+        cassandrabin: /bin/cassandra
+        cassandrayaml: -Dcassandra.config=file:cassandra.yaml
+        cassandraroot: /opt/cassandra-dev
+        cassandraverison: 0.8.5
+        cassandrastress: mycassandrastress/cassandrastress.py
+        nodetool: /bin/nodetool
+        CASSANDRALOGROOT: /opt/cassandra-dev/log
+        log: = /log/cassandra.log
+        pid: = /run/cassandra.pid
+        core: = /lock/subsys/cassandra
     nodes:
         node0: florence
         node1: ermintrude
