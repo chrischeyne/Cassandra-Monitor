@@ -124,13 +124,10 @@ class CassandraTools():
         self.mynodes = self.getnodes(self.myring) 
         pass
 
-    def getbubble(self):
+    def getbubble(self,system):
         """" return the current environment for current ring """
-        ring = self.myring
-
-        x = sorted(SYSCONFIG.conf[myring]['environ'].values(),key = itemgetter(1))
-        print 'GETBUBBLE, RECEIVED' ,x
-
+        x = sorted(SYSCONFIG.conf[self.myring].items(), key=itemgetter(1))
+        return x
 
     def cmdenv(self):
         """ configure the environment for clusterssh """
@@ -141,7 +138,7 @@ class CassandraTools():
         for k,v in env.items():
             print('{0:<10}{1}'.format(k,v))
 
-        newenv = getbubble('cassandra')
+        newenv = self.getbubble('cassandra')
         return newenv
 
    
@@ -149,45 +146,28 @@ class CassandraTools():
         #penv when executuing a clustershell command
         #psee OLD/cassandra_env.{py,sh}
         return newenv['PY_PREFIX']
-    def getbubble(self,system):
-        """ return an environment variable setting for system SYSTEM"""
-        """ SYSTEM in {'cassanrda','mysql'...} """
-        """ current ring is self.myring """
 
-   
-    def run(cmd,env,timeout=10):
+       
+    def run(self,cmd,timeout=10):
         """ run a local command, capture output """
         """ returns stdout,stderr,returncode """
         """ FIXME: put in module """
 
         # first we set up the environment for the current cassie
         # by getting current environment and remapping with getenv <- bubble
-        
-        
-        
+        newenv = self.cmdenv()
         # then we boot the run command, running in the environment and return
-        # STD{out,err}
+        # STD{out,err} 
+        subprocess.Popen('echo "Hello world from run()"',shell=True)
+        pass
 
-        proc = \
-            subprocess.Popen(cmd,bufsize=0,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
-        poll_seconds = .250
-        deadline = time.time()+timeout
-        while time.time()<deadline and proc.poll()==None:
-            time.sleep(poll_seconds)
-
-        if proc.poll() == None:
-            if float(sys.version[:3]) >= 2.6:
-                proc.terminate()
-            raise Timeout()
-
-        stdout,stderr = proc.communicate()
 
     def configuredtokens(self):
         """ display the status of the current cluster token information """
         nt = MyNodeTool(self.myring,'localhost','info')
         cmd = nt.nodetool()
         print "configuredtokens(): cmd is ",cmd
-        tokens = dict(self.taskrunlocal(cmd))
+        tokens = dict(self.taskrunlocal(cmd),self.myring)
         print "configuredtokens:  ",tokens
 
     def ringstatus(self):
@@ -214,30 +194,29 @@ class CassandraTools():
         mynodeset = NodeSet.fromlist(x)
         return mynodeset
 
-    def taskrunring(self,taskname,myring):
+    def taskrunring(self,taskname):
         """ run a specific command <taskname> on ring <mynodes> """
+        myring = self.myring
         task = task_self()
         myenv = self.cmdenv()
         mynodes = mycassietools.getnodes(myring)
-        # first initiate environment to run our python+java
         SYSCONFIG.conf[myring]['CASSANDRAHOME']
         os.chdir(SYSCONFIG.conf[myring]['CASSANDRAHOME'])
-        # FIXME: initenvironment?
         task.run(taskname,nodes=mynodes)
-        # FIXME: return data in dictionarys for mydatatools
         print "VECTOR RUN RING"
         print ":\n".join(["%s=%s" % (i,j) for j,i in task.iter_buffers()])
         mydict = dict({'one':1,'two':2})
         return mydict
 
-    def taskrunlocal(self,cmd,myring):
+    def taskrunlocal(self,cmd):
         """ taskrunlocal - run <taskname> on localhost """
         """ note I have kept this isolated from taskrunring for plugin use """
+        myring = self.myring
         task = task_self()
-        myenv = self.cmdenv(myring)
+        myenv = self.cmdenv()
         print 'taskrunlocal(): RUNNING ',cmd[0]+cmd[1]
         localcmd = cmd[0]+cmd[1]
-        stdout,stderr,proc,returncode = self.run(myenv+localcmd)
+        stdout = self.run(localcmd)
         mydict = dict({'one':1,'two':2})
         print "VECTOR RUN LOCAL"
         print stdout
@@ -245,7 +224,7 @@ class CassandraTools():
 
     def listhosts(self,myring):
         """ retrieve kernel versions """ 
-        self.taskrunring("/bin/uname -r",myring)
+        self.taskrunring("/bin/uname -r")
 
     # FIXME: DAEMONIZE see http://pypi.python.org/pypi/python-daemon/
 
@@ -341,14 +320,11 @@ if __name__ == "__main__":
     cmd = int(sys.argv[1])
     ring = str(sys.argv[2])
     print "Running ",cmd," on ring ",ring, " ...", "with nodes: -"
-    mycassietools = CassandraTools('ringlive')
-    mynodes = mycassietools.getnodes('ringlive')
+    mycassietools = CassandraTools(ring)
+    mynodes = mycassietools.getnodes(ring)
     for j in mynodes:
         print j
-    mycassietools.listhosts('ringlive')
-    #sys.exit(1)
-
-
+    mycassietools.listhosts(ring)
     
     if cmd == 1:
         mycassietools.configuredtokens()
