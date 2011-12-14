@@ -65,7 +65,6 @@ SYSLOG.l.info('mysql host is %s ' % SYSCONFIG.conf['mysql']['host'])
 from ClusterShell.NodeSet import NodeSet
 from ClusterShell.Task import task_self
 from socket import gethostname
-import subprocess
 import time
 
 # -----------------------------------------------------------------------------
@@ -130,13 +129,13 @@ class CassandraTools():
         return x
 
     def cmdenv(self):
-        """ configure the environment for clusterssh """
+        """ configure the environment bubble for clusterssh """
         """ to ensure we run correct python/java etc """
         env = os.environ
         self.newenv = env
-        print "CMDENV: env IS"
-        for k,v in env.items():
-            print('{0:<10}{1}'.format(k,v))
+        #print "CMDENV: env IS"
+        #for k,v in env.items():
+        #    print('{0:<10}{1}'.format(k,v))
 
         newenv = self.getbubble('cassandra')
         return newenv
@@ -149,16 +148,20 @@ class CassandraTools():
 
        
     def run(self,cmd,timeout=10):
-        """ run a local command, capture output """
+        """ run a local command avoiding ClusterSSH; capture output """
         """ returns stdout,stderr,returncode """
         """ FIXME: put in module """
+        import subprocess as sub
 
         # first we set up the environment for the current cassie
         # by getting current environment and remapping with getenv <- bubble
         newenv = self.cmdenv()
         # then we boot the run command, running in the environment and return
-        # STD{out,err} 
-        subprocess.Popen('echo "Hello world from run()"',shell=True)
+        # STD{out,err} <-- FIXME: stderr catch
+        print "run(): running ",cmd
+
+        x = sub.Popen(cmd,stdout=sub.PIPE,shell=True).stdout.read()
+        print "x is ",x 
         pass
 
 
@@ -214,7 +217,6 @@ class CassandraTools():
         myring = self.myring
         task = task_self()
         myenv = self.cmdenv()
-        print 'taskrunlocal(): RUNNING ',cmd[0]+cmd[1]
         localcmd = cmd[0]+cmd[1]
         stdout = self.run(localcmd)
         mydict = dict({'one':1,'two':2})
@@ -227,7 +229,6 @@ class CassandraTools():
         self.taskrunring("/bin/uname -r")
 
     # FIXME: DAEMONIZE see http://pypi.python.org/pypi/python-daemon/
-
     # -------------------------------------------------------------------------
     def cassandrainit(self,mycluster=mynodes):
         print "** BOOTING CASSANDRA CLUSTER **"
@@ -250,8 +251,6 @@ class CassandraTools():
         cassandranodetool(mycluster,cmd)
         os.chdir(CASSANDRAHOME)
         task.run(CASSANDRABIN + "/bin/nodetool -hlocalhost -p" + str(PORT) + " ring",nodes=RING1devbootstrapnodes)
-
-
 
     def cassandrastresstest(self,cluster=mynodes):
         print "Stress testing CLUSTER %s",cluster
