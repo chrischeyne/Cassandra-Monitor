@@ -1,5 +1,6 @@
 module cassandratools.py under unit testing
 copies of myconfig.{py,yaml} and mylogger placed in subdirectories
 
+PLEASE MOVE myconfig.{py,yaml}/ to CassandraMonitor/
 
-Mon Dec  5 14:42:14 GMT 2011
+Thu Dec 15 11:51:57 GMT 2011

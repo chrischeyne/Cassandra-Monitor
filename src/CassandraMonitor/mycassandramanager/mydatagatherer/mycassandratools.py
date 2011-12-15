@@ -14,7 +14,7 @@
 # under the License.
 
 
-# Mon Dec 12 11:35:09 GMT 2011
+#   Thu Dec 15 11:51:12 GMT 2011
 # =====
 # UNDER UNIT TESTING - LOCAL COPIES OF MYCONFIG{py,yaml} MYLOGGER
 # RETURN MODIFIED COPIES TO myconfig/
@@ -45,7 +45,6 @@ import datetime
 # FIXME: remove after unit testing
 APPEND=os.path.dirname(__file__)
 sys.path.append(APPEND)
-print sys.path
 sys.path.append('\
 /opt/cassandra-dev/PROJECTS/Cassandra-Monitor/src/CassandraMonitor/mycassandramanager')
 sys.path.append('\
@@ -111,10 +110,10 @@ class CassandraTools():
     mynodes = None
     myring = None
     #FIXME: get from myconfig -> 1,2,3,4
-    mybubbles = \
+    pairs = \
     dict(zip(('bootcassie','stopcassie','migratecassie','mutatecassie'),
         (1,2,3,4)))
-    pairs = zip(mybubbles.itervalues(),mybubbles.iterkeys())
+    mybubbles = zip(pairs.itervalues(),pairs.iterkeys())
     
     def __init__(self,ring):
         """ initialise, set our current operational ring """
@@ -124,29 +123,10 @@ class CassandraTools():
         pass
 
     def getbubble(self,system):
-        """" return the current environment for current ring """
+        """" return dict of the current environment for current ring """
         x = sorted(SYSCONFIG.conf[self.myring].items(), key=itemgetter(1))
-        return x
+        return dict(x)
 
-    def cmdenv(self):
-        """ configure the environment bubble for clusterssh """
-        """ to ensure we run correct python/java etc """
-        env = os.environ
-        self.newenv = env
-        #print "CMDENV: env IS"
-        #for k,v in env.items():
-        #    print('{0:<10}{1}'.format(k,v))
-
-        newenv = self.getbubble('cassandra')
-        return newenv
-
-   
-        #FIXME: this requires a complete re-write to set the operating
-        #penv when executuing a clustershell command
-        #psee OLD/cassandra_env.{py,sh}
-        return newenv['PY_PREFIX']
-
-       
     def run(self,cmd,timeout=10):
         """ run a local command avoiding ClusterSSH; capture output """
         """ returns stdout,stderr,returncode """
@@ -155,13 +135,23 @@ class CassandraTools():
 
         # first we set up the environment for the current cassie
         # by getting current environment and remapping with getenv <- bubble
-        newenv = self.cmdenv()
+        env = os.environ
+        cassenv = self.getbubble('cassandra')
+        # replace current environment variables with our bubble
+        os.environ['PYTHONHOME'] = cassenv['PYTHONHOME']
+        os.environ['PYTHONPATH']= cassenv['PYTHONPATH']
+        os.environ['JAVA_HOME']= cassenv['JAVA_HOME']
+        sys.prefix = cassenv['PYTHONHOME']
+        sys.execprefix =PYTHONHOME
+        sys.path.append(PYTHONHOME)
+        sys.path.append(PYTHONPATH)
+        os.chdir(PYTHONHOME)
         # then we boot the run command, running in the environment and return
         # STD{out,err} <-- FIXME: stderr catch
-        print "run(): running ",cmd
-
+        print '------------------------------'
+        print 'RUN():  booting command ',cmd
         x = sub.Popen(cmd,stdout=sub.PIPE,shell=True).stdout.read()
-        print "x is ",x 
+        print '------------------------------'
         pass
 
 
@@ -169,8 +159,7 @@ class CassandraTools():
         """ display the status of the current cluster token information """
         nt = MyNodeTool(self.myring,'localhost','info')
         cmd = nt.nodetool()
-        print "configuredtokens(): cmd is ",cmd
-        tokens = dict(self.taskrunlocal(cmd),self.myring)
+        tokens = dict(self.taskrunlocal(cmd))
         print "configuredtokens:  ",tokens
 
     def ringstatus(self):
@@ -201,10 +190,8 @@ class CassandraTools():
         """ run a specific command <taskname> on ring <mynodes> """
         myring = self.myring
         task = task_self()
-        myenv = self.cmdenv()
         mynodes = mycassietools.getnodes(myring)
         SYSCONFIG.conf[myring]['CASSANDRAHOME']
-        os.chdir(SYSCONFIG.conf[myring]['CASSANDRAHOME'])
         task.run(taskname,nodes=mynodes)
         print "VECTOR RUN RING"
         print ":\n".join(["%s=%s" % (i,j) for j,i in task.iter_buffers()])
@@ -216,7 +203,6 @@ class CassandraTools():
         """ note I have kept this isolated from taskrunring for plugin use """
         myring = self.myring
         task = task_self()
-        myenv = self.cmdenv()
         localcmd = cmd[0]+cmd[1]
         stdout = self.run(localcmd)
         mydict = dict({'one':1,'two':2})
@@ -326,9 +312,10 @@ if __name__ == "__main__":
     mycassietools.listhosts(ring)
     
     if cmd == 1:
+        # FIXME: initial testing
         mycassietools.configuredtokens()
-        mycassietools.ringstatus()
-        mycassietools.histograms()
+        #mycassietools.ringstatus()
+        #mycassietools.histograms()
         #cassandrainit()
     if cmd == 2:
         cassandrastop()

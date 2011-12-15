@@ -13,14 +13,12 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-#   Mon Dec 12 11:37:53 GMT 2011
+
+
+#Thu Dec 15 15:45:21 GMT 2011
 """
 this instigates the web2py framework, instigates the handlers
-and starts the main application 'loop'
-
-basically boot web2py, run web2py/apps/cassandramanger
-
-
+and starts the main application 'loop' on each node
 """
 
 __author__ = "Chris T. Cheyne"
