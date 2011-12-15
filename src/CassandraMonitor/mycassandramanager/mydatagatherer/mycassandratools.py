@@ -153,8 +153,10 @@ class CassandraTools():
         # then we boot the run command, running in the environment and return
         # STD{out,err} <-- FIXME: stderr catch
         print '------------------------------'
-        print 'RUN():  booting command ',cmd
-        x = sub.Popen(cmd,stdout=sub.PIPE,shell=True).stdout.read()
+        print 'temporarily setting cmd 2'
+        cmd2='ls -la'
+        print 'RUN():  booting command ',cmd2
+        sub.Popen(cmd2,stdout=sub.PIPE,shell=True).stdout.read()
         print '------------------------------'
         pass
 
