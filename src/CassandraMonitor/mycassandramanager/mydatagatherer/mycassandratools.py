@@ -138,14 +138,18 @@ class CassandraTools():
         env = os.environ
         cassenv = self.getbubble('cassandra')
         # replace current environment variables with our bubble
-        os.environ['PYTHONHOME'] = cassenv['PYTHONHOME']
-        os.environ['PYTHONPATH']= cassenv['PYTHONPATH']
-        os.environ['JAVA_HOME']= cassenv['JAVA_HOME']
+        mykeys = ('PYTHONHOME','PYTHONPATH','JAVA_HOME')
+        try:
+            for k in mykeys:
+                env[k] = env.get(k,cassenv[k])
+        except KeyError:
+            env[k] = cassenv[k]
         sys.prefix = cassenv['PYTHONHOME']
-        sys.execprefix =PYTHONHOME
-        sys.path.append(PYTHONHOME)
-        sys.path.append(PYTHONPATH)
-        os.chdir(PYTHONHOME)
+        sys.execprefix = cassenv['PYTHONHOME']
+        sys.path.append(cassenv['PYTHONHOME'])
+        sys.path.append(cassenv['JAVA_HOME'])
+        sys.path.append(cassenv['PYTHONPATH'])
+        os.chdir(cassenv['PYTHONHOME'])
         # then we boot the run command, running in the environment and return
         # STD{out,err} <-- FIXME: stderr catch
         print '------------------------------'
@@ -281,20 +285,6 @@ class CassandraTools():
     def myportscan(self,mycluster=mynodes,myport=7199):
         print "Port scanning for node listening..." , mycluster, myport
         taskrunring("fuser -v " + str(myport) + "/tcp",mycluster)
-
-    def initenvironment(self,mycluster=mynodes):
-        """ ensure clusterSSH is running in the correct environment"""
-        """ this ensures system python etc does not get in the way"""
-        """ read in environment variables from myconfig """
-        os.environ["PYTHONHOME"]=PYTHONHOME
-        os.environ["PYTHONPATH"]=PYTHONPATH
-        os.environ["JAVAHOME"]=JAVAHOME
-        sys.prefix=PYTHONHOME
-        sys.execprefix=PYTHONHOME
-        sys.path.append(PYTHONHOME)
-        sys.path.append(PYTHONPATH)
-        os.chdir(PYTHONHOME)
-        print "initenvironment(): path is ",PATH," pythonhome is, ", PYTHONHOME
 
 # -----------------------------------------------------------------------------
 

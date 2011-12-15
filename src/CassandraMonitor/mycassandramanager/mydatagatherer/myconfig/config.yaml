@@ -35,6 +35,7 @@ ringlive:
     PYTHONHOME: /opt/python-2.7.2
     JAVA_HOME:   /opt/jdk1.6.0_27
     CASSANDRAHOME: /opt/cassandra-dev/apache-cassandra-0.8.5
+    PYTHONPATH: /opt/python-2.7.2
     cassandrabin: /bin/cassandra
     cassandrayaml: -Dcassandra.config=file:cassandra.yaml
     cassandraroot: /opt/cassandra-dev
