@@ -44,9 +44,8 @@ class MyJSONHandler():
         r = self.requests.get(url)
         c = r.content
         j = self.json.loads(c)
-        for item in j:
-            print item['repository']['url']
-
+        return j
+        
     def encodejson(self,data):
         """ return a json object representation of data """
         # FIXME: check separators are correct for yaml dicts
@@ -62,10 +61,13 @@ class MyJSONHandler():
 
 def main():
     MYJSON = MyJSONHandler()
-    # MYJSON.getjson('https://github.com/timeline.json')
+    print "URL JSON RETRIEVAL..."
+    j = MYJSON.getjson('https://github.com/timeline.json')
+    MYJSON.printjson(j)
     print ' --- '
     mydata = dict(x=12,y=42,a="hello")
     print mydata
+    print "JSON DICTIONARY ENCODING..."
     d1 = MYJSON.encodejson(mydata)
     MYJSON.printjson(d1)
     print ' --- '

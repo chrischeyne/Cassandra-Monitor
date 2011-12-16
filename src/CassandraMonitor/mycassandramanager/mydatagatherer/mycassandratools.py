@@ -14,7 +14,7 @@
 # under the License.
 
 
-#   Thu Dec 15 11:51:12 GMT 2011
+#Fri Dec 16 09:31:53 GMT 2011
 # =====
 # UNDER UNIT TESTING - LOCAL COPIES OF MYCONFIG{py,yaml} MYLOGGER
 # RETURN MODIFIED COPIES TO myconfig/
@@ -112,9 +112,9 @@ class CassandraTools():
     #FIXME: get from myconfig -> 1,2,3,4
     pairs = \
     dict(zip(('bootcassie','stopcassie','migratecassie','mutatecassie'),
-        (1,2,3,4)))
-    mybubbles = zip(pairs.itervalues(),pairs.iterkeys())
-    
+        (None,None,None,None)))
+    mybubblecmds = zip(pairs.itervalues(),pairs.iterkeys())
+
     def __init__(self,ring):
         """ initialise, set our current operational ring """
         """ set our list of nodes """
@@ -126,15 +126,13 @@ class CassandraTools():
         """" return dict of the current environment for current ring """
         x = sorted(SYSCONFIG.conf[self.myring].items(), key=itemgetter(1))
         return dict(x)
+    
+    def _generatebubble(self):
+        """ basically generates a file to give to run() """
+        """ that contains a file for bash to source and then """
+        """ run cassandra inside """
 
-    def run(self,cmd,timeout=10):
-        """ run a local command avoiding ClusterSSH; capture output """
-        """ returns stdout,stderr,returncode """
-        """ FIXME: put in module """
-        import subprocess as sub
-
-        # first we set up the environment for the current cassie
-        # by getting current environment and remapping with getenv <- bubble
+        myfile = './cassandra.sh'
         env = os.environ
         cassenv = self.getbubble('cassandra')
         # replace current environment variables with our bubble
@@ -144,6 +142,23 @@ class CassandraTools():
                 env[k] = env.get(k,cassenv[k])
         except KeyError:
             env[k] = cassenv[k]
+        
+        # generate our executable script, complete with environment
+
+        return myfile,cassenv
+
+
+    def run(self,cmd,timeout=10):
+        """ run a local command avoiding ClusterSSH; capture output """
+        """ returns stdout,stderr,returncode """
+        """ FIXME: put in module """
+        import subprocess as sub
+
+        # first we set up the environment for the current cassie
+        # by getting current environment and remapping with getenv <- bubble
+        cmd,cassenv = self._generatebubble()
+        print 'run, bubble is ',cmd
+
         sys.prefix = cassenv['PYTHONHOME']
         sys.execprefix = cassenv['PYTHONHOME']
         sys.path.append(cassenv['PYTHONHOME'])

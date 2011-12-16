@@ -14,7 +14,7 @@
 # under the License.
 
 
-# Mon Dec  5 10:08:27 GMT 2011
+#Fri Dec 16 09:39:05 GMT 2011
 """
 helper class.
 
@@ -151,7 +151,7 @@ class MyDataAnalysis():
             yield d
 
     def generatoropen(filenames):
-        """ opens compressed mysql/cass log files """
+        """ opens compressed mysql/cassandra etc log files """
         for name in filenames:
             if name.endswith("*.gz"):
                 yield gzip.open(name)
