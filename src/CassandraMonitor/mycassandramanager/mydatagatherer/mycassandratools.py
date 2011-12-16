@@ -109,17 +109,35 @@ class CassandraTools():
     # FIXME: bring in dictionary tools module
     mynodes = None
     myring = None
-    #FIXME: get from myconfig -> 1,2,3,4
-    pairs = \
-    dict(zip(('bootcassie','stopcassie','migratecassie','mutatecassie'),
-        (None,None,None,None)))
-    mybubblecmds = zip(pairs.itervalues(),pairs.iterkeys())
+    mybubbleinitcmds = None
+    mybubblecmds = None
+    
 
     def __init__(self,ring):
         """ initialise, set our current operational ring """
         """ set our list of nodes """
+        """ set our Cassandra commands """
         self.myring = ring
         self.mynodes = self.getnodes(self.myring) 
+
+        #FIXME: get from myconfig -> 1,2,3,4
+        pairs = \
+        dict(zip(('bootcassie','stopcassie','migratecassie','mutatecassie'\
+        ),
+        (None,None,None,None)))
+        self.mybubbleinitcmds = zip(pairs.iterkeys(),pairs.itervalues())
+
+        infocmds = \
+        ['ring','join','info','cfstats','clearsnapshot',\
+        'version','tpstats','drain','decommission','loadbalance',\
+        'compactionstats','disablegossip','enablegossip',\
+        'disablethrift','enablethrift','snapshot','netstats',\
+        'move','removetoken','flush','repair','cleanup',\
+        'compact','scrub','invalidatekeycache',\
+        'invalidaterowcache','getcompactionthreshold',\
+        'cfhistograms','setcachecapacity','setcompactionthreshold']
+
+        self.mybubblecmds = dict.fromkeys(infocmds,None)
         pass
 
     def getbubble(self,system):
@@ -127,24 +145,35 @@ class CassandraTools():
         x = sorted(SYSCONFIG.conf[self.myring].items(), key=itemgetter(1))
         return dict(x)
     
-    def _generatebubble(self):
-        """ basically generates a file to give to run() """
-        """ that contains a file for bash to source and then """
+    def _generatebubble(self,cmd,isNormal=True):
+        """ basically generates a file containing cmd to give to run() """
+        """ that contains a file for shell to source and then """
         """ run cassandra inside """
+        """ if isNormal: 'run normal command' else 'init command'"""
 
         myfile = './cassandra.sh'
         env = os.environ
         cassenv = self.getbubble('cassandra')
         # replace current environment variables with our bubble
-        mykeys = ('PYTHONHOME','PYTHONPATH','JAVA_HOME')
+        mykeys = ('PYTHONHOME',
+                'PYTHONPATH',
+                'CASSANDRAHOME',
+                'JAVA_HOME')
         try:
             for k in mykeys:
                 env[k] = env.get(k,cassenv[k])
         except KeyError:
             env[k] = cassenv[k]
-        
         # generate our executable script, complete with environment
+        with open('/cassandrarun.sh','w') as f:
+            mycmd = self.mybubblecmds[cmd].value()
+            print '_gb mycmd is ',mycmd
 
+            
+        print 'wrote file %s' % myfile
+
+
+        # return the filename and the environment for run()
         return myfile,cassenv
 
 
@@ -153,12 +182,13 @@ class CassandraTools():
         """ returns stdout,stderr,returncode """
         """ FIXME: put in module """
         import subprocess as sub
-
         # first we set up the environment for the current cassie
         # by getting current environment and remapping with getenv <- bubble
-        cmd,cassenv = self._generatebubble()
-        print 'run, bubble is ',cmd
-
+        isinitcmd = True
+        isinitcmd = self.mybubblecmds.has_key(cmd) 
+        myfile,cassenv = self._generatebubble(cmd,isinitcmd)
+        print 'run() bubble,file  is ',myfile,cassenv
+        
         sys.prefix = cassenv['PYTHONHOME']
         sys.execprefix = cassenv['PYTHONHOME']
         sys.path.append(cassenv['PYTHONHOME'])
@@ -167,10 +197,7 @@ class CassandraTools():
         os.chdir(cassenv['PYTHONHOME'])
         # then we boot the run command, running in the environment and return
         # STD{out,err} <-- FIXME: stderr catch
-        print '------------------------------'
-        print 'temporarily setting cmd 2'
-        cmd2='ls -la'
-        print 'RUN():  booting command ',cmd2
+        print 'RUN():  booting command ',cmd
         sub.Popen(cmd2,stdout=sub.PIPE,shell=True).stdout.read()
         print '------------------------------'
         pass
@@ -236,6 +263,7 @@ class CassandraTools():
         self.taskrunring("/bin/uname -r")
 
     # FIXME: DAEMONIZE see http://pypi.python.org/pypi/python-daemon/
+    # daemon commands, such as start cluster, migrate, mutate
     # -------------------------------------------------------------------------
     def cassandrainit(self,mycluster=mynodes):
         print "** BOOTING CASSANDRA CLUSTER **"
@@ -250,31 +278,27 @@ class CassandraTools():
 
     # -------------------------------------------------------------------------
 
+    # -------------------------------------------------------------------------
+    # normal commands, such as ring info
+    # -------------------------------------------------------------------------
     def cassandrainfo(self,mycluster=mynodes):
         print "Cassandra INFO information..."
         os.chdir(CASSANDRAHOME)
-
         cmd = "cfstats | egrep -i latency"
-        cassandranodetool(mycluster,cmd)
         os.chdir(CASSANDRAHOME)
-        task.run(CASSANDRABIN + "/bin/nodetool -hlocalhost -p" + str(PORT) + " ring",nodes=RING1devbootstrapnodes)
+        pass
 
     def cassandrastresstest(self,cluster=mynodes):
         print "Stress testing CLUSTER %s",cluster
         os.chdir(CASSANDRACORE)
-        taskrunring(CASSANDRACORE + "/cluster-node-stress-test.sh",cluster)
-
-
+        pass
 
     def cassandraloadschema(self,cluster="mynodes",filename="schema.txt"):
-        
         print "Instigating schema on cluster "+cluster
         os.chdir(CASSANDRAHOME)
-        taskrunring(CASSANDRABIN + "/cassandra-cli -hlocalhost -p" +str(PORT) + "-f \
-                "+filename, nodes=RING1devbootstrapnodes)
+        pass
 
     def cassandralistening(self,mycluster=mynodes):
-
         print "**LISTENING** ON CLUSTER ..." ,mycluster
         os.chdir(CASSANDRAHOME)
         taskrunring("netstat -an |egrep -i '(9160|7199|9159|7198)' | awk \
