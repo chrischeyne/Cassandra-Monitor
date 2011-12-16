@@ -252,6 +252,3 @@ if __name__ == '__main__':
     mysqlhandler = Mysql()
     mysqlhandler.boot(1)
 
-
-
- 

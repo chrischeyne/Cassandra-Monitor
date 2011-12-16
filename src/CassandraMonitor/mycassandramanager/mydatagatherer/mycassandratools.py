@@ -13,8 +13,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-
-#Fri Dec 16 09:31:53 GMT 2011
+# Fri Dec 16 15:01:34 GMT 2011
 # =====
 # UNDER UNIT TESTING - LOCAL COPIES OF MYCONFIG{py,yaml} MYLOGGER
 # RETURN MODIFIED COPIES TO myconfig/
@@ -143,13 +142,11 @@ class CassandraTools():
         self.mybubblecmds = dict.fromkeys(infocmds,None)
         pass
 
-    
-    
     def _getbubble(self,system):
         """" return dict of the current environment for current ring """
         x = sorted(SYSCONFIG.conf[self.myring].items(), key=itemgetter(1))
         return dict(x)
-    
+
     def _generateenv(self,cmd,isNormal=True):
         """ basically generates a file containing cmd to give to run() """
         """ that contains a file for shell to source and then """
@@ -198,7 +195,6 @@ class CassandraTools():
             f.write('# COMMAND LAUNCHER\n')
             f.write(cmd)
             f.write('\n')
-
 
         print 'write file %s' %myfile
 
@@ -298,7 +294,6 @@ class CassandraTools():
         print "** BOOTING CASSANDRA CLUSTER **"
         os.chdir(CASSANDRAHOME)
         taskrunring(CASSANDRAINITSCRIPT + " start", mycluster)
-
 
     def cassandrastop(self,mycluster=mynodes):
         print "** Shutting down cassandra ... **"
