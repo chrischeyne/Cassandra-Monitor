@@ -22,7 +22,11 @@
 
 """
 cassandratools - cassandra management tools. Wrapper around nodetool using 
-ClusterSSH and bubble configlets
+ClusterSSH and bubble configlets.  Each bubble insolates the working
+environment and passes that to ClusterSSH.  In other words: -
+
+stdout,stderr = EXECUTE(command <-- get(bubbleenv,bubblecmd))
+
 
 """
 author = "Chris T. Cheyne"
@@ -36,12 +40,11 @@ status = "Alpha"
 
 # FIXME: contained in datagatherer.py
 from operator import itemgetter, attrgetter
-
-
 import os
 import sys
 import string
 import datetime
+
 # FIXME: remove after unit testing
 APPEND=os.path.dirname(__file__)
 sys.path.append(APPEND)
@@ -140,12 +143,14 @@ class CassandraTools():
         self.mybubblecmds = dict.fromkeys(infocmds,None)
         pass
 
-    def getbubble(self,system):
+    
+    
+    def _getbubble(self,system):
         """" return dict of the current environment for current ring """
         x = sorted(SYSCONFIG.conf[self.myring].items(), key=itemgetter(1))
         return dict(x)
     
-    def _generatebubble(self,cmd,isNormal=True):
+    def _generateenv(self,cmd,isNormal=True):
         """ basically generates a file containing cmd to give to run() """
         """ that contains a file for shell to source and then """
         """ run cassandra inside """
@@ -153,7 +158,7 @@ class CassandraTools():
 
         myfile = './cassandra.sh'
         env = os.environ
-        cassenv = self.getbubble('cassandra')
+        cassenv = self._getbubble('cassandra')
         # replace current environment variables with our bubble
         mykeys = ('PYTHONHOME',
                 'PYTHONPATH',
@@ -165,16 +170,38 @@ class CassandraTools():
         except KeyError:
             env[k] = cassenv[k]
         # generate our executable script, complete with environment
-        with open('/cassandrarun.sh','w') as f:
-            mycmd = self.mybubblecmds[cmd].value()
-            print '_gb mycmd is ',mycmd
+        # FIXME: this is not portable!
+        # FIXME: bring in generator tools! 
+        root = SYSCONFIG.conf[self.myring]['CASSANDRAHOME']
+        with open(root+'/cassandrarun.sh','w') as f:
+            f.write("#!/usr/bin/env bash")
+            f.write('\n')
+            for key in cassenv.keys():
+                mystr = 'export '+str(key)+'='+str(cassenv[key])
+                f.write(mystr)
+                f.write('\n')
 
-            
+            f.write('\n')
+
         print 'wrote file %s' % myfile
-
 
         # return the filename and the environment for run()
         return myfile,cassenv
+    
+    def _generatecmd(self,cmd,myfile,isNormal=True):
+        """ appends the cmd bubble to the env bubble """
+        """ sets final bubble +x """
+        """ this is run by ClusterShell """
+        print '_cmd file is',myfile,isNormal
+        root = SYSCONFIG.conf[self.myring]['CASSANDRAHOME']
+        with open(root+'/cassandrarun.sh','a') as f:
+            f.write('# COMMAND LAUNCHER\n')
+            f.write(cmd)
+            f.write('\n')
+
+
+        print 'write file %s' %myfile
+
 
 
     def run(self,cmd,timeout=10):
@@ -183,12 +210,14 @@ class CassandraTools():
         """ FIXME: put in module """
         import subprocess as sub
         # first we set up the environment for the current cassie
-        # by getting current environment and remapping with getenv <- bubble
+        # by getting current environment and remapping with
+        # _generate{env,cmd=(init||normal)}
         isinitcmd = True
         isinitcmd = self.mybubblecmds.has_key(cmd) 
-        myfile,cassenv = self._generatebubble(cmd,isinitcmd)
-        print 'run() bubble,file  is ',myfile,cassenv
-        
+
+        myfile,cassenv = self._generateenv(cmd,isinitcmd)
+        self._generatecmd(cmd,myfile,isinitcmd)
+
         sys.prefix = cassenv['PYTHONHOME']
         sys.execprefix = cassenv['PYTHONHOME']
         sys.path.append(cassenv['PYTHONHOME'])
@@ -198,7 +227,7 @@ class CassandraTools():
         # then we boot the run command, running in the environment and return
         # STD{out,err} <-- FIXME: stderr catch
         print 'RUN():  booting command ',cmd
-        sub.Popen(cmd2,stdout=sub.PIPE,shell=True).stdout.read()
+        sub.Popen(cmd,stdout=sub.PIPE,shell=True).stdout.read()
         print '------------------------------'
         pass
 
