@@ -2,9 +2,9 @@
 
 CASSANDRA MANAGEMENT AND ANALYTICS PROJECT
 
-VERSION 0.0.16a
-Thu Dec  8 09:49:40 GMT 2011
+VERSION 0.0.17a
 
+Thu Mar  1 14:54:29 GMT 2012
 
 This project initially aims to provide a management interface to Cassandra and also delve
 deep inside the JMX infrastructure to provide real-time health monitoring of
